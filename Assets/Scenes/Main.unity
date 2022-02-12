@@ -1534,7 +1534,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.053090334, y: -4.860631}
+  m_Offset: {x: 0.11594796, y: -1.8120213}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1545,7 +1545,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.952744, y: 1.0787392}
+  m_Size: {x: 5.71263, y: 0.7644496}
   m_EdgeRadius: 0
 --- !u!61 &667858376
 BoxCollider2D:
@@ -1560,7 +1560,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026545525, y: 4.671868}
+  m_Offset: {x: 0.10511899, y: 1.7332606}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1571,7 +1571,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.899654, y: 1.4562633}
+  m_Size: {x: 5.690968, y: 0.6076813}
   m_EdgeRadius: 0
 --- !u!61 &667858377
 BoxCollider2D:
@@ -1586,7 +1586,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.521067, y: 0}
+  m_Offset: {x: 3.3428154, y: -0.078035116}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1597,7 +1597,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.157867, y: 10.8}
+  m_Size: {x: 0.7599392, y: 4.2453265}
   m_EdgeRadius: 0
 --- !u!61 &667858378
 BoxCollider2D:
@@ -1612,7 +1612,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -8.467976, y: 0}
+  m_Offset: {x: -3.1900406, y: -0.0775584}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1623,7 +1623,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2640486, y: 10.8}
+  m_Size: {x: 0.84285355, y: 4.226308}
   m_EdgeRadius: 0
 --- !u!114 &667858379
 MonoBehaviour:
@@ -2201,7 +2201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1070759005
 MonoBehaviour:
   m_ObjectHideFlags: 0
