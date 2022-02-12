@@ -6,7 +6,9 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     [SerializeField] Dialogue dialogue;
-
+    [SerializeField] GameObject transform;
+    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] Animator animator;
     public void TriggerDialogue()
     {
         DialogueManager.Instance.StartDialogue(dialogue);
@@ -17,6 +19,11 @@ public class DialogueTrigger : MonoBehaviour
         {
             Debug.Log("Enter");
             TriggerDialogue();
+            if (transform != null)
+            {
+                Instantiate(particleSystem, transform.transform.position, Quaternion.identity);
+                animator.SetTrigger("Heal");
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
