@@ -6,25 +6,48 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
+    #region Fields
+    [SerializeField] Player player;
+    [SerializeField] AudioClip moveClip;
     Rigidbody2D body;
     Animator animator;
-
-    Vector2 movementDirection;
-
-    [SerializeField] Player player;
-    [SerializeField] GameObject Boost;
+    GameObject Boost;
     float horizontal;
     float vertical;
-    bool doubleJump = false;
+    Vector2 movementDirection;
     float doubleTapTime;
     KeyCode lastkeyCode;
-    void Start()
+    #endregion
+    #region Mono Func
+    private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    void Update()
+    private void Update()
+    {
+        MovmentInput();
+        AttackInput();
+        DashInput();
+    }
+    private void FixedUpdate()
+    {
+        Move();
+    }
+    #endregion
+    #region Custome Func
+    private void AttackInput()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Attack();
+        }
+    }
+    private void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
+    private void MovmentInput()
     {
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
@@ -33,10 +56,31 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movementDirection.x);
         animator.SetFloat("Vertical", movementDirection.y);
         animator.SetFloat("Speed", movementDirection.sqrMagnitude);
-        if (Input.GetButtonDown("Fire1"))
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ||
+            Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) ||
+            Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow) ||
+            Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow)
+            )
         {
-            Attack();
+            AudioManager.Instance.PlaySoundFxSource(moveClip);
         }
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) ||
+           Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) ||
+           Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.RightArrow) ||
+           Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow)
+           )
+        {
+            AudioManager.Instance.StopSoundFxSource();
+        }
+        // else AudioManager.Instance.StopSoundFxSource();
+    }
+    private void Move()
+    {
+        body.velocity = movementDirection * player.speed * Time.fixedDeltaTime;
+    }
+    void DashInput()
+    {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
@@ -95,23 +139,11 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-
-    void FixedUpdate()
-    {
-        Move();
-    }
-    void Attack()
-    {
-        animator.SetTrigger("Attack");
-    }
-    private void Move()
-    {
-        body.velocity = movementDirection * player.speed * Time.fixedDeltaTime;
-    }
     IEnumerator Dash(float dirx, float diry)
     {
         player.isDash = true;
         body.velocity = new Vector2(body.velocity.x, body.velocity.y);
+        //TODO Add Dash Effect & CameraShake
         //Boost = Instantiate(player.dashParticle, transform.position, Quaternion.identity) as GameObject;
         //Boost.transform.parent = gameObject.transform;
         // body.AddForce);
@@ -120,5 +152,5 @@ public class PlayerMovement : MonoBehaviour
         body.MovePosition(body.position + new Vector2(player.dashDistance * dirx, player.dashDistance * diry));
         player.isDash = false;
     }
-
+    #endregion
 }
