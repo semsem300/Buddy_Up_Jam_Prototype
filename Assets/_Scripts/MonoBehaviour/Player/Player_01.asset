@@ -20,5 +20,9 @@ MonoBehaviour:
   maxSpeed: 10
   jumpForce: 500
   maxJumpForce: 1000
+  dashDistance: 2
+  dashtime: 0.4
+  dashCoolTime: 0.9
   playerObj: {fileID: 5885155676235697492, guid: b076744b11b1c0d4782dd291bb153da7, type: 3}
   isAlive: 1
+  isDash: 0

@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
             {
                 // Dash
-                StartCoroutine(Dash(0f, -1f));
+                StartCoroutine(Dash(0f, 1f));
                 animator.SetTrigger("DodgeUp");
             }
             else
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             if (doubleTapTime > Time.time && lastkeyCode == KeyCode.D)
             {
                 // Dash
-                StartCoroutine(Dash(0f, 1f));
+                StartCoroutine(Dash(0f, -1f));
                 animator.SetTrigger("DodgeDown");
             }
             else
@@ -114,11 +114,11 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(body.velocity.x, body.velocity.y);
         //Boost = Instantiate(player.dashParticle, transform.position, Quaternion.identity) as GameObject;
         //Boost.transform.parent = gameObject.transform;
-        body.AddForce(new Vector2(player.dashDistance * dirx, player.dashDistance * diry), ForceMode2D.Impulse);
-       // CameraShake.Instance.ShakeIt(5f, .2f);
+        // body.AddForce);
+        // CameraShake.Instance.ShakeIt(5f, .2f);
         yield return new WaitForSeconds(player.dashtime);
+        body.MovePosition(body.position + new Vector2(player.dashDistance * dirx, player.dashDistance * diry));
         player.isDash = false;
-        animator.SetTrigger("Dodge");
     }
 
 }
