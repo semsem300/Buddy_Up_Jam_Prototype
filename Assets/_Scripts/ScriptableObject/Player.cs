@@ -16,8 +16,14 @@ public class Player : ScriptableObject
     public float jumpForce = 500f;
     public float maxJumpForce = 1000f;
 
+    public float dashDistance = 15f;
+    public float dashtime = 0.4f;
+    public float dashCoolTime = 0.9f;
+
     public GameObject playerObj;
+   // public GameObject dashParticle;
     public bool isAlive = true;
+    public bool isDash = false;
 
     public void AddDamage(float amount)
     {
@@ -38,8 +44,8 @@ public class Player : ScriptableObject
                 currentHealth = maxHealth;
         }
     }
-   
-  
+
+
     public void MakeDead()
     {
         isAlive = false;
