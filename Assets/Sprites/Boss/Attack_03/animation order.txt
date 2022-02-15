@@ -1,0 +1,4 @@
+1. Charge Left or Right
+2. Breathe looping before she fires the rays
+3. Fire looping while rays are firing, Breathe if necessary in the breaks between the attacks
+4. Stop Left or Right when the attack pattern is over and Despair is ready to do other things
