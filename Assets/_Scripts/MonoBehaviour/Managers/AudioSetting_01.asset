@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FXAudioVolume: 10
   MainAudioVolume: 1
-  muteMainAudio: 0
-  muteFXAudio: 0
-  MainSource: {fileID: 4248420830058657884, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
-  FXSource: {fileID: 452375101332804014, guid: 45440c5c6ec0a544dbbd7a40e76a3e15, type: 3}
+  _mute: 0

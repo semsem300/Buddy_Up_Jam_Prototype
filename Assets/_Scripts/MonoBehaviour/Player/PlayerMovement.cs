@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.Instance.StopSoundFxSource();
         }
-        // else AudioManager.Instance.StopSoundFxSource();
     }
     private void Move()
     {

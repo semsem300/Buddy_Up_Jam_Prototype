@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 59127637490600786}
   - component: {fileID: 59127637490600797}
   - component: {fileID: 59127637490600796}
-  m_Layer: 0
+  - component: {fileID: 1891475355}
+  m_Layer: 7
   m_Name: _Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,4 +139,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
-  moveClip: {fileID: 8300000, guid: 93808206c8d5a76449d88ac942a6e707, type: 3}
+  moveClip: {fileID: 8300000, guid: f9391df9616b26f4099030a494c941fb, type: 3}
+--- !u!114 &1891475355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59127637490600799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3ce89c25b8d214b9a10c05b6aaf484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  numOfHeatrs: 10
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullheart: {fileID: 5053492689781857670, guid: 3cd84db8a36624c488116bb76d674106, type: 3}
+  emptyheart: {fileID: -6895713377228584054, guid: 3cd84db8a36624c488116bb76d674106, type: 3}
