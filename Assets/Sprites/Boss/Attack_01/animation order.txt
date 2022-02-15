@@ -1,0 +1,4 @@
+1. sprout tentacles(left or right)
+2. charge (same direction as 1)
+3. attack (applies for both directions)
+4. attack wrap up (transition to any other movement the boss wants to make next)
