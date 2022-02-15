@@ -1,0 +1,4 @@
+1. Boss starts pumping animation and keeps it throughout everything that happens (either to the left or to the right)
+2. Soup_Start happens ONCE with the Boss in the center of the smallest puddle
+3. Soup_Brooding loops while Unity generates little balls of neon as slow projectiles, following and attacking the player
+4. When the attack is over, Soup_End happens once, Boss is not forced to stay in the center of this while it is going away, so Boss can move already while the puddle is shrinking
