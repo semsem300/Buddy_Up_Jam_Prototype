@@ -21,9 +21,11 @@ public class Player : ScriptableObject
     public float dashCoolTime = 0.9f;
 
     public GameObject playerObj;
-   // public GameObject dashParticle;
+    // public GameObject dashParticle;
     public bool isAlive = true;
     public bool isDash = false;
+
+    public int FinalScore { get; set; }
 
     public void AddDamage(float amount)
     {

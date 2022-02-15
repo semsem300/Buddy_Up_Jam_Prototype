@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - Walls
   layers:
   - Default
   - TransparentFX
