@@ -24,8 +24,10 @@ public class EnemyAI : MonoBehaviour
             {
                 Debug.Log("GetDamage");
                 collider2D.GetComponent<Health>().AddDamage(Pattern1AttackDamage);
+                
             }
         }
     }
+    
 
 }

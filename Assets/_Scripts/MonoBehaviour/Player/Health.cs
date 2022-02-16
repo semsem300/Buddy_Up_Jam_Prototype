@@ -9,9 +9,20 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Sprite fullheart;
     public Sprite emptyheart;
+    [SerializeField] float deathtime = 1f;
     [SerializeField] Player player;
+    Animator animator;
+    [SerializeField] Canvas GameOverCanvas;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Update()
     {
+        if (!player.isAlive)
+        {
+            StartCoroutine(Death(deathtime));
+        }
         if (player.currentHealth > numOfHeatrs)
         {
             player.currentHealth = numOfHeatrs;
@@ -43,5 +54,15 @@ public class Health : MonoBehaviour
     public void AddDamage(int amount)
     {
         player.AddDamage(amount);
+        animator.SetTrigger("Hurt");
+    }
+    IEnumerator Death(float time)
+    {
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(time);
+        // TODO GameOver Screen
+
+        GameOverCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

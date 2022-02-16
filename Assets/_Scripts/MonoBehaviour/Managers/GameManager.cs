@@ -7,11 +7,16 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Player player;
     protected override void Update()
     {
-        if (!player.isAlive)
-        {
-            player.ResetPlayerHealth();
-            SceneManager.LoadScene(0);
-        }
+        //if (!player.isAlive)
+        //{
+        //    player.ResetPlayerHealth();
+        //    SceneManager.LoadScene(0);
+        //}
         base.Update();
+    }
+    public void Restart()
+    {
+        player.ResetPlayerHealth();
+        SceneManager.LoadScene(0);
     }
 }
