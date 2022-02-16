@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int health;
     public int numOfHeatrs;
     public Image[] hearts;
     public Sprite fullheart;
     public Sprite emptyheart;
+    [SerializeField] Player player;
     private void Update()
     {
-        if (health > numOfHeatrs)
+        if (player.currentHealth > numOfHeatrs)
         {
-            health = numOfHeatrs;
+            player.currentHealth = numOfHeatrs;
         }
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < health)
+            if (i < player.currentHealth)
             {
                 hearts[i].sprite = fullheart;
                 hearts[i].color = Color.red;
@@ -39,5 +39,9 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+    }
+    public void AddDamage(int amount)
+    {
+        player.AddDamage(amount);
     }
 }

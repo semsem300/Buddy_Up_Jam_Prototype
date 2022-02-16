@@ -13,8 +13,6 @@ public class Player : ScriptableObject
     public float speed = 5f;
     public float maxSpeed = 10f;
 
-    public float jumpForce = 500f;
-    public float maxJumpForce = 1000f;
 
     public float dashDistance = 15f;
     public float dashtime = 0.4f;
@@ -52,7 +50,10 @@ public class Player : ScriptableObject
     {
         isAlive = false;
     }
-    public void ResetPlayer()
+    public void ResetPlayerHealth()
     {
+        currentHealth = 10;
+        maxHealth = 10;
+        isAlive = true;
     }
 }
