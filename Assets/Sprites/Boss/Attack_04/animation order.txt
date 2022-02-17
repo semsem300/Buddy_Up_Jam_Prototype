@@ -1,0 +1,17 @@
+1.Charge_Left or Charge_Right - play once, indicates changing state
+
+2.Angle_Left or Angle Right, looping until Despair got Liam or he manages to escape her grip. 
+At this stage Unity creates a red ball in the open mouth of Despair. From the red ball, a red ray is going out and trying to rope Liam in.
+
+3.If Liam is dragged next to Despair, Angle stops, the ball and ray disappear.
+
+4.Play Eat_Left or Eat_Right once to indicate the changing state.
+At the end, the liam sprite is invisible. 
+
+5.Loop Mangle_Right or Mangle_Left while Liam is receiving damage and healing Despair at the same time.
+
+6.When Despair is done with him, Liam's sprite becomes visible again.
+Play Spit_Left or Spit_Right once, while sending Liam up in the air and throw him in a random direction.
+
+7. Play Finish_Left or Finish_Right once to make Despair change state to her normal movements/transition to other animations.
+
