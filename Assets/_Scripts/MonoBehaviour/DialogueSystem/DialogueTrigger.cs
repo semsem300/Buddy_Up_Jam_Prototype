@@ -6,8 +6,8 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     [SerializeField] Dialogue dialogue;
-    [SerializeField] GameObject transform;
-    [SerializeField] ParticleSystem particleSystem;
+    //[SerializeField] GameObject transform;
+    [SerializeField] new ParticleSystem particleSystem;
     [SerializeField] Animator animator;
     public void TriggerDialogue()
     {

@@ -5,28 +5,30 @@ using UnityEngine;
 
 public class AudioSetting : ScriptableObject
 {
+    [Range(0, 1)]
     public float FXAudioVolume;
+    [Range(0, 1)]
     public float MainAudioVolume;
     public bool _mute;
-  
-    public void PlaySound(AudioClip clip,AudioSource Source)
+
+    public void PlaySound(AudioClip clip, AudioSource Source)
     {
         Debug.Log("start fx clip");
         Source.clip = clip;
         Source.Play();
     }
-   
+
     public void UpAndDownAudio(float amount, AudioSource Source)
     {
         Source.volume = amount;
         MainAudioVolume = amount;
     }
-   
+
     public void MuteDisMute(bool mute, AudioSource Source)
     {
         Source.mute = mute;
         _mute = mute;
     }
-   
-   
+
+
 }

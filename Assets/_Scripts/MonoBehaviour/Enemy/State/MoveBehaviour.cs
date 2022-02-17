@@ -7,29 +7,34 @@ public class MoveBehaviour : StateMachineBehaviour
     Rigidbody2D rb;
     private Transform target;
     [SerializeField] Transform[] patrolPoints;
-    [SerializeField] float speed;
-    [SerializeField] float maxRange;
-    [SerializeField] float minRange;
-    [SerializeField] Vector3 stopDistence = new Vector3(1, 1, 0);
-    [SerializeField] float moveWaitTime = 1f;
-    [SerializeField] float startMoveWaitTime = 1f;
+    [SerializeField] Enemy enemy;
     int randomPoint;
-    bool isAttacking;
+    private bool isAttacking = false;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
         target = FindObjectOfType<PlayerMovement>().transform;
         randomPoint = 1;
+        isAttacking = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(target.position, rb.position) <= maxRange && Vector3.Distance(target.position, rb.position) >= minRange)
-            FollowPlayer(animator);
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            if (Vector3.Distance(target.position, rb.position) <= enemy.maxDetectRange && Vector3.Distance(target.position, rb.position) >= enemy.minDetectRange)
+                FollowPlayer(animator);
+            else
+                Patrol(animator);
+        }
         else
-            Patrol(animator);
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetBool("IsMoving", false);
+        }
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -49,19 +54,19 @@ public class MoveBehaviour : StateMachineBehaviour
             animator.SetFloat("Horizontal", distx);
             animator.SetFloat("Vertical", disty);
             rb.position = Vector3.MoveTowards(rb.position
-                , patrolPoints[randomPoint].position, speed * Time.fixedDeltaTime);
+                , patrolPoints[randomPoint].position, enemy.speed * Time.fixedDeltaTime);
         }
         else
         {
-            if (moveWaitTime <= 0)
+            if (enemy.moveWaitTime <= 0)
             {
                 animator.SetBool("IsMoving", false);
                 randomPoint = Random.Range(0, patrolPoints.Length);
-                moveWaitTime = startMoveWaitTime;
+                enemy.moveWaitTime = enemy.startMoveWaitTime;
             }
             else
             {
-                moveWaitTime -= Time.fixedDeltaTime;
+                enemy.moveWaitTime -= Time.fixedDeltaTime;
             }
 
         }
@@ -72,7 +77,7 @@ public class MoveBehaviour : StateMachineBehaviour
         animator.SetFloat("Horizontal", (target.position.x - rb.position.x));
         animator.SetFloat("Vertical", (target.position.y - rb.position.y));
         rb.position =
-            Vector3.MoveTowards(rb.position, target.position - stopDistence, speed * Time.fixedDeltaTime);
+            Vector3.MoveTowards(rb.position, target.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
         if (Mathf.Abs(Vector2.Distance(target.position, rb.position)) < 1f)
         {
             Attack(animator);
@@ -81,7 +86,7 @@ public class MoveBehaviour : StateMachineBehaviour
         {
             isAttacking = false;
             animator.SetBool("IsMoving", true);
-            rb.position = Vector2.MoveTowards(rb.position, target.position - stopDistence, speed * Time.fixedDeltaTime);
+            rb.position = Vector2.MoveTowards(rb.position, target.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
         }
     }
     void Attack(Animator animator)

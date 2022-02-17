@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0cc2669bd2d154abd928fb07433ce8, type: 3}
   m_Name: AudioSetting_01
   m_EditorClassIdentifier: 
-  FXAudioVolume: 10
-  MainAudioVolume: 1
-  _mute: 0
+  FXAudioVolume: 0
+  MainAudioVolume: 0
+  _mute: 1

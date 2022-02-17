@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public int numOfHeatrs;
     public Image[] hearts;
     public Sprite fullheart;
     public Sprite emptyheart;
-    [SerializeField] float deathtime = 1f;
     [SerializeField] Player player;
     Animator animator;
-    [SerializeField] Canvas GameOverCanvas;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -21,13 +19,17 @@ public class Health : MonoBehaviour
     {
         if (!player.isAlive)
         {
-            StartCoroutine(Death(deathtime));
+            StartCoroutine(Death(player.deathtime));
         }
+        else FillHearts();
+
+    }
+    private void FillHearts()
+    {
         if (player.currentHealth > numOfHeatrs)
         {
             player.currentHealth = numOfHeatrs;
         }
-
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < player.currentHealth)
@@ -51,18 +53,15 @@ public class Health : MonoBehaviour
             }
         }
     }
-    public void AddDamage(int amount)
+    public void TakeDamage(int amount)
     {
-        player.AddDamage(amount);
+        player.TakeDamage(amount);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)
     {
         animator.SetTrigger("Death");
         yield return new WaitForSeconds(time);
-        // TODO GameOver Screen
-
-        GameOverCanvas.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        GameManager.Instance.ChangeState(GameState.Lose);
     }
 }

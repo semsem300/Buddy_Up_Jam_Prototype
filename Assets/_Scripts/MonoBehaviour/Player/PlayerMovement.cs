@@ -26,13 +26,33 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        MovmentInput();
-        AttackInput();
-        DashInput();
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            MovmentInput();
+            AttackInput();
+            DashInput();
+        }
+        else
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetFloat("Speed", 0);
+        }
     }
     private void FixedUpdate()
     {
-        Move();
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            Move();
+        }
+        else
+        {
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("DodgeRight");
+            animator.ResetTrigger("DodgeUp");
+            animator.ResetTrigger("DodgeDown");
+            animator.ResetTrigger("DodgeLeft");
+            animator.SetFloat("Speed", 0);
+        }
     }
     #endregion
     #region Custome Func
