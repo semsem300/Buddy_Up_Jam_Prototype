@@ -1,0 +1,3 @@
+if Despair is hit and suffers damage, play one of the hurt animations. If you can make it that she registers from which side the hit is coming from, she can use the respective direction.
+Example: Despair is hurt from the left (play: Hurt_Left)
+otherwise resort to Hurt_Left and/or Hurt_Right
