@@ -29,6 +29,9 @@ public class Player : ScriptableObject
    // public GameObject dashParticle;
     public bool isAlive = true;
     public bool isDash = false;
+    public float attackRange;
+    public int damage;
+    public LayerMask attackMask;
     public int FinalScore { get; set; }
 
     public void TakeDamage(float amount)

@@ -9,14 +9,12 @@ public class MoveBehaviour : StateMachineBehaviour
     [SerializeField] Transform[] patrolPoints;
     [SerializeField] Enemy enemy;
     int randomPoint;
-    private bool isAttacking = false;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
         target = FindObjectOfType<PlayerMovement>().transform;
         randomPoint = 1;
-        isAttacking = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -40,7 +38,10 @@ public class MoveBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("Attack01");
+        animator.ResetTrigger("Attack02");
+        animator.ResetTrigger("Attack03");
+        animator.ResetTrigger("Attack04");
     }
     private void Patrol(Animator animator)
     {
@@ -84,16 +85,29 @@ public class MoveBehaviour : StateMachineBehaviour
         }
         else
         {
-            isAttacking = false;
             animator.SetBool("IsMoving", true);
             rb.position = Vector2.MoveTowards(rb.position, target.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
         }
     }
     void Attack(Animator animator)
     {
-        isAttacking = true;
         //animator.SetBool("IsMoving", false);
-        animator.SetTrigger("Attack");
+        switch (enemy.currentPattern)
+        {
+            case AttackPattern.Pattern1:
+                animator.SetTrigger("Attack01");
+                break;
+            case AttackPattern.Pattern2:
+                animator.SetTrigger("Attack02");
+                break;
+            case AttackPattern.Pattern3:
+                animator.SetTrigger("Attack03");
+                break;
+            case AttackPattern.Pattern4:
+                animator.SetTrigger("Attack04");
+                break;
+        }
+
         Debug.Log("Attack");
     }
 

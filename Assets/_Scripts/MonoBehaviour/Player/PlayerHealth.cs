@@ -17,12 +17,14 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (!player.isAlive)
+        if (GameManager.Instance.State == GameState.Playing)
         {
-            StartCoroutine(Death(player.deathtime));
+            if (!player.isAlive)
+            {
+                StartCoroutine(Death(player.deathtime));
+            }
+            else FillHearts();
         }
-        else FillHearts();
-
     }
     private void FillHearts()
     {
