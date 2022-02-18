@@ -7,6 +7,22 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Vector3 attackOffset;
     [SerializeField] Enemy Enemy;
+    Animator animator;
+    void Awake()
+    {
+        animator=GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+    }
     public void Pattern1Attack()
     {
         var attackPos = transform.position;
