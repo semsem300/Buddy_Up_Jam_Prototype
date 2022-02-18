@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4438633499656019489}
   - component: {fileID: 4438633499656019494}
   - component: {fileID: 4438633499656019495}
+  - component: {fileID: 1232965870218290630}
+  - component: {fileID: 2627176656416760735}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4438633499656019501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8800001, y: 2.63, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4438633499338244448}
@@ -151,10 +153,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033200502, y: 0.07304096}
+  m_Offset: {x: -0.033200502, y: 0.034237623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,8 +167,35 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4047713, y: 3.3488488}
+  m_Size: {x: 2.0167394, y: 2.5727854}
   m_EdgeRadius: 0
+--- !u!114 &1232965870218290630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438633499656019501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1665f2dce0e0784e8e91e9fb40a30e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
+--- !u!114 &2627176656416760735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438633499656019501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57b57e882276074fb1e89d1424b2417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
+  health: {fileID: 2252982995652891402, guid: 168125d003ea1644c84019a2648c22bb, type: 3}
 --- !u!1001 &4438633499338120160
 PrefabInstance:
   m_ObjectHideFlags: 0

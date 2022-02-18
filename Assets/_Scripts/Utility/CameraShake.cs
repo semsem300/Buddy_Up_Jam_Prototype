@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraShake : Singleton<CameraShake>
+public class CameraShake : StaticInstance<CameraShake>
 {
     private float shakeTime;
 
@@ -15,7 +15,7 @@ public class CameraShake : Singleton<CameraShake>
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
         shakeTime = time;
     }
-    protected override void Update()
+    private void Update()
     {
         if (shakeTime > 0)
         {

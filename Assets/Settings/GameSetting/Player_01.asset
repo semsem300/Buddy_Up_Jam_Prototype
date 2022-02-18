@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c8264ea94b6f247bcb3597a84cfb9c, type: 3}
   m_Name: Player_01
   m_EditorClassIdentifier: 
-  currentHealth: 8
+  currentHealth: 9
   maxHealth: 10
   currentMV: 100
   maxMV: 100
   speed: 100
   maxSpeed: 100
+  attackRange: 1
+  damage: 2
   dashDistance: 2
   dashtime: 0.4
   dashCoolTime: 0.9
   deathtime: 1
-  playerObj: {fileID: 5885155676235697492, guid: b076744b11b1c0d4782dd291bb153da7, type: 3}
+  attackCoolTime: 1
+  maxAttackCooltime: 1
+  playerObj: {fileID: 59127637490600799, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
+  position: {x: -10, y: 3, z: 0}
   isAlive: 1
   isDash: 0
-  attackRange: 1
-  damage: 2
   attackMask:
     serializedVersion: 2
     m_Bits: 256

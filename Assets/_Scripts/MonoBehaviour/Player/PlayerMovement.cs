@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
+
 public class PlayerMovement : MonoBehaviour
 {
     #region Fields
@@ -29,12 +28,10 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.Instance.State == GameState.Playing)
         {
             MovmentInput();
-            AttackInput();
             DashInput();
         }
         else
         {
-            animator.ResetTrigger("Attack");
             animator.SetFloat("Speed", 0);
         }
     }
@@ -44,29 +41,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-        else
-        {
-            animator.ResetTrigger("Attack");
-            animator.ResetTrigger("DodgeRight");
-            animator.ResetTrigger("DodgeUp");
-            animator.ResetTrigger("DodgeDown");
-            animator.ResetTrigger("DodgeLeft");
-            animator.SetFloat("Speed", 0);
-        }
+       
     }
     #endregion
     #region Custome Func
-    private void AttackInput()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Attack();
-        }
-    }
-    private void Attack()
-    {
-        animator.SetTrigger("Attack");
-    }
+    
     private void MovmentInput()
     {
         // Gives a value between -1 and 1

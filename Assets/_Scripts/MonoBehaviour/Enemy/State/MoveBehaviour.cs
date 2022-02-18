@@ -29,7 +29,10 @@ public class MoveBehaviour : StateMachineBehaviour
         }
         else
         {
-            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Attack01");
+            animator.ResetTrigger("Attack02");
+            animator.ResetTrigger("Attack03");
+            animator.ResetTrigger("Attack04");
             animator.SetBool("IsMoving", false);
         }
 
@@ -96,15 +99,31 @@ public class MoveBehaviour : StateMachineBehaviour
         {
             case AttackPattern.Pattern1:
                 animator.SetTrigger("Attack01");
+                animator.ResetTrigger("Attack02");
+                animator.ResetTrigger("Attack03");
+                animator.ResetTrigger("Attack04");
+                enemy.ChangeAttackPattern();
                 break;
             case AttackPattern.Pattern2:
+                animator.ResetTrigger("Attack01");
                 animator.SetTrigger("Attack02");
+                animator.ResetTrigger("Attack03");
+                animator.ResetTrigger("Attack04");
+                enemy.ChangeAttackPattern();
                 break;
             case AttackPattern.Pattern3:
+                animator.ResetTrigger("Attack01");
+                animator.ResetTrigger("Attack02");
                 animator.SetTrigger("Attack03");
+                animator.ResetTrigger("Attack04");
+                enemy.ChangeAttackPattern();
                 break;
             case AttackPattern.Pattern4:
+                animator.ResetTrigger("Attack01");
+                animator.ResetTrigger("Attack02");
+                animator.ResetTrigger("Attack03");
                 animator.SetTrigger("Attack04");
+                enemy.ChangeAttackPattern();
                 break;
         }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitManager : Singleton<UnitManager>
+public class UnitManager : StaticInstance<UnitManager>
 {
     public void SpawnHeroes()
     {

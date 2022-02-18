@@ -16,7 +16,10 @@ public class Player : ScriptableObject
     public float speed = 5f;
     [Range(0, 100)]
     public float maxSpeed = 10f;
-
+    [Range(0, 10)]
+    public float attackRange;
+    [Range(0, 100)]
+    public int damage;
     [Range(0, 100)]
     public float dashDistance = 15f;
     [Range(0, 10)]
@@ -25,12 +28,13 @@ public class Player : ScriptableObject
     public float dashCoolTime = 0.9f;
     [Range(0, 10)]
     public float deathtime = 1f;
+    public float attackCoolTime = 10;
+    public float maxAttackCooltime = 10;
     public GameObject playerObj;
-   // public GameObject dashParticle;
+    public Vector3 position = new Vector3(2, 2, 0);
+    // public GameObject dashParticle;
     public bool isAlive = true;
     public bool isDash = false;
-    public float attackRange;
-    public int damage;
     public LayerMask attackMask;
     public int FinalScore { get; set; }
 

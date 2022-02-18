@@ -24,12 +24,15 @@ MonoBehaviour:
   Pattern2AttackDamage: 2
   Pattern3AttackDamage: 3
   Pattern4AttackDamage: 4
-  attackRange: 1
-  stopDistence: {x: 1, y: 1, z: 0}
+  attackRange: 1.5
+  deathtime: 1
+  stopDistence: {x: 0.5, y: 0.5, z: 0}
   moveWaitTime: 1
   startMoveWaitTime: 1
-  isAlive: 1
-  currentPattern: 1
+  isAlive: 0
+  currentPattern: 0
+  enemyObj: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+  position: {x: 0, y: 0, z: 0}
   attackMask:
     serializedVersion: 2
     m_Bits: 128

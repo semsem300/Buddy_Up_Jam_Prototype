@@ -14,16 +14,17 @@ public enum GameState
     Win = 5,
     Lose = 6,
 }
-public class GameManager : Singleton<GameManager>
+public class GameManager : StaticInstance<GameManager>
 {
     public static event Action<GameState> OnBeforeStateChanged;
     public static event Action<GameState> OnAfterStateChanged;
-   
-  
+
+    [SerializeField] Player player;
+    [SerializeField] Enemy enemy;
     public GameState State { get; private set; }
 
     // Kick the game off with the first state
-    void Start() => ChangeState(GameState.Starting);
+    void Start() => ChangeState(GameState.Puase);
 
     public void ChangeState(GameState newState)
     {
@@ -61,26 +62,41 @@ public class GameManager : Singleton<GameManager>
         // Loading 
 
         // Eventually call ChangeState again with your next state
-
+        SpawnPlayer();
+        SpawnEnemy();
         ChangeState(GameState.Playing);
     }
+
+    private void SpawnEnemy()
+    {
+        enemy.enemyObj.transform.position = enemy.position;
+    }
+
+    private void SpawnPlayer()
+    {
+        player.playerObj.transform.position = player.position;
+        //Instantiate(player.playerObj, player.position, Quaternion.identity);
+    }
+
     private void HandlePlaying()
     {
 
     }
     private void HandleLose()
     {
-        throw new NotImplementedException();
     }
 
     private void HandleWin()
     {
-        throw new NotImplementedException();
     }
 
     private void HandlePuase()
     {
-        throw new NotImplementedException();
     }
-
+    public void Restart()
+    {
+        this.ChangeState(GameState.Starting);
+        player.ResetPlayerHealth();
+        enemy.ResetEnemy();
+    }
 }

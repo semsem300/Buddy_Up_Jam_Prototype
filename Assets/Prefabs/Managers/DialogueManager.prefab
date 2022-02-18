@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4701cf84ae29f1345869bc2b2af99526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
-  animator: {fileID: 0}
+  nameText: {fileID: 8978550917447787607, guid: 1186e3451ce5de64799d44b4bac3d4b2, type: 3}
+  dialogueText: {fileID: 8798770681582517772, guid: 72b830e501cde1a4a8505f27e0d4c134, type: 3}
+  animator: {fileID: 4624225945629123087, guid: 19ce31d8f231908418023cfe8933678b, type: 3}
