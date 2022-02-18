@@ -94,8 +94,6 @@ public class Enemy : ScriptableObject
     {
         currentHealth = 100;
         maxHealth = 100;
-        currentMV = 100;
-        maxMV = 100;
         speed = 5f;
         isAlive = true;
         currentPattern = AttackPattern.Pattern1;

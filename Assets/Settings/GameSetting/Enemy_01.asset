@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 58
+  currentHealth: 100
   maxHealth: 100
-  currentMV: 100
-  maxMV: 100
+  currentMV: 3
+  maxMV: 3
   speed: 5
   maxSpeed: 5.5
   maxDetectRange: 3
@@ -24,13 +24,13 @@ MonoBehaviour:
   Pattern2AttackDamage: 2
   Pattern3AttackDamage: 3
   Pattern4AttackDamage: 4
-  attackRange: 1.5
+  attackRange: 2.9
   deathtime: 1
-  stopDistence: {x: 0.5, y: 0.5, z: 0}
-  moveWaitTime: 1
+  stopDistence: {x: 0, y: 0, z: 0}
+  moveWaitTime: 0.7600002
   startMoveWaitTime: 1
   isAlive: 1
-  currentPattern: 2
+  currentPattern: 1
   enemyObj: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
   position: {x: 0, y: 0, z: 0}
   attackMask:

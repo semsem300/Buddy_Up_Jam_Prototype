@@ -130,12 +130,12 @@ TextureImporter:
       name: Dodge_Roll_Left_0
       rect:
         serializedVersion: 2
-        x: 143
+        x: 78
         y: 0
-        width: 274
+        width: 270
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,12 +151,12 @@ TextureImporter:
       name: Dodge_Roll_Left_1
       rect:
         serializedVersion: 2
-        x: 578
+        x: 517
         y: 0
-        width: 256
+        width: 304
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: Dodge_Roll_Left_2
       rect:
         serializedVersion: 2
-        x: 981
+        x: 1028
         y: 0
-        width: 305
-        height: 300
+        width: 257
+        height: 269
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +198,7 @@ TextureImporter:
         width: 256
         height: 270
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
