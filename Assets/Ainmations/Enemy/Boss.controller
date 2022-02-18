@@ -329,14 +329,46 @@ BlendTree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Childs: []
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 14936b3deafc3d34286b35c54274e5b4, type: 2}
+    m_Threshold: 0
+    m_Position: {x: 0, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 0483b4346f3954146850f59c2830572e, type: 2}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: ff87dc2925e91014ab9f0c01b69aa25b, type: 2}
+    m_Threshold: 0.6666667
+    m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 7592d91980e8f544983a985758a1dc79, type: 2}
+    m_Threshold: 1
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
   m_BlendParameter: Horizontal
   m_BlendParameterY: Horizontal
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
-  m_BlendType: 0
+  m_BlendType: 1
 --- !u!1107 &-6663065975041196365
 AnimatorStateMachine:
   serializedVersion: 6
@@ -952,7 +984,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: Death
     m_Type: 9
@@ -997,7 +1029,7 @@ AnimatorStateMachine:
     m_Position: {x: -290, y: -360, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 7890485069317240606}
-    m_Position: {x: 30, y: -190, z: 0}
+    m_Position: {x: 40, y: -190, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -7406328428604121907}
     m_Position: {x: -610, y: -190, z: 0}
@@ -1581,7 +1613,7 @@ AnimatorStateMachine:
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 330, y: -130, z: 0}
   m_ExitPosition: {x: 900, y: 230, z: 0}
-  m_ParentStateMachinePosition: {x: 310, y: 310, z: 0}
+  m_ParentStateMachinePosition: {x: 310, y: 320, z: 0}
   m_DefaultState: {fileID: 3120041837804917560}
 --- !u!206 &5282119691370728586
 BlendTree:
