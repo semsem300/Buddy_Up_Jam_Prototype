@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : StaticInstance<UIManager>
 {
@@ -9,7 +10,8 @@ public class UIManager : StaticInstance<UIManager>
     [SerializeField] Canvas DialougeCanvas;
     [SerializeField] Canvas SettingCanvas;
     [SerializeField] Canvas StartCanvas;
-
+    [SerializeField] Slider Enemeyhealth;
+    [SerializeField] Enemy enemy;
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -17,6 +19,7 @@ public class UIManager : StaticInstance<UIManager>
             GameManager.Instance.ChangeState(GameState.Puase);
             PuaseCanvas.gameObject.SetActive(true);
         }
+        Enemeyhealth.value = enemy.currentHealth;
     }
     public void Restart()
     {
@@ -36,5 +39,5 @@ public class UIManager : StaticInstance<UIManager>
         StartCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
     }
-    
+
 }

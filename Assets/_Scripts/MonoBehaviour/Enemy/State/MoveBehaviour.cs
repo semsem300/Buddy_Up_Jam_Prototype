@@ -94,6 +94,10 @@ public class MoveBehaviour : StateMachineBehaviour
     }
     void Attack(Animator animator)
     {
+        if (enemy.currentPattern == null)
+        {
+            enemy.currentPattern = AttackPattern.Pattern1;
+        }
         //animator.SetBool("IsMoving", false);
         switch (enemy.currentPattern)
         {

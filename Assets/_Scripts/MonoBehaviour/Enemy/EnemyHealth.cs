@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] Enemy enemy;
-    [SerializeField] Slider health;
+   
     Animator animator;
     private void Awake()
     {
-        health.value = enemy.currentHealth;
+        
         animator = GetComponent<Animator>();
     }
     private void Update()
@@ -21,8 +21,8 @@ public class EnemyHealth : MonoBehaviour
             {
                 StartCoroutine(Death(enemy.deathtime));
             }
-            else health.value = enemy.currentHealth;
         }
+       
     }
     public void TakeDamage(int amount)
     {

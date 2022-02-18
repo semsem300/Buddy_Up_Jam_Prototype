@@ -62,13 +62,13 @@ public void TakeDamage(float amount)
     public void ChangeAttackPattern()
     {
         if (currentHealth <= 100 && currentHealth > 75)
-            currentPattern = GetRandomAttackPattern(AttackPattern.Pattern1);
+            currentPattern = AttackPattern.Pattern1;
         else if (currentHealth <= 75 && currentHealth > 50)
-            currentPattern = GetRandomAttackPattern(AttackPattern.Pattern4);
+            currentPattern = AttackPattern.Pattern2;
         else if (currentHealth <= 50 && currentHealth > 25)
-            currentPattern = GetRandomAttackPattern(AttackPattern.Pattern3);
+            currentPattern = AttackPattern.Pattern3;
         else
-            currentPattern = GetRandomAttackPattern(AttackPattern.Pattern4);
+            currentPattern = AttackPattern.Pattern4;
     }
     private AttackPattern GetRandomAttackPattern(AttackPattern attackPattern)
     {
