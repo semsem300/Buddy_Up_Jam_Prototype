@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 6281449477019138656
     second: Idle_Right_1
+  - first:
+      213: -4037298230109772529
+    second: Idle_Right_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -147,7 +150,7 @@ TextureImporter:
         serializedVersion: 2
         x: 581
         y: 0
-        width: 249
+        width: 248
         height: 265
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,6 +161,27 @@ TextureImporter:
       bones: []
       spriteID: 06af940d4013c2750800000000000000
       internalID: 6281449477019138656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Right_2
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 0
+        width: 252
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f056ef576a2a8f7c0800000000000000
+      internalID: -4037298230109772529
       vertices: []
       indices: 
       edges: []
