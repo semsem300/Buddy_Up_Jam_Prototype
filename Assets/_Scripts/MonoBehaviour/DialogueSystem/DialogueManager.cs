@@ -25,7 +25,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dialogue.name + " : ";
+        nameText.text = dialogue.name+ ": ";
 
         sentences.Clear();
 
