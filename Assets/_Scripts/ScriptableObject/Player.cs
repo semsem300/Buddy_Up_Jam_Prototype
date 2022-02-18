@@ -13,9 +13,9 @@ public class Player : ScriptableObject
     [Range(0, 100)]
     public float maxMV = 100;
     [Range(0, 100)]
-    public float speed = 5f;
+    public float speed = 20f;
     [Range(0, 100)]
-    public float maxSpeed = 10f;
+    public float maxSpeed = 20f;
     [Range(0, 10)]
     public float attackRange;
     [Range(0, 100)]

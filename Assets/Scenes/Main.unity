@@ -246,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174104613}
   - component: {fileID: 174104614}
+  - component: {fileID: 174104615}
   m_Layer: 6
   m_Name: North
   m_TagString: Walls
@@ -293,6 +294,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1603196}
   m_EdgeRadius: 0
+--- !u!50 &174104615
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174104612}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &254959408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903757488}
   - component: {fileID: 903757489}
+  - component: {fileID: 903757490}
   m_Layer: 6
   m_Name: South
   m_TagString: Walls
@@ -1113,6 +1136,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &903757490
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903757487}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &958759488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6340756488824629432, guid: 1d1fd48b2eabe81419088b0e3de5905a, type: 3}
@@ -1438,6 +1482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259039899}
   - component: {fileID: 1259039900}
+  - component: {fileID: 1259039901}
   m_Layer: 6
   m_Name: East
   m_TagString: Walls
@@ -1485,6 +1530,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9533372}
   m_EdgeRadius: 0
+--- !u!50 &1259039901
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259039898}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!224 &1322399991 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3091530767624768266, guid: 7881a3dcb30ab6d4da4dcc5ee0e19760, type: 3}
@@ -1602,6 +1668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416089312}
   - component: {fileID: 1416089313}
+  - component: {fileID: 1416089314}
   m_Layer: 6
   m_Name: West
   m_TagString: Walls
@@ -1649,6 +1716,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5137584}
   m_EdgeRadius: 0
+--- !u!50 &1416089314
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416089311}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &1515687527 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2862327397490947625, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}

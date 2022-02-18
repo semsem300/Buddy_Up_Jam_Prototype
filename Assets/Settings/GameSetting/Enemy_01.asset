@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 67
+  currentHealth: 58
   maxHealth: 100
   currentMV: 100
   maxMV: 100
   speed: 5
-  maxSpeed: 10
+  maxSpeed: 5.5
   maxDetectRange: 3
   minDetectRange: 0.75
   Pattern1AttackDamage: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
   attackRange: 1.5
   deathtime: 1
   stopDistence: {x: 0.5, y: 0.5, z: 0}
-  moveWaitTime: 0.3600004
+  moveWaitTime: 1
   startMoveWaitTime: 1
   isAlive: 1
   currentPattern: 2
