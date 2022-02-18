@@ -12,7 +12,9 @@ public class DialogueManager : Singleton<DialogueManager>
     public Animator animator;
 
     private Queue<string> sentences;
-
+    [SerializeField]
+    [Range(0,1)]
+    float typeingSpeed = .1f;
     // Use this for initialization
     void Start()
     {
@@ -23,7 +25,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dialogue.name+ " : ";
+        nameText.text = dialogue.name + " : ";
 
         sentences.Clear();
 
@@ -54,7 +56,7 @@ public class DialogueManager : Singleton<DialogueManager>
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(typeingSpeed);
         }
     }
 
