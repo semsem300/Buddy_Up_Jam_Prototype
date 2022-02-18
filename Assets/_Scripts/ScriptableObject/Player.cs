@@ -4,22 +4,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player_", menuName = "Players/CreatePlayer")]
 public class Player : ScriptableObject
 {
+    [Header("Health")]
     [Range(0, 10)]
     public float currentHealth = 10;
     [Range(0, 10)]
     public float maxHealth = 10;
-    [Range(0, 100)]
-    public float currentMV = 100;
-    [Range(0, 100)]
-    public float maxMV = 100;
+    [Header("Speed")]
     [Range(0, 100)]
     public float speed = 20f;
     [Range(0, 100)]
     public float maxSpeed = 20f;
+    [Header("Attack")]
     [Range(0, 10)]
     public float attackRange;
+    [Range(0, 10)]
+    public float attackCoolTime = 1;
+    [Range(0, 10)]
+    public float maxAttackCooltime = 1;
     [Range(0, 100)]
     public int damage;
+    [Header("Dash")]
     [Range(0, 100)]
     public float dashDistance = 15f;
     [Range(0, 10)]
@@ -28,16 +32,19 @@ public class Player : ScriptableObject
     public float dashCoolTime = 0.9f;
     [Range(0, 10)]
     public float deathtime = 1f;
-    public float attackCoolTime = 10;
-    public float maxAttackCooltime = 10;
-    public GameObject playerObj;
-    public Vector3 position = new Vector3(2, 2, 0);
+  
+    [Header("Audios")]
+    public AudioClip moveClip;
+    public AudioClip hurtClip;
+    public AudioClip deathClip;
+    public AudioClip attackClip;
+    public LayerMask attackMask;
     // public GameObject dashParticle;
     public bool isAlive = true;
     public bool isDash = false;
-    public LayerMask attackMask;
     public int FinalScore { get; set; }
-
+    public Vector3 position = new Vector3(2, 2, 0);
+    public GameObject playerObj;
     public void TakeDamage(float amount)
     {
         if (currentHealth > amount)

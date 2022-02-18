@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Sprite emptyheart;
     [SerializeField] Player player;
     Animator animator;
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -58,11 +59,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         player.TakeDamage(amount);
+        AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)
     {
         animator.SetTrigger("Death");
+        AudioManager.Instance.PlaySoundFxSource(player.deathClip);
         yield return new WaitForSeconds(time);
         GameManager.Instance.ChangeState(GameState.Lose);
     }

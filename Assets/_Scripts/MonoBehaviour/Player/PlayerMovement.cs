@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Fields
     [SerializeField] Player player;
-    [SerializeField] AudioClip moveClip;
+
     Rigidbody2D body;
     Animator animator;
     GameObject Boost;
@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
-       
+
     }
     #endregion
     #region Custome Func
-    
+
     private void MovmentInput()
     {
         // Gives a value between -1 and 1
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow)
             )
         {
-            AudioManager.Instance.PlaySoundFxSource(moveClip);
+            AudioManager.Instance.PlaySoundFxSource(player.moveClip);
         }
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) ||
            Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) ||
@@ -79,63 +79,68 @@ public class PlayerMovement : MonoBehaviour
     }
     void DashInput()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Space) && (Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f))
         {
-            if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
-            {
-                // Dash
-                StartCoroutine(Dash(-1f, 0f));
-                animator.SetTrigger("DodgeLeft");
-            }
-            else
-                doubleTapTime = Time.time + player.dashCoolTime;
-
-            lastkeyCode = KeyCode.A;
-
+            StartCoroutine(Dash(horizontal, vertical));
+            animator.SetTrigger("Dash");
         }
-        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)))
-        {
-            if (doubleTapTime > Time.time && lastkeyCode == KeyCode.D)
-            {
-                // Dash
-                StartCoroutine(Dash(1f, 0f));
-                animator.SetTrigger("DodgeRight");
-            }
-            else
-                doubleTapTime = Time.time + player.dashCoolTime;
+        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        //{
+        //    if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
+        //    {
+        //        // Dash
+        //        StartCoroutine(Dash(-1f, 0f));
+        //        animator.SetTrigger("DodgeLeft");
+        //    }
+        //    else
+        //        doubleTapTime = Time.time + player.dashCoolTime;
 
-            lastkeyCode = KeyCode.D;
+        //    lastkeyCode = KeyCode.A;
 
-        }
+        //}
+        //if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)))
+        //{
+        //    if (doubleTapTime > Time.time && lastkeyCode == KeyCode.D)
+        //    {
+        //        // Dash
+        //        StartCoroutine(Dash(1f, 0f));
+        //        animator.SetTrigger("DodgeRight");
+        //    }
+        //    else
+        //        doubleTapTime = Time.time + player.dashCoolTime;
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
-            {
-                // Dash
-                StartCoroutine(Dash(0f, 1f));
-                animator.SetTrigger("DodgeUp");
-            }
-            else
-                doubleTapTime = Time.time + player.dashCoolTime;
+        //    lastkeyCode = KeyCode.D;
 
-            lastkeyCode = KeyCode.A;
+        //}
 
-        }
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
-        {
-            if (doubleTapTime > Time.time && lastkeyCode == KeyCode.D)
-            {
-                // Dash
-                StartCoroutine(Dash(0f, -1f));
-                animator.SetTrigger("DodgeDown");
-            }
-            else
-                doubleTapTime = Time.time + player.dashCoolTime;
+        //if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    if (doubleTapTime > Time.time && lastkeyCode == KeyCode.A)
+        //    {
+        //        // Dash
+        //        StartCoroutine(Dash(0f, 1f));
+        //        animator.SetTrigger("DodgeUp");
+        //    }
+        //    else
+        //        doubleTapTime = Time.time + player.dashCoolTime;
 
-            lastkeyCode = KeyCode.D;
+        //    lastkeyCode = KeyCode.A;
 
-        }
+        //}
+        //if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+        //{
+        //    if (doubleTapTime > Time.time && lastkeyCode == KeyCode.D)
+        //    {
+        //        // Dash
+        //        StartCoroutine(Dash(0f, -1f));
+        //        animator.SetTrigger("DodgeDown");
+        //    }
+        //    else
+        //        doubleTapTime = Time.time + player.dashCoolTime;
+
+        //    lastkeyCode = KeyCode.D;
+
+        //}
     }
     IEnumerator Dash(float dirx, float diry)
     {

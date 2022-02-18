@@ -9,6 +9,7 @@ public class MoveBehaviour : StateMachineBehaviour
     [SerializeField] Transform[] patrolPoints;
     [SerializeField] Enemy enemy;
     int randomPoint;
+    [SerializeField] AudioClip movingClip;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -77,6 +78,7 @@ public class MoveBehaviour : StateMachineBehaviour
     }
     void FollowPlayer(Animator animator)
     {
+        AudioManager.Instance.PlaySoundFxSource(movingClip);
         animator.SetBool("IsMoving", true);
         animator.SetFloat("Horizontal", (target.position.x - rb.position.x));
         animator.SetFloat("Vertical", (target.position.y - rb.position.y));

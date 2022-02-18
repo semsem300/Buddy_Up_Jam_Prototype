@@ -60,6 +60,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Attack()
     {
+        AudioManager.Instance.PlaySoundFxSource(player.attackClip);
         animator.SetTrigger("Attack");
     }
 }
