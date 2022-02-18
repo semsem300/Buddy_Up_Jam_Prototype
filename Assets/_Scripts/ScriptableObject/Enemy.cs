@@ -43,13 +43,13 @@ public class Enemy : ScriptableObject
     //in stage 1 can only choose between attack pattern 1 and 2
     List<AttackPattern> RandomPattern1 = new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2 };
     //in stage 2 it can only choose between attack pattern 1 and 3
-    List<AttackPattern> RandomPattern2 = new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern3 }; 
+    List<AttackPattern> RandomPattern2 = new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern3 };
     //in stage 3 it can only choose between 2 and 4
-    List<AttackPattern> RandomPattern3 = new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern4 }; 
+    List<AttackPattern> RandomPattern3 = new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern4 };
     //in stage 4 it chooses randoly between all 4 of them
-    List<AttackPattern> RandomPattern4 = new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }; 
+    List<AttackPattern> RandomPattern4 = new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 };
 
-public void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         if (currentHealth > amount)
         {
