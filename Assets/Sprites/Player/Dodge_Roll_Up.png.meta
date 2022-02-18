@@ -134,11 +134,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 116
-        y: 60
-        width: 230
-        height: 187
+        y: 0
+        width: 234
+        height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: Dodge_Roll_Up_1
       rect:
         serializedVersion: 2
-        x: 595
-        y: 0
-        width: 235
-        height: 285
+        x: 588
+        y: 1
+        width: 234
+        height: 241
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: Dodge_Roll_Up_2
       rect:
         serializedVersion: 2
-        x: 1070
-        y: 0
-        width: 235
-        height: 242
+        x: 1042
+        y: 2
+        width: 261
+        height: 247
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: Dodge_Roll_Up_3
       rect:
         serializedVersion: 2
-        x: 1528
+        x: 1518
         y: 0
         width: 255
         height: 258
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,27 +209,6 @@ TextureImporter:
       bones: []
       spriteID: 1e92cb862d0101e60800000000000000
       internalID: 7930857439685781985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dodge_Roll_Up_4
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 0
-        width: 227
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 481bdfc5b8fcb90c0800000000000000
-      internalID: -4567829199569702524
       vertices: []
       indices: 
       edges: []
