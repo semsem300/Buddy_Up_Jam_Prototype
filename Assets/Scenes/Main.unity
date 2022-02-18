@@ -2742,7 +2742,7 @@ PrefabInstance:
     - target: {fileID: 2862327397425017094, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: d4a49e60a5a8365498ac05adbd1c87da, type: 2}
     - target: {fileID: 2862327397425017094, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -2754,7 +2754,7 @@ PrefabInstance:
     - target: {fileID: 2862327397425017094, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+      objectReference: {fileID: -1336379902752930778, guid: d4a49e60a5a8365498ac05adbd1c87da, type: 2}
     - target: {fileID: 2862327397425017094, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_VerticalAlignment
       value: 256
@@ -2793,12 +2793,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2862327397490947625, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_fontSize
-      value: 25.85
+      value: 30.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2862327397490947625, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 978682ae3d331724d9d7677ef59a0eda, type: 2}
     - target: {fileID: 2862327397490947625, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2862327397490947625, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4153791979000201267, guid: 978682ae3d331724d9d7677ef59a0eda, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
 --- !u!1001 &3091530768936416253
