@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c8264ea94b6f247bcb3597a84cfb9c, type: 3}
   m_Name: Player_01
   m_EditorClassIdentifier: 
-  currentHealth: 9
+  currentHealth: 6
   maxHealth: 10
   speed: 100
   maxSpeed: 100
   attackRange: 1.5
   attackCoolTime: 0.7
   maxAttackCooltime: 0.7
-  damage: 1
+  damage: 3
   dashDistance: 2
   dashtime: 0.45
   dashCoolTime: 0.9

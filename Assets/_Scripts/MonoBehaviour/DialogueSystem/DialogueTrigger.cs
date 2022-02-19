@@ -22,12 +22,12 @@ public class DialogueTrigger : MonoBehaviour
             if (transform != null)
             {
                 Instantiate(particleSystem, transform.transform.position, Quaternion.identity);
-                animator.SetTrigger("Heal");
+                // animator.SetTrigger("Heal");
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+
     }
 }

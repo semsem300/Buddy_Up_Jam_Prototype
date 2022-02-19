@@ -5,15 +5,31 @@ using UnityEngine.UI;
 
 public class UIManager : StaticInstance<UIManager>
 {
-    [SerializeField] Canvas GameOverCanvas;
-    [SerializeField] Canvas PuaseCanvas;
-    [SerializeField] Canvas DialougeCanvas;
-    [SerializeField] Canvas SettingCanvas;
-    [SerializeField] Canvas StartCanvas;
+    public Canvas GameOverCanvas;
+    public Canvas PuaseCanvas;
+    public Canvas DialougeCanvas;
+    public Canvas SettingPauseCanvas;
+    public Canvas StartCanvas;
+    public Canvas WinCanvas;
     [SerializeField] Slider Enemeyhealth;
+
+    [SerializeField] Slider FXVolumnStartCanv;
+
+    [SerializeField] Slider MainVolumnStartCanv;
+    [SerializeField] Toggle muteStartCanv;
     [SerializeField] Enemy enemy;
+    [SerializeField] AudioSetting audioSetting;
+    private void Awake()
+    {
+        MainVolumnStartCanv.value = audioSetting.MainAudioVolume;
+        FXVolumnStartCanv.value = audioSetting.FXAudioVolume;
+      //  muteStartCanv.Equals(audioSetting._mute);
+    }
     private void Update()
     {
+        audioSetting.FXAudioVolume = FXVolumnStartCanv.value;
+        audioSetting.MainAudioVolume = MainVolumnStartCanv.value;
+     //   audioSetting._mute = muteStartCanv;
         if (Input.GetKey(KeyCode.Escape))
         {
             GameManager.Instance.ChangeState(GameState.Puase);
@@ -25,19 +41,19 @@ public class UIManager : StaticInstance<UIManager>
     {
         GameOverCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
-        SettingCanvas.gameObject.SetActive(false);
+        SettingPauseCanvas.gameObject.SetActive(false);
         StartCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
         GameManager.Instance.Restart();
     }
     public void Resume()
     {
-        GameManager.Instance.ChangeState(GameState.Playing);
         GameOverCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
-        SettingCanvas.gameObject.SetActive(false);
+        SettingPauseCanvas.gameObject.SetActive(false);
         StartCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
+        GameManager.Instance.ChangeState(GameState.Playing);
     }
 
 }

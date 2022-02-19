@@ -15,6 +15,13 @@ public class AudioManager : StaticInstance<AudioManager>
         FXSource.mute = Source._mute;
         MainSource.mute = Source._mute;
     }
+    private void Update()
+    {
+        MainSource.volume = Source.MainAudioVolume;
+        FXSource.volume = Source.FXAudioVolume;
+        FXSource.mute = Source._mute;
+        MainSource.mute = Source._mute;
+    }
     public void PlaySoundMainSource(AudioClip clip)
     {
         Source.PlaySound(clip, MainSource);

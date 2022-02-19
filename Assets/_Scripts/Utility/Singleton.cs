@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
 
 /// <summary>
 /// A static instance is similar to a singleton, but instead of destroying any new

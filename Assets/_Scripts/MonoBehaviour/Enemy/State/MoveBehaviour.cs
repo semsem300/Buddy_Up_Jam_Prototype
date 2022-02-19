@@ -34,7 +34,7 @@ public class MoveBehaviour : StateMachineBehaviour
             animator.ResetTrigger("Attack02");
             animator.ResetTrigger("Attack03");
             animator.ResetTrigger("Attack04");
-            animator.SetBool("IsMoving", false);
+           
         }
 
     }
@@ -96,11 +96,8 @@ public class MoveBehaviour : StateMachineBehaviour
     }
     void Attack(Animator animator)
     {
-        if (enemy.currentPattern == null)
-        {
-            enemy.currentPattern = AttackPattern.Pattern1;
-        }
-        //animator.SetBool("IsMoving", false);
+
+        animator.SetBool("IsMoving", false);
         switch (enemy.currentPattern)
         {
             case AttackPattern.Pattern1:
@@ -132,7 +129,7 @@ public class MoveBehaviour : StateMachineBehaviour
                 enemy.ChangeAttackPattern();
                 break;
         }
-
+        animator.SetBool("IsMoving", true);
         Debug.Log("Attack");
     }
 

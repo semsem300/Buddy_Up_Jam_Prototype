@@ -15,7 +15,10 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        AttackInput();
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            AttackInput();
+        }
     }
     public void AttackTriggerd()
     {

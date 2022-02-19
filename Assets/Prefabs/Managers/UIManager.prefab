@@ -46,7 +46,13 @@ MonoBehaviour:
   GameOverCanvas: {fileID: 3091530767624768263, guid: 7881a3dcb30ab6d4da4dcc5ee0e19760, type: 3}
   PuaseCanvas: {fileID: 8096368905349164593, guid: ef677c19b6d6def40a7d606e2ee4b19a, type: 3}
   DialougeCanvas: {fileID: 2862327396338193843, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
-  SettingCanvas: {fileID: 668210868028404867, guid: aa0e8acfe30e4274280b5b484acce48a, type: 3}
+  SettingMainCanvas: {fileID: 0}
+  SettingPauseCanvas: {fileID: 0}
   StartCanvas: {fileID: 6190384401985377271, guid: 1b1fb60b7cc31b44abd0d1895ac15913, type: 3}
+  WinCanvas: {fileID: 1811844186801416017, guid: e716ee7eb047754439370ecd5d567300, type: 3}
   Enemeyhealth: {fileID: 2252982995652891402, guid: 168125d003ea1644c84019a2648c22bb, type: 3}
+  FXVolumnStartCanv: {fileID: 0}
+  MainVolumnStartCanv: {fileID: 0}
+  muteStartCanv: {fileID: 0}
   enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
+  audioSetting: {fileID: 11400000, guid: ed55b41abc7ef8248980ae51f0cfc47c, type: 2}

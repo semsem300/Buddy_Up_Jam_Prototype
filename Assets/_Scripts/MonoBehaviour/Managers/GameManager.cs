@@ -21,7 +21,7 @@ public class GameManager : StaticInstance<GameManager>
 
     [SerializeField] Player player;
     [SerializeField] Enemy enemy;
-    public GameState State { get; private set; }
+   [SerializeField] public GameState State { get; private set; }
 
     // Kick the game off with the first state
     void Start() => ChangeState(GameState.Puase);
@@ -84,10 +84,12 @@ public class GameManager : StaticInstance<GameManager>
     }
     private void HandleLose()
     {
+        UIManager.Instance.GameOverCanvas.gameObject.SetActive(true);
     }
 
     private void HandleWin()
     {
+        UIManager.Instance.WinCanvas.gameObject.SetActive(true);
     }
 
     private void HandlePuase()
