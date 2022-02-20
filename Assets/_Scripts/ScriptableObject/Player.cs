@@ -13,9 +13,9 @@ public class Player : ScriptableObject
     public float deathtime = 1f;
 
     [Header("Speed")]
-    [Range(0, 100)]
+    [Range(0, 1000)]
     public float speed = 20f;
-    [Range(0, 100)]
+    [Range(0, 1000)]
     public float maxSpeed = 20f;
 
     [Header("Attack")]

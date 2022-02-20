@@ -12,9 +12,12 @@ public class Attack01State : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Playing)
         {
-            if (Mathf.Abs(Vector2.Distance(player.position - enemy.stopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern1)
+            if (enemy.currentPattern1AttackTime > 0)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
+                if (Mathf.Abs(Vector2.Distance(player.position - enemy.stopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern1)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
+                }
             }
         }
     }
@@ -27,7 +30,7 @@ public class Attack01State : MonoBehaviour
             else
                 Patrol(animator, rb, player.position);
             enemy.currentPattern1AttackTime -= Time.deltaTime;
-            
+
         }
         else
         {

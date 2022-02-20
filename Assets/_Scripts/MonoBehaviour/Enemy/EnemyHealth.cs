@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] Enemy enemy;
-   
+    Rigidbody2D rb;
     Animator animator;
+    [SerializeField] float damageforce = 20f;
     private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
     private void Update()
@@ -22,11 +23,12 @@ public class EnemyHealth : MonoBehaviour
                 StartCoroutine(Death(enemy.deathtime));
             }
         }
-       
+
     }
     public void TakeDamage(int amount)
     {
         enemy.TakeDamage(amount);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector3(0, 3, 0), 100);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)

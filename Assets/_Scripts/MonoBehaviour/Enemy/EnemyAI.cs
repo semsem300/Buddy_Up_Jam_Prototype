@@ -11,13 +11,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Player player;
     Animator animator;
     Rigidbody2D rb;
-    private Transform target;
+    private Vector3 target;
     [SerializeField] Vector2 center = new Vector2(-4.5f, 0);
     void Awake()
     {
         animator = GetComponent<Animator>();
         rb = animator.GetComponent<Rigidbody2D>();
-        target = player.playerObj.transform;
+        target = player.position;
     }
     private void Update()
     {
@@ -61,12 +61,12 @@ public class EnemyAI : MonoBehaviour
                     }
                     break;
                 case AttackPattern.Pattern3:
-                    GetComponent<Attack03State>().ThirdPatternStrategy(animator, center, target.position);
+                    GetComponent<Attack03State>().ThirdPatternStrategy(animator, center, target);
                     //  enemy.enemyObj.GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, target.position, rb.position, enemy);
                     break;
                 case AttackPattern.Pattern4:
                     //  enemy.enemyObj.GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, target.position, rb.position, enemy);
-                    GetComponent<Attack04State>().FourthPatternStrategy(animator, center, target.position);
+                    GetComponent<Attack04State>().FourthPatternStrategy(animator, center, target);
                     break;
             }
         }

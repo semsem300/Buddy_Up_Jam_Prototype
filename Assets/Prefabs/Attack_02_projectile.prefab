@@ -178,6 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
-  lifetime: 4.14
-  speed: 1.37
+  lifetime: 2
+  speed: 3
   damageIndicator: {fileID: 5294156736276916430, guid: 898910fd07bab7143b0eefdf35896423, type: 3}

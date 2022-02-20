@@ -21,7 +21,14 @@ public class Attack04State : MonoBehaviour
 
     public void FourthPatternStrategy(Animator animator, Vector2 position1, Vector3 position2)
     {
-        Debug.Log("FourthPattern");
-        enemy.currentPattern = AttackPattern.Pattern3;
+        if (enemy.currentPattern4AttackTime > 0)
+        {
+            Debug.Log("FourthPattern");
+        }
+        else if (enemy.currentPattern4AttackTime <= 0)
+        {
+            enemy.ChangeAttackPattern();
+            enemy.currentPattern4AttackTime = enemy.Pattern4AttackTime;
+        }
     }
 }

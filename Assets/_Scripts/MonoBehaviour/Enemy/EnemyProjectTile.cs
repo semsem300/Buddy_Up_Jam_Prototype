@@ -12,22 +12,24 @@ public class EnemyProjectTile : MonoBehaviour
     Color flashColour = new Color(255f, 255f, 255f, 0.5f);
     public Image damageIndicator;
     Rigidbody2D rb;
+    Vector3 target;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = player.position;
     }
     private void Start()
     {
         // Rotation
-        Vector2 lookDir = new Vector2(player.position.x - rb.position.x, player.position.y - rb.position.y);
+        Vector2 lookDir = new Vector2(target.x - rb.position.x, target.y - rb.position.y);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
         Destroy(gameObject, lifetime);
-        
+
     }
     private void Update()
     {
-        rb.position = Vector2.MoveTowards(rb.position, player.position, speed * Time.fixedDeltaTime);
+        rb.position = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

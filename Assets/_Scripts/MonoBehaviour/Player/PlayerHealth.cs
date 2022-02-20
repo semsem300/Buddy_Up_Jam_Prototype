@@ -10,10 +10,13 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullheart;
     public Sprite emptyheart;
     [SerializeField] Player player;
+    Rigidbody2D rb;
     Animator animator;
-    
+    [SerializeField] float damageforce = 20f;
+
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
     private void Update()
@@ -61,6 +64,8 @@ public class PlayerHealth : MonoBehaviour
         player.TakeDamage(amount);
         AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
         CameraShake.Instance.ShakeIt(5f, .2f);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector3(-10, -3, 0), 100);
+       // transform.position = new Vector3(-10, -3, 0);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)
