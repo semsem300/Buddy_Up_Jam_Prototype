@@ -167,7 +167,7 @@ public class Enemy : ScriptableObject
         maxHealth = 100;
         speed = 5f;
         isAlive = true;
-        currentPattern = AttackPattern.Pattern3;
+        currentPattern = AttackPattern.Pattern2;
     }
     void MakeDead()
     {

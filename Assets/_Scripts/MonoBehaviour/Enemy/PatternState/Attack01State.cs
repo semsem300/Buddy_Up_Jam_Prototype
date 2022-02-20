@@ -13,6 +13,7 @@ public class Attack01State : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
