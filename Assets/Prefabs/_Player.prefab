@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59127637490600799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.57, y: 3.219, z: 0}
+  m_LocalPosition: {x: -6.35844, y: -1.0144451, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1369251130152937584}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.375, y: 1.385}
+  m_Size: {x: 1.35, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &59127637490600796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,16 +156,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfHeatrs: 10
   hearts:
-  - {fileID: 5484764722835382668, guid: 80cda44e07b473e4a8ec808d880049e4, type: 3}
-  - {fileID: 5808691950369113819, guid: cbc7d6b8db299834cad44a851b644d15, type: 3}
-  - {fileID: 2093718922616038308, guid: 1459735cac48ab94fa6383cb1cf4eb39, type: 3}
-  - {fileID: 3260738549770351097, guid: c40a2105c5b9e694fbae86fe3af245ec, type: 3}
-  - {fileID: 7685541034984780354, guid: 7fa429b8dcd624240b512bb26b122a33, type: 3}
-  - {fileID: 508413877159328955, guid: d6b4d506af3ead8479290809887b8eda, type: 3}
-  - {fileID: 2933730560772267985, guid: 37a79e0a857100b46ac3350c98f98601, type: 3}
-  - {fileID: 8174366242610923693, guid: 88e4ba3bbb0991a44b9053c7ddd2b3d0, type: 3}
-  - {fileID: 6814343469745335524, guid: 4aa831bc03df128468eb10da52978aa1, type: 3}
-  - {fileID: 7111607911874759282, guid: e6d6e3931b9e7f748bef9aca573bbb89, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fullheart: {fileID: 5053492689781857670, guid: 3cd84db8a36624c488116bb76d674106, type: 3}
   emptyheart: {fileID: -6895713377228584054, guid: 3cd84db8a36624c488116bb76d674106, type: 3}
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
@@ -183,18 +183,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.037879705, y: -0.21212721}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.245, y: 1.385}
-    newSize: {x: 1.375, y: 1.385}
+    oldSize: {x: 0.83, y: 0.92333335}
+    newSize: {x: 1.35, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.24, y: 1.385}
+  m_Size: {x: 0.31573057, y: 0.5061865}
   m_EdgeRadius: 0
 --- !u!114 &1001149975137639173
 MonoBehaviour:
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackOffset: {x: 1, y: 1, z: 0}
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
-  attackForce: {x: -1, y: -1}
+  attackForce: {x: 10, y: 10}
   attackPoint: {fileID: 1369251130152937584}
 --- !u!1 &156172561786788063
 GameObject:
