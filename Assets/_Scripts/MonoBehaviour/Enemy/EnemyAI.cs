@@ -50,23 +50,23 @@ public class EnemyAI : MonoBehaviour
             {
 
                 case AttackPattern.Pattern1:
-                    GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, rb.position);
+                    GetComponent<Attack01State>().FirstPatternStrategy();
                     break;
                 case AttackPattern.Pattern2:
 
                     //Debug.Log(Vector2.Distance(center, rb.position));
                     if (Mathf.Abs(Vector2.Distance(center, rb.position)) < 0.1f)
                     {
-                        GetComponent<Attack02State>().SecondPatternStrategy(animator);
+                        GetComponent<Attack02State>().SecondPatternStrategy();
                     }
                     break;
                 case AttackPattern.Pattern3:
-                    GetComponent<Attack03State>().ThirdPatternStrategy(animator, center, target);
+                    GetComponent<Attack03State>().ThirdPatternStrategy();
                     //  enemy.enemyObj.GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, target.position, rb.position, enemy);
                     break;
                 case AttackPattern.Pattern4:
                     //  enemy.enemyObj.GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, target.position, rb.position, enemy);
-                    GetComponent<Attack04State>().FourthPatternStrategy(animator, center, target);
+                    GetComponent<Attack04State>().FourthPatternStrategy();
                     break;
             }
         }

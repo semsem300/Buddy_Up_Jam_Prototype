@@ -9,9 +9,9 @@ public class Attack03State : MonoBehaviour
     [SerializeField] Enemy enemy;
     Animator animator;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Attack03State : MonoBehaviour
         }
     }
 
-    public void ThirdPatternStrategy(Animator animator, Vector2 position1, Vector3 position2)
+    public void ThirdPatternStrategy()
     {
         if (enemy.currentPattern3AttackTime > 0)
         {
@@ -65,10 +65,11 @@ public class Attack03State : MonoBehaviour
         else if (enemy.currentPattern3AttackTime <= 0)
         {
             // TODO Add  Wait time 
+
+            // enemy.currentPattern = AttackPattern.Pattern3;
             enemy.ChangeAttackPattern();
             enemy.currentPattern3AttackTime = enemy.Pattern3AttackTime;
         }
-        //  enemy.currentPattern = AttackPattern.Pattern3;
     }
     void Attack(Animator animator)
     {

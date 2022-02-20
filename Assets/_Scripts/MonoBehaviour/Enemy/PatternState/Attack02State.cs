@@ -32,7 +32,7 @@ public class Attack02State : MonoBehaviour
             }
         }
     }
-    public void SecondPatternStrategy(Animator animator)
+    public void SecondPatternStrategy()
     {
         if (enemy.currentPattern2AttackTime > 0)
         {

@@ -8,6 +8,12 @@ public class Attack01State : MonoBehaviour
     [SerializeField] Transform[] patrolPoints;
     [SerializeField] Player player;
     [SerializeField] Enemy enemy;
+    Rigidbody2D rb;
+    Animator animator;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void Update()
     {
         if (GameManager.Instance.State == GameState.Playing)
@@ -21,11 +27,11 @@ public class Attack01State : MonoBehaviour
             }
         }
     }
-    public void FirstPatternStrategy(Animator animator, Rigidbody2D rb, Vector3 rbposition)
+    public void FirstPatternStrategy()
     {
         if (enemy.currentPattern1AttackTime > 0)
         {
-            if (Vector3.Distance(player.position, rbposition) <= enemy.maxDetectRange && Vector3.Distance(player.position, rb.position) >= enemy.minDetectRange)
+            if (Vector3.Distance(player.position, rb.position) <= enemy.maxDetectRange && Vector3.Distance(player.position, rb.position) >= enemy.minDetectRange)
                 FollowPlayer(animator, rb, player.position);
             else
                 Patrol(animator, rb, player.position);

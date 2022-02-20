@@ -90,6 +90,9 @@ public class Enemy : ScriptableObject
 
     [Header("Audios")]
     public AudioClip movingClip;
+    public AudioClip MonsterAttack01Clip;
+    public AudioClip MonsterCryClip;
+    public AudioClip MonsterReceiveDamageClip;
 
     [Header("Boss Info")]
     public GameObject enemyObj;
