@@ -539,6 +539,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &584386093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+  m_PrefabInstance: {fileID: 644702033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &584654424
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4438633499656019489, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+      propertyPath: enemyObj
+      value: 
+      objectReference: {fileID: 584386093}
     - target: {fileID: 4438633499656019491, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
       propertyPath: m_RootOrder
       value: 7

@@ -20,33 +20,34 @@ MonoBehaviour:
   maxSpeed: 5.5
   maxDetectRange: 5
   minDetectRange: 0.75
-  currentPattern: 2
+  damgeOnColide: 0
+  currentPattern: 1
   stopDistence: {x: 0.5, y: 0.5, z: 0}
   attackRange: 4
   Pattern1AttackDamage: 0
-  Pattern1AttackTime: 2
-  currentPattern1AttackTime: 4.6448035
-  attack01CoolTime: 9.303489
-  maxAttack01Cooltime: 4
-  moveWaitTime: 0.62000036
-  startMoveWaitTime: 4
+  Pattern1AttackTime: 10
+  currentPattern1AttackTime: 1.4637426
+  attack01CoolTime: 8.321391
+  maxAttack01Cooltime: 10
+  moveWaitTime: 0.040000387
+  startMoveWaitTime: 2.43
   Pattern2AttackDamage: 0
   attack02Obj: {fileID: 8455908119392114119, guid: 5954b123213cf554eb6b0095636c9a20, type: 3}
-  Pattern2AttackTime: 5
+  Pattern2AttackTime: 7
   currentPattern2AttackTime: 22
-  attack02CoolTime: 0.318424
-  maxAttack02Cooltime: 4
+  attack02CoolTime: 2.9812272
+  maxAttack02Cooltime: 10
   attack03Obj: {fileID: 7777385605151586380, guid: 67ab6db6fdf17f04b817806b2d9ba949, type: 3}
   Pattern3AttackDamage: 0
-  Pattern3AttackTime: 1
+  Pattern3AttackTime: 10
   currentPattern3AttackTime: 3
-  attack03CoolTime: 9.244705
-  maxAttack03Cooltime: 4
+  attack03CoolTime: 9.987946
+  maxAttack03Cooltime: 10
   Pattern4AttackDamage: 0
-  Pattern4AttackTime: 4
+  Pattern4AttackTime: 10
   currentPattern4AttackTime: 3
   attack04CoolTime: 1
-  maxAttack04Cooltime: 4
+  maxAttack04Cooltime: 10
   movingClip: {fileID: 8300000, guid: 958a32dbbaf72524599849f7f9d25fae, type: 3}
   enemyObj: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
   position: {x: 0, y: 0, z: 0}
