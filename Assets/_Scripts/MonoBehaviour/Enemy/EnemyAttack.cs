@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] Enemy Enemy;
+    [SerializeField] Enemy enemy;
     private void Start()
     {
-        Enemy.currentPattern = AttackPattern.Pattern1;
+        enemy.currentPattern = AttackPattern.Pattern1;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.damgeOnColide);
+        }
     }
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, Enemy.attackRange);
+        Gizmos.DrawWireSphere(transform.position, enemy.attackRange);
     }
 }

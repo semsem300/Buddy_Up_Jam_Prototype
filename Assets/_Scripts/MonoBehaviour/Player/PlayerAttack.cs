@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] Vector3 attackOffset;
     [SerializeField] Player player;
-    [SerializeField] Vector2 attackForce = new Vector2(-1, -1);
+    [SerializeField] Vector2 attackForce = new Vector2(-50, -50);
     [SerializeField] Transform attackPoint;
     Animator animator;
     private void Awake()
@@ -33,7 +33,9 @@ public class PlayerAttack : MonoBehaviour
                     {
                         Debug.Log("GetDamage");
                         collider2D.GetComponent<EnemyHealth>().TakeDamage(player.damage);
-                        collider2D.GetComponent<Rigidbody2D>().AddForce(attackForce, ForceMode2D.Impulse);
+                        var hor = animator.GetFloat("Horizontal");
+                        var ver = animator.GetFloat("Vertical");
+                        collider2D.GetComponent<Rigidbody2D>().AddForce(new Vector2(attackForce.x * hor, attackForce.y * ver));
                     }
                 }
             }

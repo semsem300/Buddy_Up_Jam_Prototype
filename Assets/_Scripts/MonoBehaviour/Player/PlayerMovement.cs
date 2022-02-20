@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        player.position = body.position;
     }
     private void Update()
     {
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         body.velocity = movementDirection * player.speed * Time.fixedDeltaTime;
+        player.position = body.position;
     }
     void DashInput()
     {

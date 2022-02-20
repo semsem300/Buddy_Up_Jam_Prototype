@@ -19,12 +19,7 @@ public class UIManager : StaticInstance<UIManager>
     [SerializeField] Toggle muteStartCanv;
     [SerializeField] Enemy enemy;
     [SerializeField] AudioSetting audioSetting;
-    private void Awake()
-    {
-        MainVolumnStartCanv.value = audioSetting.MainAudioVolume;
-        FXVolumnStartCanv.value = audioSetting.FXAudioVolume;
-      //  muteStartCanv.Equals(audioSetting._mute);
-    }
+
     private void Update()
     {
         audioSetting.FXAudioVolume = FXVolumnStartCanv.value;
@@ -44,6 +39,7 @@ public class UIManager : StaticInstance<UIManager>
         SettingPauseCanvas.gameObject.SetActive(false);
         StartCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
+        WinCanvas.gameObject.SetActive(false);
         GameManager.Instance.Restart();
     }
     public void Resume()

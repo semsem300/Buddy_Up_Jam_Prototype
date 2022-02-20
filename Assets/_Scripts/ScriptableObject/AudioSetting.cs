@@ -13,7 +13,6 @@ public class AudioSetting : ScriptableObject
 
     public void PlaySound(AudioClip clip, AudioSource Source)
     {
-        Debug.Log("start fx clip");
         Source.clip = clip;
         Source.Play();
     }

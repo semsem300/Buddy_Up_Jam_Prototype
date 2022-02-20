@@ -27,11 +27,11 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         enemy.TakeDamage(amount);
-        // animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)
     {
-        //  animator.SetTrigger("Death");
+        animator.SetTrigger("Death");
         yield return new WaitForSeconds(time);
         GameManager.Instance.ChangeState(GameState.Win);
     }

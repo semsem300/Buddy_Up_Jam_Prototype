@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59127637490600799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 3, z: 0}
+  m_LocalPosition: {x: -5.57, y: 3.219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1369251130152937584}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
-  moveClip: {fileID: 8300000, guid: f9391df9616b26f4099030a494c941fb, type: 3}
 --- !u!114 &1891475355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +186,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.385}
+    oldSize: {x: 1.245, y: 1.385}
     newSize: {x: 1.375, y: 1.385}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -210,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackOffset: {x: 1, y: 1, z: 0}
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
+  attackForce: {x: -1, y: -1}
   attackPoint: {fileID: 1369251130152937584}
 --- !u!1 &156172561786788063
 GameObject:

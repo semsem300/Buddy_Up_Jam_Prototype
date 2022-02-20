@@ -60,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
     {
         player.TakeDamage(amount);
         AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
+        CameraShake.Instance.ShakeIt(5f, .2f);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)

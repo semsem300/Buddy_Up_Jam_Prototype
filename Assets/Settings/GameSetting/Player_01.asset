@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c8264ea94b6f247bcb3597a84cfb9c, type: 3}
   m_Name: Player_01
   m_EditorClassIdentifier: 
-  currentHealth: 6
+  currentHealth: 5
   maxHealth: 10
   speed: 100
   maxSpeed: 100
   attackRange: 1.5
   attackCoolTime: 0.7
   maxAttackCooltime: 0.7
-  damage: 3
+  damage: 10
   dashDistance: 2
   dashtime: 0.45
   dashCoolTime: 0.9
@@ -33,5 +33,5 @@ MonoBehaviour:
     m_Bits: 256
   isAlive: 1
   isDash: 0
-  position: {x: -10, y: 3, z: 0}
+  position: {x: -7.222789, y: -1.2009321, z: 0}
   playerObj: {fileID: 59127637490600799, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
