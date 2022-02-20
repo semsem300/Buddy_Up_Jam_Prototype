@@ -44,7 +44,7 @@ public class Attack04State : MonoBehaviour
 
     public void FourthPatternStrategy()
     {
-        enemy.currentPattern = AttackPattern.Pattern3;
+         enemy.currentPattern = AttackPattern.Pattern3;
         //if (enemy.currentPattern4AttackTime > 0)
         //{
 

@@ -146,6 +146,7 @@ public class Enemy : ScriptableObject
         switch (attackPattern)
         {
             case AttackPattern.Pattern1:
+                currentPattern= AttackPattern.Pattern1;
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern3 }.Count) + 1);
             case AttackPattern.Pattern2:
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3 }.Count) + 1);

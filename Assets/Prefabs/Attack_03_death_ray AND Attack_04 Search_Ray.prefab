@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4545935974783549081}
   - component: {fileID: 6942714665073967965}
   - component: {fileID: 434995875183560856}
+  - component: {fileID: 7358296449119139318}
   m_Layer: 0
   m_Name: Attack_03_death_ray AND Attack_04 Search_Ray
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7777385605151586380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.57, y: -2.53, z: 0}
-  m_LocalScale: {x: 0.2841, y: 4.6736, z: 1}
+  m_LocalScale: {x: 0.2841, y: 6.27, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -139,6 +140,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
-  lifetime: 1.5
-  speed: 3
   damageIndicator: {fileID: 5294156736276916430, guid: 898910fd07bab7143b0eefdf35896423, type: 3}
+--- !u!70 &7358296449119139318
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777385605151586380}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.12305152}
+  m_Size: {x: 1, y: 2.6668959}
+  m_Direction: 0

@@ -41,7 +41,8 @@ public class Attack01State : MonoBehaviour
         }
         else
         {
-            enemy.ChangeAttackPattern();
+            enemy.currentPattern = AttackPattern.Pattern1;
+            //enemy.ChangeAttackPattern();
             enemy.currentPattern1AttackTime = enemy.Pattern1AttackTime;
         }
     }
