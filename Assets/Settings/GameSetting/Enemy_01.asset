@@ -22,26 +22,26 @@ MonoBehaviour:
   minDetectRange: 0.75
   damgeOnColide: 0
   currentPattern: 2
-  stopDistence: {x: 1.5, y: 1.5, z: 0}
+  stopDistence: {x: 0.5, y: 0.5, z: 0}
   attackRange: 4
   Pattern1AttackDamage: 0
-  Pattern1AttackTime: 10
-  currentPattern1AttackTime: 0.6191464
-  attack01CoolTime: 7.6857452
+  Pattern1AttackTime: 2.4
+  currentPattern1AttackTime: 1.2885486
+  attack01CoolTime: 4.323623
   maxAttack01Cooltime: 10
-  moveWaitTime: 2.0700004
+  moveWaitTime: 0.6900017
   startMoveWaitTime: 2.43
   Pattern2AttackDamage: 0
   attack02Obj: {fileID: 8455908119392114119, guid: 5954b123213cf554eb6b0095636c9a20, type: 3}
   Pattern2AttackTime: 7
-  currentPattern2AttackTime: 14.571775
-  attack02CoolTime: 5.5748
+  currentPattern2AttackTime: 1.2625118
+  attack02CoolTime: 8.377277
   maxAttack02Cooltime: 10
   attack03Obj: {fileID: 7777385605151586380, guid: 67ab6db6fdf17f04b817806b2d9ba949, type: 3}
   Pattern3AttackDamage: 0
   Pattern3AttackTime: 1.92
   currentPattern3AttackTime: 3
-  attack03CoolTime: 9.971751
+  attack03CoolTime: 9.872574
   maxAttack03Cooltime: 1
   Pattern4AttackDamage: 2
   Pattern4AttackTime: 0.38
