@@ -21,7 +21,7 @@ MonoBehaviour:
   maxDetectRange: 5
   minDetectRange: 0.75
   damgeOnColide: 0
-  currentPattern: 2
+  currentPattern: 1
   stopDistence: {x: 0.5, y: 0.5, z: 0}
   attackRange: 4
   Pattern1AttackDamage: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
   moveWaitTime: 0.6900017
   startMoveWaitTime: 2.43
   Pattern2AttackDamage: 0
-  attack02Obj: {fileID: 8455908119392114119, guid: 5954b123213cf554eb6b0095636c9a20, type: 3}
+  attack02Obj: {fileID: 8455908119392114119, guid: a3b7162b976e27c4a9ad63c143bcb989, type: 3}
   Pattern2AttackTime: 7
   currentPattern2AttackTime: 1.2625118
   attack02CoolTime: 8.377277
