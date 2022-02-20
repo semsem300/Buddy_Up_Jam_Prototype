@@ -33,12 +33,19 @@ public class EnemyProjectTile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision != null)
         {
-            Destroy(gameObject);
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern2AttackDamage);
-            damageIndicator.color = flashColour;
-            StartCoroutine(RestIamageIndicatorColor());
+            if (collision.CompareTag("Walls"))
+            {
+                Destroy(gameObject);
+            }
+            if (collision.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern2AttackDamage);
+                damageIndicator.color = flashColour;
+                StartCoroutine(RestIamageIndicatorColor());
+            }
         }
     }
 
