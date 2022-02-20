@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c8264ea94b6f247bcb3597a84cfb9c, type: 3}
   m_Name: Player_01
   m_EditorClassIdentifier: 
-  currentHealth: 5
+  currentHealth: 10
   maxHealth: 10
-  speed: 100
-  maxSpeed: 100
+  deathtime: 1
+  speed: 180
+  maxSpeed: 400
   attackRange: 1.5
   attackCoolTime: 0.7
   maxAttackCooltime: 0.7
@@ -23,15 +24,14 @@ MonoBehaviour:
   dashDistance: 2
   dashtime: 0.45
   dashCoolTime: 0.9
-  deathtime: 1
   moveClip: {fileID: 8300000, guid: 93808206c8d5a76449d88ac942a6e707, type: 3}
   hurtClip: {fileID: 8300000, guid: 9cd030587facd6748be862c225a93a01, type: 3}
   deathClip: {fileID: 8300000, guid: fb18606ebd1b1eb409226f93864f3283, type: 3}
   attackClip: {fileID: 8300000, guid: 483653b39b4af664b8e79c4662eb1fac, type: 3}
+  position: {x: 0.9074979, y: -1.0611018, z: 0}
+  isAlive: 1
+  isDash: 0
+  playerObj: {fileID: 59127637490600799, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
   attackMask:
     serializedVersion: 2
     m_Bits: 256
-  isAlive: 1
-  isDash: 0
-  position: {x: -7.222789, y: -1.2009321, z: 0}
-  playerObj: {fileID: 59127637490600799, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
