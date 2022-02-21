@@ -88,6 +88,14 @@ MonoBehaviour:
   - Speeker: Despair
     Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
     sentences: Never
+  - Speeker: Tutorial
+    Pic: {fileID: 0}
+    sentences: 'Movement: "W/A/S/D" or arrows.
+
+      Roll: ''Movement'' + "Spacebar"
+
+      Attack:
+      "Left Mouse Button"'
   animator: {fileID: 0}
 --- !u!61 &371690552101366416
 BoxCollider2D:

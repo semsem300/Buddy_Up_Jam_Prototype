@@ -44,7 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee28dafec470d24896f62807a035703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "This is not a place for you. You\u2019re not sadness\u2026 you\u2019re
+      far worse\u2026 I-\r"
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: As long as I can taste the dim light of hope your scrawny arms hold
+      on to, and as long as you breathe and look for mercy, I will slowly crush you.
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "No\u2026 "
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: Yes. Just like that. Before you know it. Poof. Lights out.
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: No no no no no no no...
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: Like little drops of poison on your heart. Till it stabs you in the
+      back!
   animator: {fileID: 0}
 --- !u!61 &8180541862597716069
 BoxCollider2D:

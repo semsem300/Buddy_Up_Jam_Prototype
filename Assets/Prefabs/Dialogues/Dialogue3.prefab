@@ -44,7 +44,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee28dafec470d24896f62807a035703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "It hurts...I\u2019ve tried to do everything I could\u2026 I tried
+      to do the right thing. Be the best boyfriend, the best son\u2026 The best\u2026
+      I just wanted to be the best."
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: Another living graveyard of buried hopes and dreams. What say you?
+      Shall we dance in a pool of your own self pity.
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "But shouldn\u2019t I try?"
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: 'Pathetic. As if you trying will ever change anything. '
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "But I want to be happy again\u2026"
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: "If you say so, it\u2019s just another hiding place for me to creep
+      up behind you\u2026"
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "They said it\u2019s just a phase, that it\u2019ll go away. I\u2019ll
+      be fine."
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: '*Laughs* They lied!'
   animator: {fileID: 0}
 --- !u!61 &7895790533794235627
 BoxCollider2D:
