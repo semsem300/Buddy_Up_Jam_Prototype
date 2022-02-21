@@ -81,6 +81,7 @@ public class Attack02State : MonoBehaviour
     void Attack()
     {
         animator.SetBool("IsMoving", false);
+        AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack02ProjectilePuddleClip);
         StartCoroutine(EndSoup());
         Debug.Log("Attack");
     }

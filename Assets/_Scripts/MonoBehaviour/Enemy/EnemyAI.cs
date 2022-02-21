@@ -164,7 +164,7 @@ public class EnemyAI : MonoBehaviour
         if (GameManager.Instance.State == GameState.Playing)
         {
             enemy.canShoot = true;
-            AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack02ProjectileClip);
+            AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack02Projectile02Clip);
             Instantiate(enemy.attack02Obj, transform.position, Quaternion.identity);
             enemy.canShoot = false;
         }
