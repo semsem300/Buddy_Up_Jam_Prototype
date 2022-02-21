@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 32.8
+  currentHealth: 100
   maxHealth: 100
   deathtime: 1
   isAlive: 1
@@ -26,24 +26,24 @@ MonoBehaviour:
   Attack03StopDistence: {x: 2, y: 2, z: 0}
   Attack04StopDistence: {x: 1, y: 0.5, z: 0}
   attackRange: 4
-  Pattern1AttackDamage: 0
+  Pattern1AttackDamage: 3
   Pattern1AttackTime: 5
-  currentPattern1AttackTime: 1.9497896
-  attack01CoolTime: 1.9913352
+  currentPattern1AttackTime: 3.7593915
+  attack01CoolTime: 1.3373369
   maxAttack01Cooltime: 2
   moveWaitTime: 1
   startMoveWaitTime: 1
-  Pattern2AttackDamage: 0
+  Pattern2AttackDamage: 3
   attack02Obj: {fileID: 8455908119392114119, guid: a3b7162b976e27c4a9ad63c143bcb989, type: 3}
   Pattern2AttackTime: 7
-  currentPattern2AttackTime: 5.2962728
-  attack02CoolTime: 1.1381043
+  currentPattern2AttackTime: 3.9342146
+  attack02CoolTime: 1.3244972
   maxAttack02Cooltime: 2
   attack03Obj: {fileID: 1833404154603397961, guid: 5e5987b12f6aea8408e508b46587aa4a, type: 3}
-  Pattern3AttackDamage: 0
+  Pattern3AttackDamage: 2
   Pattern3AttackTime: 6
   currentPattern3AttackTime: 3
-  attack03CoolTime: 2.0637472
+  attack03CoolTime: 2.3208387
   maxAttack03Cooltime: 5.89
   Pattern4AttackDamage: 2
   Pattern4AttackTime: 5.03

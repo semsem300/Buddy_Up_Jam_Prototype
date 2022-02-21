@@ -24,7 +24,7 @@ public class UIManager : StaticInstance<UIManager>
     {
         audioSetting.FXAudioVolume = FXVolumnStartCanv.value;
         audioSetting.MainAudioVolume = MainVolumnStartCanv.value;
-     //   audioSetting._mute = muteStartCanv;
+        //   audioSetting._mute = muteStartCanv;
         if (Input.GetKey(KeyCode.Escape))
         {
             GameManager.Instance.ChangeState(GameState.Puase);
@@ -51,5 +51,16 @@ public class UIManager : StaticInstance<UIManager>
         PuaseCanvas.gameObject.SetActive(false);
         GameManager.Instance.ChangeState(GameState.Playing);
     }
-
+    public void Back()
+    {
+        if (GameManager.Instance.State == GameState.Puase)
+        {
+            PuaseCanvas.gameObject.SetActive(true);
+        }
+        else if (GameManager.Instance.State == GameState.Starting)
+        {
+            StartCanvas.gameObject.SetActive(true);
+        }
+        SettingPauseCanvas.gameObject.SetActive(false);
+    }
 }

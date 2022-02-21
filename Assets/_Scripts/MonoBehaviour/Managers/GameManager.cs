@@ -26,7 +26,7 @@ public class GameManager : StaticInstance<GameManager>
     public GameState State { get; private set; }
 
     // Kick the game off with the first state
-    void Start() => ChangeState(GameState.Puase);
+    void Start() => ChangeState(GameState.Starting);
 
     public void ChangeState(GameState newState)
     {
@@ -58,18 +58,20 @@ public class GameManager : StaticInstance<GameManager>
 
         OnAfterStateChanged?.Invoke(newState);
 
-        // Debug.Log($"New state: {newState}");
+        Debug.Log($"New state: {newState}");
     }
     private void HandleStarting()
     {
         // Do some start setup, could be environment, cinematics etc
 
         // Loading 
-
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
         // Eventually call ChangeState again with your next state
         SpawnPlayer();
         SpawnEnemy();
-        ChangeState(GameState.Playing);
+        //ChangeState(GameState.Playing);
     }
 
     private void SpawnEnemy()
@@ -85,25 +87,25 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandlePlaying()
     {
-        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
     }
     private void HandleLose()
     {
-        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.defeatThemeClip);
         UIManager.Instance.GameOverCanvas.gameObject.SetActive(true);
     }
 
     private void HandleWin()
     {
-        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
         UIManager.Instance.WinCanvas.gameObject.SetActive(true);
     }
     private void HandleDialogue()
     {
-        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.dialogueThemeClip);
     }
     private void HandlePuase()
@@ -112,7 +114,7 @@ public class GameManager : StaticInstance<GameManager>
     }
     public void Restart()
     {
-        this.ChangeState(GameState.Starting);
+        this.ChangeState(GameState.Playing);
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
