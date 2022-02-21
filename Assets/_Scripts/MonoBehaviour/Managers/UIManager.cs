@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class UIManager : StaticInstance<UIManager>
     public Canvas SettingPauseCanvas;
     public Canvas StartCanvas;
     public Canvas WinCanvas;
+    public Canvas Prologue_AfterMainMenu;
+    public Canvas Epilogue_BeforeCredits;
     [SerializeField] Slider Enemeyhealth;
 
     [SerializeField] Slider FXVolumnStartCanv;
@@ -40,6 +43,7 @@ public class UIManager : StaticInstance<UIManager>
         StartCanvas.gameObject.SetActive(false);
         PuaseCanvas.gameObject.SetActive(false);
         WinCanvas.gameObject.SetActive(false);
+        Prologue_AfterMainMenu.gameObject.SetActive(true);
         GameManager.Instance.Restart();
     }
     public void Resume()
@@ -62,5 +66,10 @@ public class UIManager : StaticInstance<UIManager>
             StartCanvas.gameObject.SetActive(true);
         }
         SettingPauseCanvas.gameObject.SetActive(false);
+    }
+
+    public void hidestartCanvas()
+    {
+        Prologue_AfterMainMenu.gameObject.SetActive(false);
     }
 }

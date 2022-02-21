@@ -34,6 +34,7 @@ public class GameManager : StaticInstance<GameManager>
     [SerializeField] DuilogTime[] Stage2Duilogs;
     [SerializeField] DuilogTime[] Stage3Duilogs;
     [SerializeField] DuilogTime[] FinalDuilogs;
+    [SerializeField] float startCanvasTime = 3f;
     public GameState State { get; private set; }
 
     // Kick the game off with the first state
@@ -127,13 +128,15 @@ public class GameManager : StaticInstance<GameManager>
 
     private IEnumerator FirstScene()
     {
+        yield return new WaitForSeconds(startCanvasTime);
+        UIManager.Instance.hidestartCanvas();
         ChangeState(GameState.Dialogue);
         for (int i = 0; i < StartDuilogs.Length; i++)
         {
             GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
             yield return new WaitForSeconds(StartDuilogs[i].time);
             Destroy(Duilogs);
-           
+
         }
         yield return new WaitForSeconds(StartDuilogs[StartDuilogs.Length - 1].time);
         DialogueManager.Instance.EndDialogue();
@@ -198,10 +201,12 @@ public class GameManager : StaticInstance<GameManager>
     }
     public void Restart()
     {
+       
         StartCoroutine(FirstScene());
         this.ChangeState(GameState.Playing);
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
+   
 }
 
