@@ -18,6 +18,8 @@ public class EnemyAI : MonoBehaviour
     List<Vector2> points = new List<Vector2>();
     [SerializeField] Vector2 offset = new Vector2(-1f, -1f);
     [SerializeField] float damageforce = 20f;
+    [SerializeField] float attackCoolTime = 1;
+    [SerializeField] float maxAttackCooltime = 1;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -30,7 +32,22 @@ public class EnemyAI : MonoBehaviour
         if (GameManager.Instance.State == GameState.Playing)
         {
             enemy.canShoot = false;
-            PatternStrategies();
+            StartCoroutine(PatternStrategies());
+            //if (attackCoolTime >= maxAttackCooltime)
+            //{
+
+            //    attackCoolTime -= Time.deltaTime;
+            //}
+            //else
+            //{
+            //    if (attackCoolTime <= 0)
+            //    {
+            //        attackCoolTime = maxAttackCooltime;
+            //    }
+            //    else
+            //        attackCoolTime -= Time.deltaTime;
+            //}
+
         }
         else
         {
@@ -42,7 +59,7 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
-    void PatternStrategies()
+    IEnumerator PatternStrategies()
     {
         if (GameManager.Instance.State == GameState.Playing)
         {
@@ -50,12 +67,15 @@ public class EnemyAI : MonoBehaviour
             {
                 case AttackPattern.Pattern1:
                     GetComponent<Attack01State>().FirstPatternStrategy();
+                    yield return new WaitForSeconds(attackCoolTime);
                     break;
                 case AttackPattern.Pattern2:
                     GetComponent<Attack02State>().SecondPatternStrategy();
+                    yield return new WaitForSeconds(attackCoolTime);
                     break;
                 case AttackPattern.Pattern3:
                     GetComponent<Attack03State>().ThirdPatternStrategy();
+                    yield return new WaitForSeconds(attackCoolTime);
                     break;
                     //case AttackPattern.Pattern4:
                     //    //  enemy.enemyObj.GetComponent<Attack01State>().FirstPatternStrategy(animator, rb, target.position, rb.position, enemy);

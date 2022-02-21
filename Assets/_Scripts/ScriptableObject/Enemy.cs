@@ -110,7 +110,7 @@ public class Enemy : ScriptableObject
     public LayerMask attackMask;
 
     public bool canShoot = false;
-    
+
 
     public void TakeDamage(float amount)
     {
@@ -128,20 +128,23 @@ public class Enemy : ScriptableObject
         //TODO Change values to GetRandomAttackPattern(currentPattern)
         if (currentHealth <= 100 && currentHealth > 70)
         {
+            // pause first duilog
+           
+            // playing pase one
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern1);
         }
         else if (currentHealth <= 70 && currentHealth > 40)
         {
+            // the back ground and audio 
+            // dilog
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern2);
         }
         else
         {
+            // the back ground and audio 
+            // dilog
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern3);
         }
-        //else
-        //{
-        //    currentPattern = GetRandomAttackPattern(AttackPattern.Pattern4);
-        //}
         Debug.Log(currentPattern.ToString());
     }
     private AttackPattern GetRandomAttackPattern(AttackPattern attackPattern)
@@ -149,11 +152,11 @@ public class Enemy : ScriptableObject
         switch (attackPattern)
         {
             case AttackPattern.Pattern1:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern3 }.Count) + 1);
+                return AttackPattern.Pattern1;
             case AttackPattern.Pattern2:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3 }.Count) + 1);
+                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern1 }.Count) + 1);
             case AttackPattern.Pattern3:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3}.Count) + 1);
+                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3 }.Count) + 1);
             //case AttackPattern.Pattern4:
             //    return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
             ////  return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
@@ -184,5 +187,5 @@ public enum AttackPattern
     Pattern1 = 1,
     Pattern2 = 2,
     Pattern3 = 3,
-   // Pattern4 = 4,
+    // Pattern4 = 4,
 }

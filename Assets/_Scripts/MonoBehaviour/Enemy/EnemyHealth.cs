@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] Enemy enemy;
     Rigidbody2D rb;
     Animator animator;
-    [SerializeField] float damageforce = 20f;
+    [SerializeField] float damageforce = 50f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
     {
         AudioManager.Instance.PlaySoundFxSource(enemy.MonsterReceiveDamageClip);
         enemy.TakeDamage(amount);
-        transform.position = Vector2.MoveTowards(transform.position, new Vector3(0, 3, 0), 100);
+        rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)

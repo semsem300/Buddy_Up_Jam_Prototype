@@ -942,6 +942,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2627176656416760735, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+      propertyPath: damageforce
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 4438633499656019489, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
       propertyPath: enemyObj
       value: 
@@ -1663,6 +1667,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1891475355, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
+      propertyPath: damageforce
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 1891475355, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
       propertyPath: hearts.Array.size
       value: 10
@@ -2706,7 +2714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 5
+  m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &2038905591 stripped
