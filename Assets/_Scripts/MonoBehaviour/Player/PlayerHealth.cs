@@ -69,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
         player.TakeDamage(amount);
         AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
         CameraShake.Instance.ShakeIt(5f, .2f);
-        rb.velocity *= -damageforce;
+        rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
         // transform.position = new Vector3(-10, -3, 0);
         animator.SetTrigger("Hurt");
     }

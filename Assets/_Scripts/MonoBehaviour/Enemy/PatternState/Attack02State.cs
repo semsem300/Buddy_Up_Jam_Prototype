@@ -73,7 +73,7 @@ public class Attack02State : MonoBehaviour
             {
                 // TODO Add  Wait time 
                 // enemy.currentPattern = AttackPattern.Pattern2;
-                enemy.ChangeAttackPattern();
+                //  enemy.ChangeAttackPattern();
                 enemy.currentPattern2AttackTime = enemy.Pattern2AttackTime;
             }
         }
