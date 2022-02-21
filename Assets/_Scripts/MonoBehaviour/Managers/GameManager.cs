@@ -80,13 +80,13 @@ public class GameManager : StaticInstance<GameManager>
             switch (currentPattern)
             {
                 case 0:
-                    FirstScene();
+                    StartCoroutine(FirstScene());
                     break;
                 case 1:
-                    SecondScene();
+                    StartCoroutine(SecondScene());
                     break;
                 case 2:
-                    LastScene();
+                    StartCoroutine(LastScene());
                     break;
             }
         }

@@ -3668,6 +3668,22 @@ PrefabInstance:
       propertyPath: GameOverCanvas
       value: 
       objectReference: {fileID: 1322399994}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: startCanvasTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[6].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: 8a70672610784174cab0610c62c7577f, type: 3}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[7].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: 63e5e9f811fbce641863d1af333381f8, type: 3}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[10].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: d425aa327385c5f418a072b856006095, type: 3}
     - target: {fileID: 2830485533401040995, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: WinCanvas
       value: 
