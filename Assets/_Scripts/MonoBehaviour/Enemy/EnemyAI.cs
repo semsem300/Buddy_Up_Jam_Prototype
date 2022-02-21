@@ -33,21 +33,6 @@ public class EnemyAI : MonoBehaviour
         {
             enemy.canShoot = false;
             StartCoroutine(PatternStrategies());
-            //if (attackCoolTime >= maxAttackCooltime)
-            //{
-
-            //    attackCoolTime -= Time.deltaTime;
-            //}
-            //else
-            //{
-            //    if (attackCoolTime <= 0)
-            //    {
-            //        attackCoolTime = maxAttackCooltime;
-            //    }
-            //    else
-            //        attackCoolTime -= Time.deltaTime;
-            //}
-
         }
         else
         {
