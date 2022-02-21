@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Tutorial
-    background: {fileID: 0}
+    background: {fileID: 21300000, guid: 868aa875d799a05468c101a0120c401e, type: 3}
     sentences:
     - 'Movement: "W/A/S/D" or arrows.
 
