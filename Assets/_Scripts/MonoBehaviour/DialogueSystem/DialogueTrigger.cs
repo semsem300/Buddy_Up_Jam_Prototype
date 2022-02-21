@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
             if (transform != null)
             {
-                Instantiate(particleSystem, transform.transform.position, Quaternion.identity);
+                //Instantiate(particleSystem, transform.transform.position, Quaternion.identity);
                 // animator.SetTrigger("Heal");
             }
         }

@@ -15,6 +15,12 @@ public enum GameState
     Lose = 6,
     Dialogue = 7
 }
+[Serializable]
+public class DuilogTime
+{
+    public GameObject Duilog;
+    public float time;
+}
 public class GameManager : StaticInstance<GameManager>
 {
     public static event Action<GameState> OnBeforeStateChanged;
@@ -23,6 +29,11 @@ public class GameManager : StaticInstance<GameManager>
     [SerializeField] Player player;
     [SerializeField] Enemy enemy;
     [SerializeField] AudioSetting setting;
+    [SerializeField] GameObject background;
+    [SerializeField] DuilogTime[] StartDuilogs;
+    [SerializeField] DuilogTime[] Stage2Duilogs;
+    [SerializeField] DuilogTime[] Stage3Duilogs;
+    [SerializeField] DuilogTime[] FinalDuilogs;
     public GameState State { get; private set; }
 
     // Kick the game off with the first state
@@ -60,6 +71,78 @@ public class GameManager : StaticInstance<GameManager>
 
         Debug.Log($"New state: {newState}");
     }
+
+    public void ChangePattern(int currentPattern)
+    {
+        if (State == GameState.Playing)
+        {
+            switch (currentPattern)
+            {
+                case 0:
+                    FirstScene();
+                    break;
+                case 1:
+                    SecondScene();
+                    break;
+                case 2:
+                    LastScene();
+                    break;
+            }
+        }
+
+    }
+
+    private IEnumerator LastScene()
+    {
+        ChangeState(GameState.Dialogue);
+        for (int i = 0; i < StartDuilogs.Length; i++)
+        {
+            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
+            yield return new WaitForSeconds(Stage2Duilogs[i].time);
+            Destroy(Duilogs);
+        }
+        yield return new WaitForSeconds(StartDuilogs[Stage2Duilogs.Length - 1].time);
+        ChangeState(GameState.Playing);
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
+        AudioManager.Instance.StopSoundMainSource();
+        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase3Clip);
+    }
+
+    private IEnumerator SecondScene()
+    {
+        ChangeState(GameState.Dialogue);
+        for (int i = 0; i < StartDuilogs.Length; i++)
+        {
+            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
+            yield return new WaitForSeconds(Stage2Duilogs[i].time);
+            Destroy(Duilogs);
+        }
+        yield return new WaitForSeconds(StartDuilogs[Stage2Duilogs.Length - 1].time);
+        ChangeState(GameState.Playing);
+        AudioManager.Instance.StopSoundMainSource();
+
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background2;
+        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase2Clip);
+    }
+
+    private IEnumerator FirstScene()
+    {
+        ChangeState(GameState.Dialogue);
+        for (int i = 0; i < StartDuilogs.Length; i++)
+        {
+            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
+            yield return new WaitForSeconds(StartDuilogs[i].time);
+            Destroy(Duilogs);
+           
+        }
+        yield return new WaitForSeconds(StartDuilogs[StartDuilogs.Length - 1].time);
+        DialogueManager.Instance.EndDialogue();
+        //Destroy(Duilogs);
+        ChangeState(GameState.Playing);
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background1;
+        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase1Clip);
+    }
+
     private void HandleStarting()
     {
         // Do some start setup, could be environment, cinematics etc
@@ -87,8 +170,7 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandlePlaying()
     {
-        AudioManager.Instance.StopSoundMainSource();
-        AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
+
     }
     private void HandleLose()
     {
@@ -116,8 +198,10 @@ public class GameManager : StaticInstance<GameManager>
     }
     public void Restart()
     {
+        StartCoroutine(FirstScene());
         this.ChangeState(GameState.Playing);
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
 }
+

@@ -103,6 +103,9 @@ public class Enemy : ScriptableObject
     public AudioClip MonsterAttack02ProjectileFlyingClip;
     public AudioClip MonsterAttack02ProjectilePuddleClip;
     public AudioClip MonsterAttack03Clip;
+    public AudioClip BossPhase1Clip;
+    public AudioClip BossPhase2Clip;
+    public AudioClip BossPhase3Clip;
 
     [Header("Boss Info")]
     public GameObject enemyObj;
@@ -111,6 +114,9 @@ public class Enemy : ScriptableObject
 
     public bool canShoot = false;
 
+    public Sprite Background1;
+    public Sprite Background2;
+    public Sprite Background3;
 
     public void TakeDamage(float amount)
     {

@@ -21,7 +21,7 @@ public class DialogueManager : Singleton<DialogueManager>
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public bool StartDialogue(Dialogue dialogue)
     {
         GameManager.Instance.ChangeState(GameState.Dialogue);
         animator.SetBool("IsOpen", true);
@@ -32,19 +32,20 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             sentences.Enqueue(sentence);
         }
-        DisplayNextSentence();
+        return DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    public bool DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
             EndDialogue();
-            return;
+            return true;
         }
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+        return false;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -57,7 +58,7 @@ public class DialogueManager : Singleton<DialogueManager>
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
     }

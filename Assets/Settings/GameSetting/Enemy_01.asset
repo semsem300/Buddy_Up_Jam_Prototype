@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 69
   maxHealth: 100
   deathtime: 1
   isAlive: 1
@@ -21,29 +21,29 @@ MonoBehaviour:
   maxDetectRange: 5
   minDetectRange: 0.75
   damgeOnColide: 0
-  currentPattern: 1
+  currentPattern: 2
   Attack01StopDistence: {x: 1.5, y: 1.5, z: 0}
   Attack03StopDistence: {x: 2, y: 2, z: 0}
   Attack04StopDistence: {x: 1, y: 0.5, z: 0}
   attackRange: 4
   Pattern1AttackDamage: 1
   Pattern1AttackTime: 5
-  currentPattern1AttackTime: 2.2507238
-  attack01CoolTime: 1.0957443
+  currentPattern1AttackTime: 1.9140378
+  attack01CoolTime: 1.9841607
   maxAttack01Cooltime: 2
   moveWaitTime: 1
   startMoveWaitTime: 1
   Pattern2AttackDamage: 1
   attack02Obj: {fileID: 8455908119392114119, guid: a3b7162b976e27c4a9ad63c143bcb989, type: 3}
   Pattern2AttackTime: 3
-  currentPattern2AttackTime: 0.34209424
-  attack02CoolTime: 1.0035683
+  currentPattern2AttackTime: 1.7808673
+  attack02CoolTime: 0.82729983
   maxAttack02Cooltime: 2
   attack03Obj: {fileID: 1833404154603397961, guid: 5e5987b12f6aea8408e508b46587aa4a, type: 3}
   Pattern3AttackDamage: 1
   Pattern3AttackTime: 6
   currentPattern3AttackTime: 3
-  attack03CoolTime: 1.8913307
+  attack03CoolTime: 2.9895847
   maxAttack03Cooltime: 3
   Pattern4AttackDamage: 1
   Pattern4AttackTime: 5.03
@@ -61,9 +61,15 @@ MonoBehaviour:
   MonsterAttack02ProjectileFlyingClip: {fileID: 8300000, guid: d815897ceb9727d419083c73d1e1514a, type: 3}
   MonsterAttack02ProjectilePuddleClip: {fileID: 8300000, guid: 4a22c85ca5e33ba49992e25bf087d1ce, type: 3}
   MonsterAttack03Clip: {fileID: 8300000, guid: dcd4f8490816948438900a47d5ba11a8, type: 3}
+  BossPhase1Clip: {fileID: 8300000, guid: b72b7b29a27c0d44ba5f6d61b144bf0d, type: 3}
+  BossPhase2Clip: {fileID: 8300000, guid: 1c7229f1fd9330f40afef53d7e60a76a, type: 3}
+  BossPhase3Clip: {fileID: 8300000, guid: f4293b3e751f0cb4d8f1c0bb155688e1, type: 3}
   enemyObj: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
   position: {x: 0, y: 0, z: 0}
   attackMask:
     serializedVersion: 2
     m_Bits: 128
   canShoot: 0
+  Background1: {fileID: 21300000, guid: 8ef8444ba85431347b1974770d680d5f, type: 3}
+  Background2: {fileID: 21300000, guid: 4204a5fdf2476f44eb500159a34a7f55, type: 3}
+  Background3: {fileID: 21300000, guid: 3615a7a9c331e6543805ad6cd9410b89, type: 3}

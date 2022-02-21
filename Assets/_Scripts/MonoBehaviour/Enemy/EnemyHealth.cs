@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        GameManager.Instance.ChangePattern(0);
     }
     private void Update()
     {
@@ -31,6 +32,15 @@ public class EnemyHealth : MonoBehaviour
         enemy.TakeDamage(amount);
         rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
         animator.SetTrigger("Hurt");
+        if (enemy.currentHealth == 70)
+        {
+            GameManager.Instance.ChangePattern(1);
+
+        }
+        else if(enemy.currentHealth == 40)
+        {
+            GameManager.Instance.ChangePattern(2);
+        }
     }
     IEnumerator Death(float time)
     {

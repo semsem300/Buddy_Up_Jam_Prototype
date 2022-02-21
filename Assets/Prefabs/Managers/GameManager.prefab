@@ -46,3 +46,8 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 8701af2327a90a1449773ba14b427a88, type: 2}
   enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
   setting: {fileID: 11400000, guid: ed55b41abc7ef8248980ae51f0cfc47c, type: 2}
+  background: {fileID: 0}
+  StartDuilogs: []
+  Stage2Duilogs: []
+  Stage3Duilogs: []
+  FinalDuilogs: []
