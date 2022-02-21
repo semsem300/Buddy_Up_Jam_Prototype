@@ -98,11 +98,11 @@ public class GameManager : StaticInstance<GameManager>
         ChangeState(GameState.Dialogue);
         for (int i = 0; i < StartDuilogs.Length; i++)
         {
-            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
-            yield return new WaitForSeconds(Stage2Duilogs[i].time);
+            GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
+            yield return new WaitForSeconds(Stage3Duilogs[i].time);
             Destroy(Duilogs);
         }
-        yield return new WaitForSeconds(StartDuilogs[Stage2Duilogs.Length - 1].time);
+        yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
         ChangeState(GameState.Playing);
         background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
         AudioManager.Instance.StopSoundMainSource();
@@ -114,11 +114,11 @@ public class GameManager : StaticInstance<GameManager>
         ChangeState(GameState.Dialogue);
         for (int i = 0; i < StartDuilogs.Length; i++)
         {
-            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
+            GameObject Duilogs = Instantiate(Stage2Duilogs[i].Duilog);
             yield return new WaitForSeconds(Stage2Duilogs[i].time);
             Destroy(Duilogs);
         }
-        yield return new WaitForSeconds(StartDuilogs[Stage2Duilogs.Length - 1].time);
+        yield return new WaitForSeconds(Stage2Duilogs[Stage2Duilogs.Length - 1].time);
         ChangeState(GameState.Playing);
         AudioManager.Instance.StopSoundMainSource();
 
@@ -128,9 +128,9 @@ public class GameManager : StaticInstance<GameManager>
 
     private IEnumerator FirstScene()
     {
+        ChangeState(GameState.Dialogue);
         yield return new WaitForSeconds(startCanvasTime);
         UIManager.Instance.hidestartCanvas();
-        ChangeState(GameState.Dialogue);
         for (int i = 0; i < StartDuilogs.Length; i++)
         {
             GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
@@ -185,10 +185,8 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandleWin()
     {
-        AudioManager.Instance.StopSoundFxSource();
-        AudioManager.Instance.StopSoundMainSource();
-        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
-        UIManager.Instance.WinCanvas.gameObject.SetActive(true);
+        StartCoroutine(WinCanvas());
+       
     }
     private void HandleDialogue()
     {
@@ -207,6 +205,21 @@ public class GameManager : StaticInstance<GameManager>
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
-   
+   IEnumerator WinCanvas()
+    {
+        ChangeState(GameState.Dialogue);
+        for (int i = 0; i < StartDuilogs.Length; i++)
+        {
+            GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
+            yield return new WaitForSeconds(Stage3Duilogs[i].time);
+            Destroy(Duilogs);
+        }
+        yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
+        ChangeState(GameState.Win);
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
+        UIManager.Instance.WinCanvas.gameObject.SetActive(true);
+    }
 }
 
