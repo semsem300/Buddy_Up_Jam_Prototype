@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1839066383860622517
+--- !u!1 &2634019619937238618
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4177662612052016128}
-  - component: {fileID: 6526323191084160502}
-  - component: {fileID: 3185361398010216106}
+  - component: {fileID: 4117879222794549037}
+  - component: {fileID: 2679715342512688762}
+  - component: {fileID: 1565295638147762579}
   m_Layer: 0
-  m_Name: Dialogue (3)
+  m_Name: Dialogue5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &4177662612052016128
+--- !u!4 &4117879222794549037
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839066383860622517}
+  m_GameObject: {fileID: 2634019619937238618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.6771007, y: 2.7776697, z: -14.865514}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6526323191084160502
+--- !u!114 &2679715342512688762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839066383860622517}
+  m_GameObject: {fileID: 2634019619937238618}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ee28dafec470d24896f62807a035703, type: 3}
@@ -46,13 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues: []
   animator: {fileID: 0}
---- !u!61 &3185361398010216106
+--- !u!61 &1565295638147762579
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839066383860622517}
+  m_GameObject: {fileID: 2634019619937238618}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
