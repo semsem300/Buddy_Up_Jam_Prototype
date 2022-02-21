@@ -8,7 +8,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
+    public Image DialogueBackGround;
     public Animator animator;
 
     private Queue<string> sentences;
@@ -29,7 +29,8 @@ public class DialogueManager : Singleton<DialogueManager>
         sentences.Clear();
         foreach (Dialogue dialogue in dialogues)
         {
-            nameText.text = dialogue.name + ": ";
+            nameText.text = dialogue.Speeker + ": ";
+            DialogueBackGround.sprite = dialogue.Pic;
             sentences.Enqueue(dialogue.sentences);
         }
         DisplayNextSentence();
