@@ -45,34 +45,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - name: Liam
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
     sentences: Hello?
-  - name: Liam
-    sentences: Is there anyone here? ...
-  - name: Liam
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "Is there anyone here?\u2026"
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
     sentences: "Of course not\u2026 I\u2019m alone. I always have been."
-  - name: Despair
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
     sentences: "You\u2019re not alone. You\u2019re with me."
-  - name: Liam
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
     sentences: Wh-who are you?...
-  - name: Despair
-    sentences: "Oh just sadness for now\u2026 \r"
-  - name: Liam
-    sentences: 
-  - name: Despair
-    sentences: 
-  - name: Liam
-    sentences: 
-  - name: Despair
-    sentences: 
-  - name: Liam
-    sentences: 
-  - name: Despair
-    sentences: 
-  - name: Liam
-    sentences: 
-  - name: Despair
-    sentences: 
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: "Oh just sadness for now\u2026"
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: For now? What does that mean?
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: It means I live in you. I know your fears, your desires. And you feed
+      me.
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: "Feed you?\u2026"
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: "That\u2019s right. My roots stretch deep into you. You feel that?"
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: ...
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: 'Exactly. '
+  - Speeker: Liam
+    Pic: {fileID: 21300000, guid: d67c570f5dcbd794287c252a1f8773a0, type: 3}
+    sentences: Leave me alone.
+  - Speeker: Despair
+    Pic: {fileID: 21300000, guid: 06e181daca579394c90841ed25381d10, type: 3}
+    sentences: Never
   animator: {fileID: 0}
 --- !u!61 &371690552101366416
 BoxCollider2D:
