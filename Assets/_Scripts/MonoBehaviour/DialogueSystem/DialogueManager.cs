@@ -8,7 +8,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
+    public Image background;
     public Animator animator;
 
     private Queue<string> sentences;
@@ -26,6 +26,7 @@ public class DialogueManager : Singleton<DialogueManager>
         GameManager.Instance.ChangeState(GameState.Dialogue);
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name + ": ";
+        background.sprite = dialogue.background;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
