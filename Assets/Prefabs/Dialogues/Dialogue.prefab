@@ -46,17 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - name: Liam
-    sentences: 
+    sentences: Hello?
   - name: Liam
-    sentences: 
+    sentences: Is there anyone here? ...
   - name: Liam
-    sentences: 
+    sentences: "Of course not\u2026 I\u2019m alone. I always have been."
   - name: Despair
-    sentences: 
+    sentences: "You\u2019re not alone. You\u2019re with me."
   - name: Liam
-    sentences: 
+    sentences: Wh-who are you?...
   - name: Despair
-    sentences: 
+    sentences: "Oh just sadness for now\u2026 \r"
   - name: Liam
     sentences: 
   - name: Despair
