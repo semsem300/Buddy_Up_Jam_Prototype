@@ -48,7 +48,7 @@ MonoBehaviour:
     name: Despair
     background: {fileID: 21300000, guid: 65517194ae89909488fbfc4fec5cd705, type: 3}
     sentences:
-    - Never.
+    - "That\u2019s right. My roots stretch deep into you. You feel that?"
   particleSystem: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &7305436751889689910

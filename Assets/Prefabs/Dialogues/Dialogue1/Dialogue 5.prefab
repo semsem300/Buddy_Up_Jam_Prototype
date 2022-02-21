@@ -48,7 +48,7 @@ MonoBehaviour:
     name: Despair
     background: {fileID: 21300000, guid: 65517194ae89909488fbfc4fec5cd705, type: 3}
     sentences:
-    - It means I live in you. I know your fears, your desires. And you feed me.
+    - "Oh just sadness for now\u2026  "
   particleSystem: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &7305436751889689910

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7305436751889689904}
   - component: {fileID: 7305436751889689910}
   m_Layer: 0
-  m_Name: Dialogue 2
+  m_Name: Dialogue 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7305436751889689911
 Transform:
   m_ObjectHideFlags: 0
@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Liam
-    background: {fileID: 21300000, guid: d253805b665e37448a6cc9ffb2517535, type: 3}
+    name: Despair
+    background: {fileID: 21300000, guid: 65517194ae89909488fbfc4fec5cd705, type: 3}
     sentences:
-    - "Of course not\u2026 I\u2019m alone. I always have been."
+    - Never.
   particleSystem: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &7305436751889689910

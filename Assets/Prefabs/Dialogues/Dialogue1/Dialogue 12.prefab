@@ -45,17 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Tutorial
-    background: {fileID: 21300000, guid: 868aa875d799a05468c101a0120c401e, type: 3}
+    name: Liam
+    background: {fileID: 21300000, guid: d253805b665e37448a6cc9ffb2517535, type: 3}
     sentences:
-    - 'Movement: "W/A/S/D" or arrows.
-
-      Roll: ''Movement'' + "Spacebar"
-
-      Attack:
-      "Left Mouse Button"
-
-'
+    - Leave me alone.
   particleSystem: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &7305436751889689910
