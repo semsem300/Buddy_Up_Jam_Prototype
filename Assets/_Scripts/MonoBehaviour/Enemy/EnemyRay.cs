@@ -12,11 +12,14 @@ public class EnemyRay : MonoBehaviour
     public Image damageIndicator;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (GameManager.Instance.State == GameState.Playing)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern3AttackDamage);
-            damageIndicator.color = flashColour;
-            StartCoroutine(RestIamageIndicatorColor());
+            if (collision.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern3AttackDamage);
+                damageIndicator.color = flashColour;
+                StartCoroutine(RestIamageIndicatorColor());
+            }
         }
     }
 

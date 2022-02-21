@@ -11,9 +11,12 @@ public class EnemyAttack : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (GameManager.Instance.State == GameState.Playing)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.damgeOnColide);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.damgeOnColide);
+            }
         }
     }
     void OnDrawGizmosSelected()

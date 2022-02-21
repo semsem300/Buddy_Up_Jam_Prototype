@@ -67,7 +67,7 @@ public class GameManager : StaticInstance<GameManager>
         // Loading 
         AudioManager.Instance.StopSoundFxSource();
         AudioManager.Instance.StopSoundMainSource();
-        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
+        AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
         // Eventually call ChangeState again with your next state
         SpawnPlayer();
         SpawnEnemy();
@@ -92,6 +92,7 @@ public class GameManager : StaticInstance<GameManager>
     }
     private void HandleLose()
     {
+        AudioManager.Instance.StopSoundFxSource();
         AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.defeatThemeClip);
         UIManager.Instance.GameOverCanvas.gameObject.SetActive(true);
@@ -99,6 +100,7 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandleWin()
     {
+        AudioManager.Instance.StopSoundFxSource();
         AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
         UIManager.Instance.WinCanvas.gameObject.SetActive(true);

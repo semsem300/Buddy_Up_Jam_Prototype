@@ -29,22 +29,29 @@ public class EnemyProjectTile : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.position = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            rb.position = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        }
+        else rb.velocity = Vector2.zero;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (GameManager.Instance.State == GameState.Playing)
         {
-            if (collision.CompareTag("Walls"))
+            if (collision != null)
             {
-                Destroy(gameObject);
-            }
-            if (collision.CompareTag("Player"))
-            {
-                Destroy(gameObject);
-                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern2AttackDamage);
-                damageIndicator.color = flashColour;
-                StartCoroutine(RestIamageIndicatorColor());
+                if (collision.CompareTag("Walls"))
+                {
+                    Destroy(gameObject);
+                }
+                if (collision.CompareTag("Player"))
+                {
+                    Destroy(gameObject);
+                    collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern2AttackDamage);
+                    damageIndicator.color = flashColour;
+                    StartCoroutine(RestIamageIndicatorColor());
+                }
             }
         }
     }

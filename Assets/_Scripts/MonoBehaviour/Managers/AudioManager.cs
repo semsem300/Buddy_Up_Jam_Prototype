@@ -24,15 +24,16 @@ public class AudioManager : StaticInstance<AudioManager>
     }
     public void PlaySoundMainSource(AudioClip clip)
     {
-        setting.PlaySound(clip, MainSource);
+        MainSource.PlayOneShot(clip);
+            //.PlaySound(clip, MainSource);
     }
     public void StopSoundFxSource()
     {
-        MainSource.Stop();
+        FXSource.Stop();
     }
     public void StopSoundMainSource()
     {
-        FXSource.Stop();
+        MainSource.Stop();
     }
     public void PlaySoundFxSource(AudioClip clip)
     {
@@ -60,6 +61,6 @@ public class AudioManager : StaticInstance<AudioManager>
     }
     public void PlayMouseHover()
     {
-        PlaySoundMainSource(setting.mouseHoveringClip);
+        PlaySoundFxSource(setting.mouseHoveringClip);
     }
 }

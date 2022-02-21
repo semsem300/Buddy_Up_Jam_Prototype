@@ -72,6 +72,7 @@ public class Player : ScriptableObject
     }
     public void MakeDead()
     {
+        currentHealth = 0;
         isAlive = false;
     }
     public void ResetPlayerHealth()

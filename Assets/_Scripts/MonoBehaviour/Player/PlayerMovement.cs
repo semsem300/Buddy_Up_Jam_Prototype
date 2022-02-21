@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetFloat("Speed", 0);
+            animator.ResetTrigger("Dash");
         }
     }
     private void FixedUpdate()

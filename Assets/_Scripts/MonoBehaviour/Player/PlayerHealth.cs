@@ -25,6 +25,10 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!player.isAlive)
             {
+                for (int i = 0; i < numOfHeatrs; i++)
+                {
+                    hearts[i].enabled = false;
+                }
                 StartCoroutine(Death(player.deathtime));
             }
             else FillHearts();
@@ -58,14 +62,15 @@ public class PlayerHealth : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+
     }
     public void TakeDamage(int amount)
     {
         player.TakeDamage(amount);
         AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
         CameraShake.Instance.ShakeIt(5f, .2f);
-        transform.position = Vector2.MoveTowards(transform.position, new Vector3(-10, -3, 0), 100);
-       // transform.position = new Vector3(-10, -3, 0);
+        rb.velocity *= -damageforce;
+        // transform.position = new Vector3(-10, -3, 0);
         animator.SetTrigger("Hurt");
     }
     IEnumerator Death(float time)

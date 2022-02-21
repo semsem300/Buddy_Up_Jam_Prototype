@@ -175,6 +175,7 @@ public class Enemy : ScriptableObject
     }
     void MakeDead()
     {
+        currentHealth = 0;
         isAlive = false;
     }
 }

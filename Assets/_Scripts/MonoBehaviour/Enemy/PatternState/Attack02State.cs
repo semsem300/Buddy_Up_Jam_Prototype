@@ -34,45 +34,48 @@ public class Attack02State : MonoBehaviour
     }
     public void SecondPatternStrategy()
     {
-        if (enemy.currentPattern2AttackTime > 0)
+        if (GameManager.Instance.State == GameState.Playing)
         {
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            // Stops and starts aiming to the player
-            rb.velocity = Vector2.zero;
-            // Locks on the player
-            animator.SetFloat("Horizontal", (player.position.x - transform.position.x));
-            animator.SetFloat("Vertical", (player.position.y - transform.position.y));
-            // trigger attack Animation
-            if (Vector2.Distance(transform.position, center) < 0.1f)
+            if (enemy.currentPattern2AttackTime > 0)
             {
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                // Stops and starts aiming to the player
                 rb.velocity = Vector2.zero;
-            }
-            // Moves towards the center of the room
-            rb.position =
-                   Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
-            if (enemy.attack02CoolTime >= enemy.maxAttack02Cooltime)
-            {
-                Attack();
-                // Shoots slow bullets towards the player (Game obj contain script to move towards the player)
-                enemy.attack02CoolTime -= Time.deltaTime;
-            }
-            else if (enemy.attack02CoolTime < enemy.maxAttack02Cooltime)
-            {
-                if (enemy.attack02CoolTime <= 0)
+                // Locks on the player
+                animator.SetFloat("Horizontal", (player.position.x - transform.position.x));
+                animator.SetFloat("Vertical", (player.position.y - transform.position.y));
+                // trigger attack Animation
+                if (Vector2.Distance(transform.position, center) < 0.1f)
                 {
-                    enemy.attack02CoolTime = enemy.maxAttack02Cooltime;
+                    rb.velocity = Vector2.zero;
                 }
-                else
+                // Moves towards the center of the room
+                rb.position =
+                       Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
+                if (enemy.attack02CoolTime >= enemy.maxAttack02Cooltime)
+                {
+                    Attack();
+                    // Shoots slow bullets towards the player (Game obj contain script to move towards the player)
                     enemy.attack02CoolTime -= Time.deltaTime;
+                }
+                else if (enemy.attack02CoolTime < enemy.maxAttack02Cooltime)
+                {
+                    if (enemy.attack02CoolTime <= 0)
+                    {
+                        enemy.attack02CoolTime = enemy.maxAttack02Cooltime;
+                    }
+                    else
+                        enemy.attack02CoolTime -= Time.deltaTime;
+                }
+                enemy.currentPattern2AttackTime -= Time.deltaTime;
             }
-            enemy.currentPattern2AttackTime -= Time.deltaTime;
-        }
-        else if (enemy.currentPattern2AttackTime <= 0)
-        {
-            // TODO Add  Wait time 
-            // enemy.currentPattern = AttackPattern.Pattern2;
-            enemy.ChangeAttackPattern();
-            enemy.currentPattern2AttackTime = enemy.Pattern2AttackTime;
+            else if (enemy.currentPattern2AttackTime <= 0)
+            {
+                // TODO Add  Wait time 
+                // enemy.currentPattern = AttackPattern.Pattern2;
+                enemy.ChangeAttackPattern();
+                enemy.currentPattern2AttackTime = enemy.Pattern2AttackTime;
+            }
         }
     }
     void Attack()

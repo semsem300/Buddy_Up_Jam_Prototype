@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Vector3 attackOffset;
     [SerializeField] Enemy enemy;
     [SerializeField] Player player;
+    [SerializeField] AudioSetting setting;
     Animator animator;
     Rigidbody2D rb;
     private Vector3 target;
@@ -16,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     LineRenderer lineRenderer;
     List<Vector2> points = new List<Vector2>();
     [SerializeField] Vector2 offset = new Vector2(-1f, -1f);
+    [SerializeField] float damageforce = 20f;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -27,24 +29,18 @@ public class EnemyAI : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Playing)
         {
-            if (GameManager.Instance.State == GameState.Playing)
-            {
-                enemy.canShoot = false;
-                PatternStrategies();
-            }
-            else
-            {
-                animator.ResetTrigger("Attack01");
-                animator.ResetTrigger("Attack02");
-                animator.ResetTrigger("Attack03");
-                animator.ResetTrigger("Attack04");
-
-            }
+            enemy.canShoot = false;
+            PatternStrategies();
         }
         else
         {
+            animator.ResetTrigger("Attack01");
+            animator.ResetTrigger("Attack02");
+            animator.ResetTrigger("Attack03");
+            animator.ResetTrigger("Attack04");
             animator.SetBool("IsMoving", false);
         }
+
     }
     void PatternStrategies()
     {
@@ -72,6 +68,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Playing)
         {
+            AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack01Clip);
             var attackPos = transform.position;
             attackPos += transform.right * attackOffset.x;
             attackPos += transform.up * attackOffset.y;
@@ -82,7 +79,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     Debug.Log("GetDamage");
                     collider2D.GetComponent<PlayerHealth>().TakeDamage(enemy.Pattern1AttackDamage);
-                    //     transform.position = Vector2.MoveTowards(transform.position, Enemy.position, Enemy.speed * Time.deltaTime);
+                    rb.velocity *= -damageforce;
                 }
             }
         }
@@ -136,32 +133,40 @@ public class EnemyAI : MonoBehaviour
     }
     IEnumerator RayOrders()
     {
-        GameObject ray1 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.identity);
-        ray1.transform.parent = enemyObj.transform;
-        GameObject ray2 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 90));
-        ray2.transform.parent = enemyObj.transform;
-        Destroy(ray1, 1.5f);
-        Destroy(ray2, 1.5f);
-        yield return new WaitForSeconds(2);
-        GameObject ray3 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 45));
-        ray3.transform.parent = enemyObj.transform;
-        GameObject ray4 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 135));
-        ray4.transform.parent = enemyObj.transform;
-        Destroy(ray3, 1.5f);
-        Destroy(ray4, 1.5f);
-        yield return new WaitForSeconds(2);
-        GameObject ray5 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.identity);
-        ray5.transform.parent = enemyObj.transform;
-        GameObject ray6 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 90));
-        ray6.transform.parent = enemyObj.transform;
-        Destroy(ray5, 1.5f);
-        Destroy(ray6, 1.5f);
-        yield return new WaitForSeconds(2);
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack03Clip);
+            GameObject ray1 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.identity);
+            ray1.transform.parent = enemyObj.transform;
+            GameObject ray2 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 90));
+            ray2.transform.parent = enemyObj.transform;
+            Destroy(ray1, 1.5f);
+            Destroy(ray2, 1.5f);
+            yield return new WaitForSeconds(2);
+            GameObject ray3 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 45));
+            ray3.transform.parent = enemyObj.transform;
+            GameObject ray4 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 135));
+            ray4.transform.parent = enemyObj.transform;
+            Destroy(ray3, 1.5f);
+            Destroy(ray4, 1.5f);
+            yield return new WaitForSeconds(2);
+            GameObject ray5 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.identity);
+            ray5.transform.parent = enemyObj.transform;
+            GameObject ray6 = Instantiate(enemy.attack03Obj, transform.position, Quaternion.Euler(0, 0, 90));
+            ray6.transform.parent = enemyObj.transform;
+            Destroy(ray5, 1.5f);
+            Destroy(ray6, 1.5f);
+            yield return new WaitForSeconds(2);
+        }
     }
     public void CanShoot()
     {
-        enemy.canShoot = true;
-        Instantiate(enemy.attack02Obj, transform.position, Quaternion.identity);
-        enemy.canShoot = false;
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            enemy.canShoot = true;
+            AudioManager.Instance.PlaySoundFxSource(enemy.MonsterAttack02ProjectileClip);
+            Instantiate(enemy.attack02Obj, transform.position, Quaternion.identity);
+            enemy.canShoot = false;
+        }
     }
 }

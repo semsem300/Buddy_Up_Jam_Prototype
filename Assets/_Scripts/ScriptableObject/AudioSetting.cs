@@ -22,6 +22,7 @@ public class AudioSetting : ScriptableObject
     public AudioClip mouseHoveringClip;
     public void PlaySound(AudioClip clip, AudioSource Source)
     {
+        Source.Stop();
         Source.clip = clip;
         Source.Play();
     }

@@ -19,6 +19,10 @@ public class PlayerAttack : MonoBehaviour
         {
             AttackInput();
         }
+        else
+        {
+            animator.ResetTrigger("Attack");
+        }
     }
     public void AttackTriggerd()
     {
