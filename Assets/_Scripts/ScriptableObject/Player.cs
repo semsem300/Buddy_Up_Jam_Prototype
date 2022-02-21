@@ -42,6 +42,7 @@ public class Player : ScriptableObject
     public AudioClip hurtClip;
     public AudioClip deathClip;
     public AudioClip attackClip;
+    public AudioClip dodgeRollClip;
     [Header("Player Info")]
     // public GameObject dashParticle;
     public Vector3 position = new Vector3(2, 2, 0);

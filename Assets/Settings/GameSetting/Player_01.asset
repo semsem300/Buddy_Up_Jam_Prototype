@@ -28,6 +28,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: 9cd030587facd6748be862c225a93a01, type: 3}
   deathClip: {fileID: 8300000, guid: fb18606ebd1b1eb409226f93864f3283, type: 3}
   attackClip: {fileID: 8300000, guid: 483653b39b4af664b8e79c4662eb1fac, type: 3}
+  dodgeRollClip: {fileID: 8300000, guid: fea5b117473a317418ad5ec295ac1385, type: 3}
   position: {x: 0.9074979, y: -1.0611018, z: 0}
   isAlive: 1
   isDash: 0

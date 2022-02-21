@@ -15,3 +15,9 @@ MonoBehaviour:
   FXAudioVolume: 0.57905334
   MainAudioVolume: 0
   _mute: 0
+  mainThemeClip: {fileID: 8300000, guid: 987ed9c43e812f34db338ffdfa1f9047, type: 3}
+  defeatThemeClip: {fileID: 8300000, guid: 6583aaae60ac824409a7f2fcb8f61267, type: 3}
+  bossPhase1Clip: {fileID: 8300000, guid: b72b7b29a27c0d44ba5f6d61b144bf0d, type: 3}
+  bossPhase2Clip: {fileID: 8300000, guid: 1c7229f1fd9330f40afef53d7e60a76a, type: 3}
+  bossPhase3Clip: {fileID: 8300000, guid: f4293b3e751f0cb4d8f1c0bb155688e1, type: 3}
+  mouseHoveringClip: {fileID: 8300000, guid: e433ab23f0d57264b9a86984225eb625, type: 3}

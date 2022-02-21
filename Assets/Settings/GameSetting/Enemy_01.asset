@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 32.8
   maxHealth: 100
   deathtime: 1
   isAlive: 1
@@ -21,30 +21,30 @@ MonoBehaviour:
   maxDetectRange: 5
   minDetectRange: 0.75
   damgeOnColide: 0
-  currentPattern: 1
+  currentPattern: 2
   Attack01StopDistence: {x: 1.5, y: 1.5, z: 0}
   Attack03StopDistence: {x: 2, y: 2, z: 0}
   Attack04StopDistence: {x: 1, y: 0.5, z: 0}
   attackRange: 4
   Pattern1AttackDamage: 0
   Pattern1AttackTime: 5
-  currentPattern1AttackTime: 2.0659807
-  attack01CoolTime: 0.7550339
+  currentPattern1AttackTime: 1.9497896
+  attack01CoolTime: 1.9913352
   maxAttack01Cooltime: 2
-  moveWaitTime: 0.22000036
+  moveWaitTime: 1
   startMoveWaitTime: 1
   Pattern2AttackDamage: 0
   attack02Obj: {fileID: 8455908119392114119, guid: a3b7162b976e27c4a9ad63c143bcb989, type: 3}
   Pattern2AttackTime: 7
-  currentPattern2AttackTime: 4.4813037
-  attack02CoolTime: 1.0650882
+  currentPattern2AttackTime: 5.2962728
+  attack02CoolTime: 1.1381043
   maxAttack02Cooltime: 2
   attack03Obj: {fileID: 1833404154603397961, guid: 5e5987b12f6aea8408e508b46587aa4a, type: 3}
   Pattern3AttackDamage: 0
   Pattern3AttackTime: 6
   currentPattern3AttackTime: 3
-  attack03CoolTime: 0.9741569
-  maxAttack03Cooltime: 2
+  attack03CoolTime: 2.0637472
+  maxAttack03Cooltime: 5.89
   Pattern4AttackDamage: 2
   Pattern4AttackTime: 5.03
   currentPattern4AttackTime: 3.184489
@@ -53,9 +53,14 @@ MonoBehaviour:
   attackRangeAttack04: 10
   grapSpeed: 20
   movingClip: {fileID: 8300000, guid: 958a32dbbaf72524599849f7f9d25fae, type: 3}
-  MonsterAttack01Clip: {fileID: 0}
-  MonsterCryClip: {fileID: 0}
-  MonsterReceiveDamageClip: {fileID: 0}
+  MonsterCryClip: {fileID: 8300000, guid: e4959df8480b71848acc53a58fb7a4e5, type: 3}
+  MonsterReceiveDamageClip: {fileID: 8300000, guid: f58775056f405a847a64cbd8dfb8d7df, type: 3}
+  MonsterAttack01Clip: {fileID: 8300000, guid: 3a0134340227c6841a9dccc17df03ad0, type: 3}
+  MonsterAttack02ProjectileClip: {fileID: 8300000, guid: da0efdb09e90e724a823fb30810bce93, type: 3}
+  MonsterAttack02Projectile02Clip: {fileID: 8300000, guid: 092bfee7912ea4840b89638c0968208d, type: 3}
+  MonsterAttack02ProjectileFlyingClip: {fileID: 8300000, guid: d815897ceb9727d419083c73d1e1514a, type: 3}
+  MonsterAttack02ProjectilePuddleClip: {fileID: 8300000, guid: 4a22c85ca5e33ba49992e25bf087d1ce, type: 3}
+  MonsterAttack03Clip: {fileID: 8300000, guid: dcd4f8490816948438900a47d5ba11a8, type: 3}
   enemyObj: {fileID: 4438633499656019501, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
   position: {x: 0, y: 0, z: 0}
   attackMask:

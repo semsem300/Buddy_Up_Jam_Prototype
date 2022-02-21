@@ -10,7 +10,12 @@ public class AudioSetting : ScriptableObject
     [Range(0, 1)]
     public float MainAudioVolume;
     public bool _mute;
-
+    public AudioClip mainThemeClip;
+    public AudioClip defeatThemeClip;
+    public AudioClip bossPhase1Clip;
+    public AudioClip bossPhase2Clip;
+    public AudioClip bossPhase3Clip;
+    public AudioClip mouseHoveringClip;
     public void PlaySound(AudioClip clip, AudioSource Source)
     {
         Source.clip = clip;

@@ -95,9 +95,14 @@ public class Enemy : ScriptableObject
 
     [Header("Audios")]
     public AudioClip movingClip;
-    public AudioClip MonsterAttack01Clip;
     public AudioClip MonsterCryClip;
     public AudioClip MonsterReceiveDamageClip;
+    public AudioClip MonsterAttack01Clip;
+    public AudioClip MonsterAttack02ProjectileClip;
+    public AudioClip MonsterAttack02Projectile02Clip;
+    public AudioClip MonsterAttack02ProjectileFlyingClip;
+    public AudioClip MonsterAttack02ProjectilePuddleClip;
+    public AudioClip MonsterAttack03Clip;
 
     [Header("Boss Info")]
     public GameObject enemyObj;
@@ -105,14 +110,7 @@ public class Enemy : ScriptableObject
     public LayerMask attackMask;
 
     public bool canShoot = false;
-    //////in stage 1 can only choose between attack pattern 1 and 2
-    ////List<AttackPattern> RandomPattern1 = ;
-    ////in stage 2 it can only choose between attack pattern 1 and 3
-    //List<AttackPattern> RandomPattern2 = 
-    ////in stage 3 it can only choose between 2 and 4
-    //List<AttackPattern> RandomPattern3 = new List<AttackPattern>() {  };
-    ////in stage 4 it chooses randoly between all 4 of them
-    //List<AttackPattern> RandomPattern4 = new List<AttackPattern>() ;
+    
 
     public void TakeDamage(float amount)
     {
