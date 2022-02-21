@@ -21,9 +21,9 @@ public class Attack01State : MonoBehaviour
         {
             if (enemy.currentPattern1AttackTime > 0)
             {
-                if (Mathf.Abs(Vector2.Distance(player.position - enemy.stopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern1)
+                if (Mathf.Abs(Vector2.Distance(player.position - enemy.Attack01StopDistence, transform.position)) > .1f && enemy.currentPattern == AttackPattern.Pattern1)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.Attack01StopDistence, enemy.speed * Time.fixedDeltaTime);
                 }
             }
         }
@@ -41,8 +41,8 @@ public class Attack01State : MonoBehaviour
         }
         else
         {
-            enemy.currentPattern = AttackPattern.Pattern1;
-            //enemy.ChangeAttackPattern();
+           // enemy.currentPattern = AttackPattern.Pattern1;
+           // enemy.ChangeAttackPattern();
             enemy.currentPattern1AttackTime = enemy.Pattern1AttackTime;
         }
     }
@@ -82,7 +82,7 @@ public class Attack01State : MonoBehaviour
         animator.SetFloat("Horizontal", (targetposition.x - rb.position.x));
         animator.SetFloat("Vertical", (targetposition.y - rb.position.y));
         transform.position =
-            Vector3.MoveTowards(rb.position, targetposition - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
+            Vector3.MoveTowards(rb.position, targetposition - enemy.Attack01StopDistence, enemy.speed * Time.fixedDeltaTime);
         if (enemy.attack01CoolTime >= enemy.maxAttack01Cooltime)
         {
 

@@ -26,7 +26,9 @@ public class Enemy : ScriptableObject
     [Range(0, 10)]
     public int damgeOnColide = 1;
     public AttackPattern currentPattern;
-    public Vector3 stopDistence = new Vector3(0.1f, 0.1f, 0);
+    public Vector3 Attack01StopDistence = new Vector3(0.1f, 0.1f, 0);
+    public Vector3 Attack03StopDistence = new Vector3(0.1f, 0.1f, 0);
+    public Vector3 Attack04StopDistence = new Vector3(0.1f, 0.1f, 0);
     [Header("Patterns")]
     [Range(0, 10)]
     public float attackRange = 1f;
@@ -87,6 +89,9 @@ public class Enemy : ScriptableObject
     public float attack04CoolTime = 1;
     [Range(0, 10)]
     public float maxAttack04Cooltime = 1;
+    [Range(0, 10)]
+    public float attackRangeAttack04 = 4;
+    public float grapSpeed = 20f;
 
     [Header("Audios")]
     public AudioClip movingClip;
@@ -153,7 +158,8 @@ public class Enemy : ScriptableObject
             case AttackPattern.Pattern3:
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
             case AttackPattern.Pattern4:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
+                return AttackPattern.Pattern4;
+              //  return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
             default:
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
         }
@@ -164,11 +170,11 @@ public class Enemy : ScriptableObject
     }
     public void ResetEnemy()
     {
-        currentHealth = 49;
+        currentHealth = 15;
         maxHealth = 100;
         speed = 5f;
         isAlive = true;
-        currentPattern = AttackPattern.Pattern2;
+        currentPattern = AttackPattern.Pattern4;
     }
     void MakeDead()
     {

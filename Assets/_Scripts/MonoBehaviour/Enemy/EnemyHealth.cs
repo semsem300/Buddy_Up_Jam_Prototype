@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
+        AudioManager.Instance.PlaySoundFxSource(enemy.MonsterReceiveDamageClip);
         enemy.TakeDamage(amount);
         transform.position = Vector2.MoveTowards(transform.position, new Vector3(0, 3, 0), 100);
         animator.SetTrigger("Hurt");

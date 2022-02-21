@@ -21,9 +21,9 @@ public class Attack03State : MonoBehaviour
         {
             if (enemy.currentPattern3AttackTime > 0)
             {
-                if (Mathf.Abs(Vector2.Distance(player.position - enemy.stopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern3)
+                if (Mathf.Abs(Vector2.Distance(player.position - enemy.Attack03StopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern3)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.stopDistence, enemy.speed * Time.fixedDeltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.Attack03StopDistence, enemy.speed * Time.fixedDeltaTime);
                 }
             }
         }
@@ -66,8 +66,8 @@ public class Attack03State : MonoBehaviour
         {
             // TODO Add  Wait time 
 
-            enemy.currentPattern = AttackPattern.Pattern3;
-            // enemy.ChangeAttackPattern();
+            //  enemy.currentPattern = AttackPattern.Pattern3;
+            //enemy.ChangeAttackPattern();
             enemy.currentPattern3AttackTime = enemy.Pattern3AttackTime;
         }
     }

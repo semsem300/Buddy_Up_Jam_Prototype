@@ -13,11 +13,15 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 target;
     [SerializeField] Vector2 center = new Vector2(-4.5f, 0);
+    LineRenderer lineRenderer;
+    List<Vector2> points = new List<Vector2>();
+    [SerializeField] Vector2 offset = new Vector2(-1f, -1f);
     void Awake()
     {
         animator = GetComponent<Animator>();
         rb = animator.GetComponent<Rigidbody2D>();
         target = player.position;
+        lineRenderer = GetComponent<LineRenderer>();
     }
     private void Update()
     {
@@ -95,6 +99,46 @@ public class EnemyAI : MonoBehaviour
         if (GameManager.Instance.State == GameState.Playing)
         {
             StartCoroutine(RayOrders());
+        }
+    }
+    public void Pattern4Attack()
+    {
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            //RaycastHit2D hit = Physics2D.Raycast(center, player.position, Vector2.Distance(transform.position, player.position));
+            Collider2D col = Physics2D.OverlapCircle(center, enemy.attackRangeAttack04);
+            // Debug.(rb.position, hit.point, Color.red);
+            Vector3[] points = new List<Vector3>() {
+                  center
+                    ,new Vector2( player.position.x+offset.x, player.position.y+offset.y)
+                }.ToArray();
+            // if it hit the player 
+            lineRenderer.enabled = true;
+            lineRenderer.SetPositions(points);
+
+            if (col != null)
+            {
+
+                if (col.CompareTag("Player"))
+                {
+                    lineRenderer.enabled = true;
+                    lineRenderer.SetPositions(points);
+
+
+                    // grap player toward boss 
+                    Rigidbody2D playerRb = col.gameObject.GetComponent<Rigidbody2D>();
+                    playerRb.position = Vector2.MoveTowards(playerRb.position, new Vector2(center.x - enemy.Attack04StopDistence.x, center.y - enemy.Attack04StopDistence.y), enemy.grapSpeed * Time.deltaTime);
+                    Debug.Log("FourthPattern");
+                    // the player disapperas for x time 
+                    //The player receives another amount of  damage, a % of which is  transferred to the boss
+                    //The player is then  thrown away in a random direction
+                }
+                else
+                {
+                    //lineRenderer.enabled = false;
+                    //lineRenderer.SetPositions(points);
+                }
+            }
         }
     }
     IEnumerator RayOrders()

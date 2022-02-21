@@ -63,8 +63,8 @@ public class Attack02State : MonoBehaviour
         else if (enemy.currentPattern2AttackTime <= 0)
         {
             // TODO Add  Wait time 
-            enemy.currentPattern = AttackPattern.Pattern2;
-            // enemy.ChangeAttackPattern();
+            // enemy.currentPattern = AttackPattern.Pattern2;
+           // enemy.ChangeAttackPattern();
             enemy.currentPattern2AttackTime = enemy.Pattern2AttackTime;
         }
     }
@@ -96,8 +96,8 @@ public class Attack02State : MonoBehaviour
     {
         animator.SetTrigger("Attack03");
         yield return new WaitForSeconds(enemy.Pattern3AttackTime);
-        enemy.currentPattern = AttackPattern.Pattern2;
-        // enemy.ChangeAttackPattern();
+       // enemy.currentPattern = AttackPattern.Pattern2;
+         enemy.ChangeAttackPattern();
     }
     IEnumerator WaitBetweenAttack(float time)
     {
