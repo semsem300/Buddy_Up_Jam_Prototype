@@ -47,7 +47,89 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 3bd8d8323b52867469020b9103a5dbc7, type: 2}
   setting: {fileID: 11400000, guid: ed55b41abc7ef8248980ae51f0cfc47c, type: 2}
   background: {fileID: 0}
-  StartDuilogs: []
-  Stage2Duilogs: []
-  Stage3Duilogs: []
-  FinalDuilogs: []
+  StartDuilogs:
+  - Duilog: {fileID: 7305436751889689905, guid: eda00428180cfe648bde9c93551fc0bb, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 995a8d0d8084aef40af154ae4478a2b3, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 1bb62be79e4c26347a2c9097b5dbc9ef, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 249e74a00ba8e614e816c78bc1a2d2f5, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 72b7a813d77651d4ba4cc0e5b24ee781, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 5befb5751a13bf24b8c6236bfa7a80fe, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 6acb9d9953e7ac2488da78e7dd261f53, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: da342c4fc23ad19449329b422e8ea891, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 0bd499cff8ab787488e1526f1af80017, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 5c534a6d635380b4b824ba2b6a797360, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: d76896763c368e043b1e23f8fa1a0f28, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 68d7b045e7f73144b88fce681b26c4ed, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 32aef43ace8767246912fc8e47b2f673, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 47f21cf5dc7b24a448d506af8447ffc3, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: a1efd7d53b3aaff49b545cd60b0127f6, type: 3}
+    time: 2
+  Stage2Duilogs:
+  - Duilog: {fileID: 7305436751889689905, guid: 19ada43608ea6114ca7480140c04a7c2, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 58669a4ab5c66c841bf8d39718f494f0, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 36f95beda96bb6747a23cf824727ea1d, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: a7397921f13ccb64dbbdc45716ba4cd0, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: d2fb7abd8b90bcc439d4bcfe42becc47, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 2931a89c75c497741bf29d4ff5b0bab4, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 03784d78dd087094699fa88150618d9d, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: ebf99d0539ae1d344bcabe5ec030cfc2, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 7fcf50189293e6a439a32461897474ef, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 38f4b7b4d7dcd7e409be9301b33a17ad, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: ed5f48af81e715b49aa342278dc5b0ae, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: dec1c19804585494d84e13a18e0f7f46, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 2800f04d50c7a674eaa29baeb40d5f5e, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 0e1eb1fa30a5ec8459e32ac2493df7e1, type: 3}
+    time: 2
+  Stage3Duilogs:
+  - Duilog: {fileID: 7305436751889689905, guid: db856e340a68f1845a540ec36e268f53, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 07fbae7c14255af42aac8414e859745a, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: a1f87be9f8ec7214fa55a234ee128b02, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 61115ac3c31b94d42bc9d86bf2799b93, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 4e16f10d740aea74e8b032aced09776d, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 7bef509e702a7024c852632f3fe46536, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 2f3c388e61787b94d95a7c37121d2e81, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: cf3a67aa9dcb932469831c7bb8761651, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: f32c310ba06184a4685bcaccebbf5e5b, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: b3da8f56a9e46d84d8ecc1d0bece47ba, type: 3}
+    time: 2
+  FinalDuilogs:
+  - Duilog: {fileID: 7305436751889689905, guid: 04cb673643f93b64082bd27fbd8e2e92, type: 3}
+    time: 2
+  - Duilog: {fileID: 7305436751889689905, guid: 732d95693bd5bf74eb2978bd13ea1f4e, type: 3}
+    time: 2
