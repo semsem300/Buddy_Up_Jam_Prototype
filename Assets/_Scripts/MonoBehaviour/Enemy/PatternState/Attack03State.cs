@@ -19,13 +19,13 @@ public class Attack03State : MonoBehaviour
     {
         if (GameManager.Instance.State == GameState.Playing)
         {
-            if (enemy.currentPattern3AttackTime > 0)
-            {
-                if (Mathf.Abs(Vector2.Distance(player.position - enemy.Attack03StopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern3)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.Attack03StopDistence, enemy.speed * Time.fixedDeltaTime);
-                }
-            }
+            //if (enemy.currentPattern3AttackTime > 0)
+            //{
+            //    if (Mathf.Abs(Vector2.Distance(player.position - enemy.Attack03StopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern3)
+            //    {
+            //        transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.Attack03StopDistence, enemy.speed * Time.fixedDeltaTime);
+            //    }
+            //}
         }
     }
 
@@ -48,6 +48,10 @@ public class Attack03State : MonoBehaviour
             // trigger attack Animation
             if (enemy.attack03CoolTime >= enemy.maxAttack03Cooltime)
             {
+                if (Mathf.Abs(Vector2.Distance(player.position - enemy.Attack03StopDistence, transform.position)) > 1f && enemy.currentPattern == AttackPattern.Pattern3)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position - enemy.Attack03StopDistence, enemy.speed * Time.fixedDeltaTime);
+                }
                 Attack(animator);
                 // Shoots slow bullets towards the player (Game obj contain script to move towards the player)
                 enemy.attack03CoolTime -= Time.deltaTime;
@@ -67,35 +71,19 @@ public class Attack03State : MonoBehaviour
             // TODO Add  Wait time 
 
             //  enemy.currentPattern = AttackPattern.Pattern3;
-            //enemy.ChangeAttackPattern();
+            enemy.ChangeAttackPattern();
             enemy.currentPattern3AttackTime = enemy.Pattern3AttackTime;
         }
     }
     void Attack(Animator animator)
     {
         animator.SetBool("IsMoving", false);
-        switch (enemy.currentPattern)
-        {
-            case AttackPattern.Pattern1:
-                animator.SetTrigger("Attack01");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern1AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-            case AttackPattern.Pattern2:
-                StartCoroutine(GetComponent<Attack02State>().EndSoup());
-                break;
-            case AttackPattern.Pattern3:
-                animator.SetTrigger("Attack03");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern3AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-            case AttackPattern.Pattern4:
-                animator.SetTrigger("Attack04");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern4AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-        }
-        Debug.Log("Attack");
+        animator.SetTrigger("Attack03");
+        animator.ResetTrigger("Attack01");
+        animator.ResetTrigger("Attack02");
+        animator.ResetTrigger("Attack04");
+        StartCoroutine(WaitBetweenAttack(enemy.currentPattern3AttackTime));
+        enemy.ChangeAttackPattern();
     }
     IEnumerator WaitBetweenAttack(float time)
     {

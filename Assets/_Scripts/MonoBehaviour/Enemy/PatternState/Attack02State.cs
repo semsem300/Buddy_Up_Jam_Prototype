@@ -22,13 +22,13 @@ public class Attack02State : MonoBehaviour
         {
             if (enemy.currentPattern2AttackTime > 0)
             {
-                if (Vector2.Distance(transform.position, center) < 0.1f)
-                {
-                    rb.velocity = Vector2.zero;
-                }
-                // Moves towards the center of the room
-                rb.position =
-                       Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
+                //if (Vector2.Distance(transform.position, center) < 0.1f)
+                //{
+                //    rb.velocity = Vector2.zero;
+                //}
+                //// Moves towards the center of the room
+                //rb.position =
+                //       Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
             }
         }
     }
@@ -43,9 +43,16 @@ public class Attack02State : MonoBehaviour
             animator.SetFloat("Horizontal", (player.position.x - transform.position.x));
             animator.SetFloat("Vertical", (player.position.y - transform.position.y));
             // trigger attack Animation
+            if (Vector2.Distance(transform.position, center) < 0.1f)
+            {
+                rb.velocity = Vector2.zero;
+            }
+            // Moves towards the center of the room
+            rb.position =
+                   Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
             if (enemy.attack02CoolTime >= enemy.maxAttack02Cooltime)
             {
-                Attack(animator);
+                Attack();
                 // Shoots slow bullets towards the player (Game obj contain script to move towards the player)
                 enemy.attack02CoolTime -= Time.deltaTime;
             }
@@ -64,40 +71,25 @@ public class Attack02State : MonoBehaviour
         {
             // TODO Add  Wait time 
             // enemy.currentPattern = AttackPattern.Pattern2;
-           // enemy.ChangeAttackPattern();
+            enemy.ChangeAttackPattern();
             enemy.currentPattern2AttackTime = enemy.Pattern2AttackTime;
         }
     }
-    void Attack(Animator animator)
+    void Attack()
     {
         animator.SetBool("IsMoving", false);
-        switch (enemy.currentPattern)
-        {
-            case AttackPattern.Pattern1:
-                animator.SetTrigger("Attack01");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern1AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-            case AttackPattern.Pattern2:
-                StartCoroutine(EndSoup());
-                break;
-            case AttackPattern.Pattern3:
-                StartCoroutine(EndFire());
-                break;
-            case AttackPattern.Pattern4:
-                animator.SetTrigger("Attack04");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern4AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-        }
+        StartCoroutine(EndSoup());
         Debug.Log("Attack");
     }
     public IEnumerator EndFire()
     {
-        animator.SetTrigger("Attack03");
+        animator.SetTrigger("Attack02");
+        animator.ResetTrigger("Attack01");
+        animator.ResetTrigger("Attack03");
+        animator.ResetTrigger("Attack04");
         yield return new WaitForSeconds(enemy.Pattern3AttackTime);
-       // enemy.currentPattern = AttackPattern.Pattern2;
-         enemy.ChangeAttackPattern();
+        enemy.currentPattern = AttackPattern.Pattern2;
+        enemy.ChangeAttackPattern();
     }
     IEnumerator WaitBetweenAttack(float time)
     {

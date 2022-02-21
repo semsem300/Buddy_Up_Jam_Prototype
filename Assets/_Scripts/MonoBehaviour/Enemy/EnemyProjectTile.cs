@@ -27,7 +27,7 @@ public class EnemyProjectTile : MonoBehaviour
         Destroy(gameObject, lifetime);
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         rb.position = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
     }

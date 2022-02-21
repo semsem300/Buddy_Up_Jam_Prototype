@@ -128,22 +128,22 @@ public class Enemy : ScriptableObject
     {
         Debug.Log("Change Attack Pattern To");
         //TODO Change values to GetRandomAttackPattern(currentPattern)
-        if (currentHealth <= 100 && currentHealth > 75)
+        if (currentHealth <= 100 && currentHealth > 70)
         {
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern1);
         }
-        else if (currentHealth <= 75 && currentHealth > 50)
+        else if (currentHealth <= 70 && currentHealth > 40)
         {
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern2);
         }
-        else if (currentHealth <= 50 && currentHealth > 25)
+        else
         {
             currentPattern = GetRandomAttackPattern(AttackPattern.Pattern3);
         }
-        else
-        {
-            currentPattern = GetRandomAttackPattern(AttackPattern.Pattern4);
-        }
+        //else
+        //{
+        //    currentPattern = GetRandomAttackPattern(AttackPattern.Pattern4);
+        //}
         Debug.Log(currentPattern.ToString());
     }
     private AttackPattern GetRandomAttackPattern(AttackPattern attackPattern)
@@ -151,17 +151,16 @@ public class Enemy : ScriptableObject
         switch (attackPattern)
         {
             case AttackPattern.Pattern1:
-                currentPattern= AttackPattern.Pattern1;
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern3 }.Count) + 1);
             case AttackPattern.Pattern2:
                 return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3 }.Count) + 1);
             case AttackPattern.Pattern3:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
-            case AttackPattern.Pattern4:
-                return AttackPattern.Pattern4;
-              //  return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
+                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3}.Count) + 1);
+            //case AttackPattern.Pattern4:
+            //    return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
+            ////  return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
             default:
-                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3, AttackPattern.Pattern4 }.Count) + 1);
+                return (AttackPattern)(Random.Range(0, new List<AttackPattern>() { AttackPattern.Pattern1, AttackPattern.Pattern2, AttackPattern.Pattern3 }.Count) + 1);
         }
     }
     public void SwitchPattern(AttackPattern attackPattern)
@@ -170,11 +169,11 @@ public class Enemy : ScriptableObject
     }
     public void ResetEnemy()
     {
-        currentHealth = 15;
+        currentHealth = 100;
         maxHealth = 100;
         speed = 5f;
         isAlive = true;
-        currentPattern = AttackPattern.Pattern4;
+        currentPattern = AttackPattern.Pattern1;
     }
     void MakeDead()
     {
@@ -186,5 +185,5 @@ public enum AttackPattern
     Pattern1 = 1,
     Pattern2 = 2,
     Pattern3 = 3,
-    Pattern4 = 4,
+   // Pattern4 = 4,
 }

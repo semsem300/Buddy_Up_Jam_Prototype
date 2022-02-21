@@ -22,19 +22,19 @@ public class Attack04State : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.State == GameState.Playing)
-        {
-            if (enemy.currentPattern4AttackTime > 0)
-            {
-                if (Vector2.Distance(transform.position, center) < 0.1f)
-                {
-                    rb.velocity = Vector2.zero;
-                }
-                // Moves towards the center of the room
-                rb.position =
-                       Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
-            }
-        }
+        //if (GameManager.Instance.State == GameState.Playing)
+        //{
+        //    if (enemy.currentPattern4AttackTime > 0)
+        //    {
+        //        if (Vector2.Distance(transform.position, center) < 0.1f)
+        //        {
+        //            rb.velocity = Vector2.zero;
+        //        }
+        //        // Moves towards the center of the room
+        //        rb.position =
+        //               Vector3.MoveTowards(rb.position, center, enemy.speed * Time.fixedDeltaTime);
+        //    }
+        //}
     }
 
     public void FourthPatternStrategy()
@@ -77,34 +77,34 @@ public class Attack04State : MonoBehaviour
         //    enemy.currentPattern4AttackTime = enemy.Pattern4AttackTime;
         //}
     }
-    void Attack()
-    {
-        animator.SetBool("IsMoving", false);
-        switch (enemy.currentPattern)
-        {
-            case AttackPattern.Pattern1:
-                animator.SetTrigger("Attack01");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern1AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-            case AttackPattern.Pattern2:
-                StartCoroutine(GetComponent<Attack02State>().EndSoup());
-                break;
-            case AttackPattern.Pattern3:
-                animator.SetTrigger("Attack03");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern3AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-            case AttackPattern.Pattern4:
-                animator.SetTrigger("Attack04");
-                StartCoroutine(WaitBetweenAttack(enemy.currentPattern4AttackTime));
-                enemy.ChangeAttackPattern();
-                break;
-        }
-        Debug.Log("Attack");
-    }
-    IEnumerator WaitBetweenAttack(float time)
-    {
-        yield return new WaitForSeconds(time);
-    }
+    //void Attack()
+    //{
+    //    animator.SetBool("IsMoving", false);
+    //    switch (enemy.currentPattern)
+    //    {
+    //        case AttackPattern.Pattern1:
+    //            animator.SetTrigger("Attack01");
+    //            StartCoroutine(WaitBetweenAttack(enemy.currentPattern1AttackTime));
+    //            enemy.ChangeAttackPattern();
+    //            break;
+    //        case AttackPattern.Pattern2:
+    //            StartCoroutine(GetComponent<Attack02State>().EndSoup());
+    //            break;
+    //        case AttackPattern.Pattern3:
+    //            animator.SetTrigger("Attack03");
+    //            StartCoroutine(WaitBetweenAttack(enemy.currentPattern3AttackTime));
+    //            enemy.ChangeAttackPattern();
+    //            break;
+    //        case AttackPattern.Pattern4:
+    //            animator.SetTrigger("Attack04");
+    //            StartCoroutine(WaitBetweenAttack(enemy.currentPattern4AttackTime));
+    //            enemy.ChangeAttackPattern();
+    //            break;
+    //    }
+    //    Debug.Log("Attack");
+    //}
+    //IEnumerator WaitBetweenAttack(float time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //}
 }
