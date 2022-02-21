@@ -1138,6 +1138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &936638212 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3050972999893775819, guid: f21d00d5637642f469dda174fd80b19f, type: 3}
+  m_PrefabInstance: {fileID: 2814671499003975904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &986935636 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2851370913089075375, guid: 127933625797a6444895e686bdca6bfe, type: 3}
@@ -2187,6 +2192,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7884213537931674629, guid: 66773bff6d30934469f611903b3de7c4, type: 3}
   m_PrefabInstance: {fileID: 7884213538607320774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2144239963 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2595427349041685731, guid: aa945094dee41ce4b9cdae8fb2abf3c1, type: 3}
+  m_PrefabInstance: {fileID: 4687124481142968888}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &374059936606579247
 PrefabInstance:
@@ -3719,9 +3729,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 413694115}
     - target: {fileID: 2830485533401040995, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: Epilogue_BeforeCredits
+      value: 
+      objectReference: {fileID: 2144239963}
+    - target: {fileID: 2830485533401040995, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: FXPauseVolumnPauseCanv
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2830485533401040995, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: Prologue_AfterMainMenu
+      value: 
+      objectReference: {fileID: 936638212}
     - target: {fileID: 6313055964868635817, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: setting
       value: 
