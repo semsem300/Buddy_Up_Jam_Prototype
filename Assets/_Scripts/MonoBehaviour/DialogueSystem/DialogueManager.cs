@@ -21,15 +21,16 @@ public class DialogueManager : Singleton<DialogueManager>
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(List<Dialogue> dialogues)
     {
         GameManager.Instance.ChangeState(GameState.Dialogue);
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name + ": ";
+
         sentences.Clear();
-        foreach (string sentence in dialogue.sentences)
+        foreach (Dialogue dialogue in dialogues)
         {
-            sentences.Enqueue(sentence);
+            nameText.text = dialogue.name + ": ";
+            sentences.Enqueue(dialogue.sentences);
         }
         DisplayNextSentence();
     }
