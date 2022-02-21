@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2e4f7a0fce0ee4b905a6070ae39bd1, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  currentHealth: 68
+  currentHealth: 70
   maxHealth: 100
   deathtime: 1
   isAlive: 1
@@ -28,16 +28,16 @@ MonoBehaviour:
   attackRange: 4
   Pattern1AttackDamage: 1
   Pattern1AttackTime: 5
-  currentPattern1AttackTime: 0.8180716
-  attack01CoolTime: 0.20592448
+  currentPattern1AttackTime: 2.5576277
+  attack01CoolTime: 1.1979129
   maxAttack01Cooltime: 2
-  moveWaitTime: 0.7600002
+  moveWaitTime: 1
   startMoveWaitTime: 1
   Pattern2AttackDamage: 1
   attack02Obj: {fileID: 8455908119392114119, guid: a3b7162b976e27c4a9ad63c143bcb989, type: 3}
   Pattern2AttackTime: 3
-  currentPattern2AttackTime: 2.8540292
-  attack02CoolTime: 1.0042295
+  currentPattern2AttackTime: 2.2558753
+  attack02CoolTime: 0.40607575
   maxAttack02Cooltime: 2
   attack03Obj: {fileID: 1833404154603397961, guid: 5e5987b12f6aea8408e508b46587aa4a, type: 3}
   Pattern3AttackDamage: 1

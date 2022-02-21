@@ -96,7 +96,7 @@ public class GameManager : StaticInstance<GameManager>
     private IEnumerator LastScene()
     {
         ChangeState(GameState.Dialogue);
-        for (int i = 0; i < StartDuilogs.Length; i++)
+        for (int i = 0; i < Stage3Duilogs.Length; i++)
         {
             GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
             yield return new WaitForSeconds(Stage3Duilogs[i].time);
@@ -112,7 +112,7 @@ public class GameManager : StaticInstance<GameManager>
     private IEnumerator SecondScene()
     {
         ChangeState(GameState.Dialogue);
-        for (int i = 0; i < StartDuilogs.Length; i++)
+        for (int i = 0; i < Stage2Duilogs.Length; i++)
         {
             GameObject Duilogs = Instantiate(Stage2Duilogs[i].Duilog);
             yield return new WaitForSeconds(Stage2Duilogs[i].time);
