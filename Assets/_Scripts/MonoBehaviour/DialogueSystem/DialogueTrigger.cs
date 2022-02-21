@@ -13,12 +13,18 @@ public class DialogueTrigger : MonoBehaviour
     {
         DialogueManager.Instance.StartDialogue(dialogue);
     }
+
+    private void Start()
+    {
+        TriggerDialogue();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enter");
-            TriggerDialogue();
+            //TriggerDialogue();
             if (transform != null)
             {
                 //Instantiate(particleSystem, transform.transform.position, Quaternion.identity);

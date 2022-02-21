@@ -103,6 +103,7 @@ public class GameManager : StaticInstance<GameManager>
             Destroy(Duilogs);
         }
         yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
+        DialogueManager.Instance.EndDialogue();
         ChangeState(GameState.Playing);
         background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
         AudioManager.Instance.StopSoundMainSource();
@@ -119,6 +120,7 @@ public class GameManager : StaticInstance<GameManager>
             Destroy(Duilogs);
         }
         yield return new WaitForSeconds(Stage2Duilogs[Stage2Duilogs.Length - 1].time);
+        DialogueManager.Instance.EndDialogue();
         ChangeState(GameState.Playing);
         AudioManager.Instance.StopSoundMainSource();
 
@@ -208,18 +210,18 @@ public class GameManager : StaticInstance<GameManager>
    IEnumerator WinCanvas()
     {
         ChangeState(GameState.Dialogue);
-        for (int i = 0; i < StartDuilogs.Length; i++)
+        for (int i = 0; i < FinalDuilogs.Length; i++)
         {
-            GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
-            yield return new WaitForSeconds(Stage3Duilogs[i].time);
+            GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
+            yield return new WaitForSeconds(FinalDuilogs[i].time);
             Destroy(Duilogs);
         }
-        yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
+        yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
         ChangeState(GameState.Win);
         AudioManager.Instance.StopSoundFxSource();
         AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
-        UIManager.Instance.WinCanvas.gameObject.SetActive(true);
+        UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
     }
 }
 

@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContinueButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6800038171655475644, guid: a82fcc18fdc1e6047952da65dec2419d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6800038171655475645, guid: a82fcc18fdc1e6047952da65dec2419d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
