@@ -13,8 +13,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private Queue<string> sentences;
     [SerializeField]
-    [Range(0,1)]
-    float typeingSpeed = .1f;
+    [Range(0, 1)]
+    float waitBetweenCharacters = .1f;
     // Use this for initialization
     void Start()
     {
@@ -23,17 +23,14 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartDialogue(Dialogue dialogue)
     {
+        GameManager.Instance.ChangeState(GameState.Dialogue);
         animator.SetBool("IsOpen", true);
-
-        nameText.text = dialogue.name+ ": ";
-
+        nameText.text = dialogue.name + ": ";
         sentences.Clear();
-
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
-
         DisplayNextSentence();
     }
 
@@ -44,7 +41,6 @@ public class DialogueManager : Singleton<DialogueManager>
             EndDialogue();
             return;
         }
-
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -56,7 +52,7 @@ public class DialogueManager : Singleton<DialogueManager>
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typeingSpeed);
+            yield return new WaitForSeconds(waitBetweenCharacters);
         }
     }
 

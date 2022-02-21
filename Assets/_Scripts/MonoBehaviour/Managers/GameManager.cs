@@ -13,6 +13,7 @@ public enum GameState
     Puase = 4,
     Win = 5,
     Lose = 6,
+    Dialogue = 7
 }
 public class GameManager : StaticInstance<GameManager>
 {
@@ -21,7 +22,8 @@ public class GameManager : StaticInstance<GameManager>
 
     [SerializeField] Player player;
     [SerializeField] Enemy enemy;
-   [SerializeField] public GameState State { get; private set; }
+    [SerializeField] AudioSetting setting;
+    public GameState State { get; private set; }
 
     // Kick the game off with the first state
     void Start() => ChangeState(GameState.Puase);
@@ -41,6 +43,9 @@ public class GameManager : StaticInstance<GameManager>
             case GameState.Puase:
                 HandlePuase();
                 break;
+            case GameState.Dialogue:
+                HandleDialogue();
+                break;
             case GameState.Win:
                 HandleWin();
                 break;
@@ -53,7 +58,7 @@ public class GameManager : StaticInstance<GameManager>
 
         OnAfterStateChanged?.Invoke(newState);
 
-       // Debug.Log($"New state: {newState}");
+        // Debug.Log($"New state: {newState}");
     }
     private void HandleStarting()
     {
@@ -80,20 +85,30 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandlePlaying()
     {
-
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
     }
     private void HandleLose()
     {
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.defeatThemeClip);
         UIManager.Instance.GameOverCanvas.gameObject.SetActive(true);
     }
 
     private void HandleWin()
     {
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
         UIManager.Instance.WinCanvas.gameObject.SetActive(true);
     }
-
+    private void HandleDialogue()
+    {
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.dialogueThemeClip);
+    }
     private void HandlePuase()
     {
+        // AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
     }
     public void Restart()
     {

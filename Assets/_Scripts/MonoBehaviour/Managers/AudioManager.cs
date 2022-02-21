@@ -3,55 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 public class AudioManager : StaticInstance<AudioManager>
 {
-    [SerializeField] AudioSetting Source;
+    [SerializeField] AudioSetting setting;
     public AudioSource MainSource;
     AudioSource FXSource;
     protected override void Awake()
     {
         base.Awake();
         FXSource = GetComponent<AudioSource>();
-        MainSource.volume = Source.MainAudioVolume;
-        FXSource.volume = Source.FXAudioVolume;
-        FXSource.mute = Source._mute;
-        MainSource.mute = Source._mute;
+        MainSource.volume = setting.MainAudioVolume;
+        FXSource.volume = setting.FXAudioVolume;
+        FXSource.mute = setting._mute;
+        MainSource.mute = setting._mute;
     }
     private void Update()
     {
-        MainSource.volume = Source.MainAudioVolume;
-        FXSource.volume = Source.FXAudioVolume;
-        FXSource.mute = Source._mute;
-        MainSource.mute = Source._mute;
+        MainSource.volume = setting.MainAudioVolume;
+        FXSource.volume = setting.FXAudioVolume;
+        FXSource.mute = setting._mute;
+        MainSource.mute = setting._mute;
     }
     public void PlaySoundMainSource(AudioClip clip)
     {
-        Source.PlaySound(clip, MainSource);
+        setting.PlaySound(clip, MainSource);
     }
     public void StopSoundFxSource()
+    {
+        MainSource.Stop();
+    }
+    public void StopSoundMainSource()
     {
         FXSource.Stop();
     }
     public void PlaySoundFxSource(AudioClip clip)
     {
-        Source.PlaySound(clip, FXSource);
+        setting.PlaySound(clip, FXSource);
     }
     public void UpAndDownAudioMainSource(float amount)
     {
-        Source.UpAndDownAudio(amount, MainSource);
+        setting.UpAndDownAudio(amount, MainSource);
     }
     public void MuteDisMuteMainSource(bool mute)
     {
-        Source.MuteDisMute(mute, MainSource);
+        setting.MuteDisMute(mute, MainSource);
     }
     public void MuteDisMuteFXSource(bool mute)
     {
-        Source.MuteDisMute(mute, FXSource);
+        setting.MuteDisMute(mute, FXSource);
     }
     public float GetMainVolumeValue()
     {
-        return Source.MainAudioVolume;
+        return setting.MainAudioVolume;
     }
     public float GetFXVolumeValue()
     {
-        return Source.FXAudioVolume;
+        return setting.FXAudioVolume;
+    }
+    public void PlayMouseHover()
+    {
+        PlaySoundMainSource(setting.mouseHoveringClip);
     }
 }
