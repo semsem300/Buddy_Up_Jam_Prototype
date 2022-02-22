@@ -176,7 +176,7 @@ public class Enemy : ScriptableObject
     }
     public void ResetEnemy()
     {
-        currentHealth = 71;
+        currentHealth = 100;
         maxHealth = 100;
         speed = 5f;
         isAlive = true;

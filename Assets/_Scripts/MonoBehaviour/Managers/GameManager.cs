@@ -36,7 +36,7 @@ public class GameManager : StaticInstance<GameManager>
     [SerializeField] DuilogTime[] FinalDuilogs;
     [SerializeField] float startCanvasTime = 3f;
     public GameState State { get; private set; }
-
+    [SerializeField] bool asfirst = false;
     // Kick the game off with the first state
     void Start() => ChangeState(GameState.Starting);
 
@@ -106,8 +106,8 @@ public class GameManager : StaticInstance<GameManager>
         DialogueManager.Instance.EndDialogue();
         ChangeState(GameState.Playing);
         background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
-        AudioManager.Instance.StopSoundMainSource();
-        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase3Clip);
+        //AudioManager.Instance.StopSoundMainSource();
+        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase3Clip);
     }
 
     private IEnumerator SecondScene()
@@ -122,10 +122,10 @@ public class GameManager : StaticInstance<GameManager>
         yield return new WaitForSeconds(Stage2Duilogs[Stage2Duilogs.Length - 1].time);
         DialogueManager.Instance.EndDialogue();
         ChangeState(GameState.Playing);
-        AudioManager.Instance.StopSoundMainSource();
+        //AudioManager.Instance.StopSoundMainSource();
 
         background.GetComponent<SpriteRenderer>().sprite = enemy.Background2;
-        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase2Clip);
+        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase2Clip);
     }
 
     private IEnumerator FirstScene()
@@ -145,7 +145,7 @@ public class GameManager : StaticInstance<GameManager>
         //Destroy(Duilogs);
         ChangeState(GameState.Playing);
         background.GetComponent<SpriteRenderer>().sprite = enemy.Background1;
-        AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase1Clip);
+        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase1Clip);
     }
 
     private void HandleStarting()
@@ -175,7 +175,7 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandlePlaying()
     {
-
+        AudioManager.Instance.PlaySoundMainSource(setting.bossPhase4_1Clip);
     }
     private void HandleLose()
     {
@@ -187,7 +187,8 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandleWin()
     {
-        StartCoroutine(WinCanvas());
+
+        StartCoroutine(WinCanvas()); 
        
     }
     private void HandleDialogue()
@@ -203,25 +204,36 @@ public class GameManager : StaticInstance<GameManager>
     {
        
         StartCoroutine(FirstScene());
-        this.ChangeState(GameState.Playing);
+        this.ChangeState(GameState.Puase);
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
    IEnumerator WinCanvas()
     {
-        ChangeState(GameState.Dialogue);
-        for (int i = 0; i < FinalDuilogs.Length; i++)
+        if (!asfirst)
         {
-            GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
-            yield return new WaitForSeconds(FinalDuilogs[i].time);
-            Destroy(Duilogs);
+            ChangeState(GameState.Dialogue);
+            var objects = GameObject.FindGameObjectsWithTag("Dialogue");
+            foreach (var item in objects)
+            {
+                Destroy(item);
+            }
+            for (int i = 0; i < FinalDuilogs.Length; i++)
+            {
+                GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
+                yield return new WaitForSeconds(FinalDuilogs[i].time);
+                Destroy(Duilogs);
+            }
+            yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
+            ChangeState(GameState.Win);
+            AudioManager.Instance.StopSoundFxSource();
+            AudioManager.Instance.StopSoundMainSource();
+            AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
+            UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
+            asfirst = true;
+
         }
-        yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
-        ChangeState(GameState.Win);
-        AudioManager.Instance.StopSoundFxSource();
-        AudioManager.Instance.StopSoundMainSource();
-        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
-        UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
+
     }
 }
 

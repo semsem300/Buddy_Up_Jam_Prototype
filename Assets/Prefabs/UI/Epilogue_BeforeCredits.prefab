@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7004399633953801621}
   - component: {fileID: 4164843629555892221}
   - component: {fileID: 4055612726883457336}
+  - component: {fileID: 2074837694}
+  - component: {fileID: 2074837693}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -76,6 +78,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2074837694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991729940415366150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3226b67bb951a845b34e74239425464, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2074837693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991729940415366150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5876312c844a1b49a05cbdfb2c402d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CreditsCanvas: {fileID: 2595427349041685731}
+  MainMenuCanvas: {fileID: 0}
 --- !u!1 &2262321394530253341
 GameObject:
   m_ObjectHideFlags: 0

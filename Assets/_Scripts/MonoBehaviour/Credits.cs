@@ -13,4 +13,14 @@ public class Credits : MonoBehaviour
         MainMenuCanvas.gameObject.SetActive(true);
         GameManager.Instance.ChangeState(GameState.Puase);
     }
+
+    public void Boss()
+    {
+        GameManager.Instance.ChangeState(GameState.Puase);
+    }
+
+    public void BackToPlay()
+    {
+        GameManager.Instance.ChangeState(GameState.Playing);
+    }
 }

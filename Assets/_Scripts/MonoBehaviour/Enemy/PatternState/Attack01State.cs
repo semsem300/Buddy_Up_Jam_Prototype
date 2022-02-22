@@ -27,6 +27,14 @@ public class Attack01State : MonoBehaviour
                 //}
             }
         }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+            animator.ResetTrigger("Attack01");
+            animator.ResetTrigger("Attack02");
+            animator.ResetTrigger("Attack03");
+            animator.ResetTrigger("Attack04");
+        }
     }
     public void FirstPatternStrategy()
     {
