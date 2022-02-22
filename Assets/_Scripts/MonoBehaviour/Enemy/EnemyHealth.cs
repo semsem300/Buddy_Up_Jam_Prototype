@@ -17,12 +17,10 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Update()
     {
+
         if (GameManager.Instance.State == GameState.Playing)
         {
-            if (!enemy.isAlive)
-            {
-                StartCoroutine(Death(enemy.deathtime));
-            }
+
         }
 
     }
@@ -30,6 +28,10 @@ public class EnemyHealth : MonoBehaviour
     {
         AudioManager.Instance.PlaySoundFxSource(enemy.MonsterReceiveDamageClip);
         enemy.TakeDamage(amount);
+        if (!enemy.isAlive)
+        {
+            StartCoroutine(Death(enemy.deathtime));
+        }
         rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
         animator.SetTrigger("Hurt");
         if (enemy.currentHealth == 70)
@@ -46,6 +48,8 @@ public class EnemyHealth : MonoBehaviour
     {
         animator.SetTrigger("Death");
         yield return new WaitForSeconds(time);
+        GameManager.Instance.ChangePattern(3);
+        yield return new WaitForSeconds(10);
         GameManager.Instance.ChangeState(GameState.Win);
     }
 }

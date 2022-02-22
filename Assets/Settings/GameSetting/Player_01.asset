@@ -18,9 +18,9 @@ MonoBehaviour:
   speed: 180
   maxSpeed: 400
   attackRange: 1.7
-  attackCoolTime: 0.102910906
+  attackCoolTime: 0.7
   maxAttackCooltime: 0.7
-  damage: 2
+  damage: 1
   dashDistance: 2
   dashtime: 0.45
   dashCoolTime: 0.9
@@ -29,7 +29,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: fb18606ebd1b1eb409226f93864f3283, type: 3}
   attackClip: {fileID: 8300000, guid: 483653b39b4af664b8e79c4662eb1fac, type: 3}
   dodgeRollClip: {fileID: 8300000, guid: fea5b117473a317418ad5ec295ac1385, type: 3}
-  position: {x: -4.025077, y: -1.208245, z: 0}
+  position: {x: -4.85935, y: -0.26475388, z: 0}
   isAlive: 1
   isDash: 0
   playerObj: {fileID: 59127637490600799, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}

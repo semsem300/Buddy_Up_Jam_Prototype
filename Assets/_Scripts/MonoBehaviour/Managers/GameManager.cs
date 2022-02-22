@@ -37,6 +37,7 @@ public class GameManager : StaticInstance<GameManager>
     [SerializeField] float startCanvasTime = 3f;
     public GameState State { get; private set; }
     [SerializeField] bool asfirst = false;
+    [SerializeField] Canvas dialogue;
     // Kick the game off with the first state
     void Start() => ChangeState(GameState.Starting);
 
@@ -87,6 +88,9 @@ public class GameManager : StaticInstance<GameManager>
                     break;
                 case 2:
                     StartCoroutine(LastScene());
+                    break;
+                case 3:
+                    StartCoroutine(DisplayFinalDialogue());
                     break;
             }
         }
@@ -176,6 +180,7 @@ public class GameManager : StaticInstance<GameManager>
     private void HandlePlaying()
     {
         AudioManager.Instance.PlaySoundMainSource(setting.bossPhase4_1Clip);
+        dialogue.sortingOrder = 11;
     }
     private void HandleLose()
     {
@@ -187,9 +192,12 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandleWin()
     {
+        AudioManager.Instance.StopSoundFxSource();
+        AudioManager.Instance.StopSoundMainSource();
+        AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
 
-        StartCoroutine(WinCanvas()); 
-       
+        StartCoroutine(WinCanvas());
+
     }
     private void HandleDialogue()
     {
@@ -212,7 +220,7 @@ public class GameManager : StaticInstance<GameManager>
     {
         if (!asfirst)
         {
-            ChangeState(GameState.Dialogue);
+            /*ChangeState(GameState.Dialogue);
             var objects = GameObject.FindGameObjectsWithTag("Dialogue");
             foreach (var item in objects)
             {
@@ -224,16 +232,29 @@ public class GameManager : StaticInstance<GameManager>
                 yield return new WaitForSeconds(FinalDuilogs[i].time);
                 Destroy(Duilogs);
             }
+            dialogue.sortingOrder = 0;*/
             yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
             ChangeState(GameState.Win);
-            AudioManager.Instance.StopSoundFxSource();
-            AudioManager.Instance.StopSoundMainSource();
-            AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
+            
             UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
             asfirst = true;
 
         }
 
+    }
+
+    IEnumerator DisplayFinalDialogue()
+    {
+        ChangeState(GameState.Dialogue);
+
+        for (int i = 0; i < FinalDuilogs.Length; i++)
+        {
+            GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
+            yield return new WaitForSeconds(FinalDuilogs[i].time);
+            Destroy(Duilogs);
+        }
+        yield return new WaitForSeconds(10);
+        DialogueManager.Instance.EndDialogue();
     }
 }
 
