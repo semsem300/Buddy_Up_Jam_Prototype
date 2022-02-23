@@ -36,8 +36,11 @@ public class GameManager : StaticInstance<GameManager>
     [SerializeField] DuilogTime[] FinalDuilogs;
     [SerializeField] float startCanvasTime = 3f;
     public GameState State { get; private set; }
-    [SerializeField] bool asfirst = false;
-    [SerializeField] Canvas dialogue;
+    [SerializeField] bool skipFirst = false;
+    [SerializeField] bool skipSecond = false;
+    [SerializeField] bool skipThird = false;
+    [SerializeField] bool skipFinal = false;
+    int stage = 0;
     // Kick the game off with the first state
     void Start() => ChangeState(GameState.Starting);
 
@@ -76,20 +79,25 @@ public class GameManager : StaticInstance<GameManager>
 
     public void ChangePattern(int currentPattern)
     {
+
         if (State == GameState.Playing)
         {
             switch (currentPattern)
             {
                 case 0:
+                    stage = 0;
                     StartCoroutine(FirstScene());
                     break;
                 case 1:
+                    stage = 1;
                     StartCoroutine(SecondScene());
                     break;
                 case 2:
+                    stage = 2;
                     StartCoroutine(LastScene());
                     break;
                 case 3:
+                    stage = 3;
                     StartCoroutine(DisplayFinalDialogue());
                     break;
             }
@@ -97,68 +105,45 @@ public class GameManager : StaticInstance<GameManager>
 
     }
 
-    private IEnumerator LastScene()
+
+    public void SkipDialogue()
     {
-        ChangeState(GameState.Dialogue);
-        for (int i = 0; i < Stage3Duilogs.Length; i++)
+        //DialogueManager.Instance.EndDialogue();
+        switch (stage)
         {
-            GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
-            yield return new WaitForSeconds(Stage3Duilogs[i].time);
-            Destroy(Duilogs);
+            case 0:
+                skipFirst = true;
+                StopAllCoroutines();
+                StartCoroutine(FirstScene());
+                ChangeState(GameState.Playing);
+                break;
+            case 1:
+                skipSecond = true;
+                StopAllCoroutines();
+                StartCoroutine(SecondScene());
+                ChangeState(GameState.Playing);
+                break;
+            case 2:
+                skipThird = true;
+                StopAllCoroutines();
+                StartCoroutine(LastScene());
+                ChangeState(GameState.Playing);
+                break;
+            case 3:
+                skipFinal = true;
+                StopAllCoroutines();
+                StartCoroutine(DisplayFinalDialogue());
+                break;
         }
-        yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
-        DialogueManager.Instance.EndDialogue();
-        ChangeState(GameState.Playing);
-        background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
-        //AudioManager.Instance.StopSoundMainSource();
-        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase3Clip);
+
     }
-
-    private IEnumerator SecondScene()
-    {
-        ChangeState(GameState.Dialogue);
-        for (int i = 0; i < Stage2Duilogs.Length; i++)
-        {
-            GameObject Duilogs = Instantiate(Stage2Duilogs[i].Duilog);
-            yield return new WaitForSeconds(Stage2Duilogs[i].time);
-            Destroy(Duilogs);
-        }
-        yield return new WaitForSeconds(Stage2Duilogs[Stage2Duilogs.Length - 1].time);
-        DialogueManager.Instance.EndDialogue();
-        ChangeState(GameState.Playing);
-        //AudioManager.Instance.StopSoundMainSource();
-
-        background.GetComponent<SpriteRenderer>().sprite = enemy.Background2;
-        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase2Clip);
-    }
-
-    private IEnumerator FirstScene()
-    {
-        ChangeState(GameState.Dialogue);
-        yield return new WaitForSeconds(startCanvasTime);
-        UIManager.Instance.hidestartCanvas();
-        for (int i = 0; i < StartDuilogs.Length; i++)
-        {
-            GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
-            yield return new WaitForSeconds(StartDuilogs[i].time);
-            Destroy(Duilogs);
-
-        }
-        yield return new WaitForSeconds(StartDuilogs[StartDuilogs.Length - 1].time);
-        DialogueManager.Instance.EndDialogue();
-        //Destroy(Duilogs);
-        ChangeState(GameState.Playing);
-        background.GetComponent<SpriteRenderer>().sprite = enemy.Background1;
-        //AudioManager.Instance.ChangeSoundMainSource(enemy.BossPhase1Clip);
-    }
-
     private void HandleStarting()
     {
         // Do some start setup, could be environment, cinematics etc
 
         // Loading 
         AudioManager.Instance.StopSoundFxSource();
-        AudioManager.Instance.StopSoundMainSource();
+        //AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.mainThemeClip);
         // Eventually call ChangeState again with your next state
         SpawnPlayer();
@@ -179,13 +164,12 @@ public class GameManager : StaticInstance<GameManager>
 
     private void HandlePlaying()
     {
-        AudioManager.Instance.PlaySoundMainSource(setting.bossPhase4_1Clip);
-        dialogue.sortingOrder = 11;
+        //  AudioManager.Instance.PlaySoundMainSource(setting.bossPhase4_1Clip);
     }
     private void HandleLose()
     {
         AudioManager.Instance.StopSoundFxSource();
-        AudioManager.Instance.StopSoundMainSource();
+        // AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.defeatThemeClip);
         UIManager.Instance.GameOverCanvas.gameObject.SetActive(true);
     }
@@ -193,15 +177,11 @@ public class GameManager : StaticInstance<GameManager>
     private void HandleWin()
     {
         AudioManager.Instance.StopSoundFxSource();
-        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.winThemeClip);
-
         StartCoroutine(WinCanvas());
-
     }
     private void HandleDialogue()
     {
-        AudioManager.Instance.StopSoundMainSource();
         AudioManager.Instance.PlaySoundMainSource(setting.dialogueThemeClip);
     }
     private void HandlePuase()
@@ -210,51 +190,139 @@ public class GameManager : StaticInstance<GameManager>
     }
     public void Restart()
     {
-       
+        skipFirst = false;
+        skipSecond = false;
+        skipThird = false;
+        skipFinal = false;
         StartCoroutine(FirstScene());
-        this.ChangeState(GameState.Puase);
+        this.ChangeState(GameState.Playing);
         player.ResetPlayerHealth();
         enemy.ResetEnemy();
     }
-   IEnumerator WinCanvas()
+    IEnumerator WinCanvas()
     {
-        if (!asfirst)
+        if (!skipFinal)
         {
-            /*ChangeState(GameState.Dialogue);
-            var objects = GameObject.FindGameObjectsWithTag("Dialogue");
-            foreach (var item in objects)
+            yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
+        }
+        UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
+    }
+    private IEnumerator FirstScene()
+    {
+
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background1;
+        AudioManager.Instance.PlaySoundMainSource(enemy.BossPhase1Clip);
+        ChangeState(GameState.Dialogue);
+        if (!skipFirst)
+        {
+            yield return new WaitForSeconds(startCanvasTime);
+            UIManager.Instance.hidestartCanvas();
+            for (int i = 0; i < StartDuilogs.Length; i++)
             {
-                Destroy(item);
+                GameObject Duilogs = Instantiate(StartDuilogs[i].Duilog);
+                yield return new WaitForSeconds(StartDuilogs[i].time);
+                Destroy(Duilogs);
+
             }
+            yield return new WaitForSeconds(StartDuilogs[StartDuilogs.Length - 1].time);
+            DialogueManager.Instance.EndDialogue();
+            //Destroy(Duilogs);
+            ChangeState(GameState.Playing);
+        }
+        else
+        {
+            for (int i = 0; i < StartDuilogs.Length; i++)
+            {
+                StartDuilogs[i] = null;
+            }
+            DialogueManager.Instance.EndDialogue();
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator SecondScene()
+    {
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background2;
+        AudioManager.Instance.PlaySoundMainSource(enemy.BossPhase2Clip);
+        ChangeState(GameState.Dialogue);
+        if (!skipSecond)
+        {
+            for (int i = 0; i < Stage2Duilogs.Length; i++)
+            {
+                GameObject Duilogs = Instantiate(Stage2Duilogs[i].Duilog);
+                yield return new WaitForSeconds(Stage2Duilogs[i].time);
+                Destroy(Duilogs);
+            }
+            yield return new WaitForSeconds(Stage2Duilogs[Stage2Duilogs.Length - 1].time);
+            DialogueManager.Instance.EndDialogue();
+            ChangeState(GameState.Playing);
+        }
+        else
+        {
+            for (int i = 0; i < Stage2Duilogs.Length; i++)
+            {
+                Stage2Duilogs[i] = null;
+            }
+            DialogueManager.Instance.EndDialogue();
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator LastScene()
+    {
+        background.GetComponent<SpriteRenderer>().sprite = enemy.Background3;
+        AudioManager.Instance.PlaySoundMainSource(enemy.BossPhase3Clip);
+        ChangeState(GameState.Dialogue);
+        if (!skipThird)
+        {
+            for (int i = 0; i < Stage3Duilogs.Length; i++)
+            {
+                GameObject Duilogs = Instantiate(Stage3Duilogs[i].Duilog);
+                yield return new WaitForSeconds(Stage3Duilogs[i].time);
+                Destroy(Duilogs);
+            }
+            yield return new WaitForSeconds(Stage3Duilogs[Stage3Duilogs.Length - 1].time);
+            DialogueManager.Instance.EndDialogue();
+            ChangeState(GameState.Playing);
+        }
+        else
+        {
+            for (int i = 0; i < Stage3Duilogs.Length; i++)
+            {
+                Stage3Duilogs[i] = null;
+            }
+            DialogueManager.Instance.EndDialogue();
+
+            yield return null;
+        }
+    }
+
+    IEnumerator DisplayFinalDialogue()
+    {
+        ChangeState(GameState.Dialogue);
+        if (!skipFinal)
+        {
             for (int i = 0; i < FinalDuilogs.Length; i++)
             {
                 GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
                 yield return new WaitForSeconds(FinalDuilogs[i].time);
                 Destroy(Duilogs);
             }
-            dialogue.sortingOrder = 0;*/
-            yield return new WaitForSeconds(FinalDuilogs[FinalDuilogs.Length - 1].time);
-            ChangeState(GameState.Win);
-            
-            UIManager.Instance.Epilogue_BeforeCredits.gameObject.SetActive(true);
-            asfirst = true;
-
+            yield return new WaitForSeconds(10);
+            DialogueManager.Instance.EndDialogue();
         }
-
-    }
-
-    IEnumerator DisplayFinalDialogue()
-    {
-        ChangeState(GameState.Dialogue);
-
-        for (int i = 0; i < FinalDuilogs.Length; i++)
+        else
         {
-            GameObject Duilogs = Instantiate(FinalDuilogs[i].Duilog);
-            yield return new WaitForSeconds(FinalDuilogs[i].time);
-            Destroy(Duilogs);
+            for (int i = 0; i < FinalDuilogs.Length; i++)
+            {
+                FinalDuilogs[i] = null;
+            }
+            DialogueManager.Instance.EndDialogue();
+
+            yield return null;
         }
-        yield return new WaitForSeconds(10);
-        DialogueManager.Instance.EndDialogue();
+
     }
 }
-

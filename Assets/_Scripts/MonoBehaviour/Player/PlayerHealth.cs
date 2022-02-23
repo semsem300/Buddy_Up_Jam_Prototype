@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public Sprite fullheart;
     public Sprite emptyheart;
     [SerializeField] Player player;
+    [SerializeField] Transform enemyTransform;
     Rigidbody2D rb;
     Animator animator;
     [SerializeField] float damageforce = 20f;
@@ -69,7 +70,7 @@ public class PlayerHealth : MonoBehaviour
         player.TakeDamage(amount);
         AudioManager.Instance.PlaySoundFxSource(player.hurtClip);
         CameraShake.Instance.ShakeIt(5f, .2f);
-        rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
+        StartCoroutine(PlayerKnockback(1, damageforce, enemyTransform));
         // transform.position = new Vector3(-10, -3, 0);
         animator.SetTrigger("Hurt");
     }
@@ -80,4 +81,16 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(time);
         GameManager.Instance.ChangeState(GameState.Lose);
     }
+    public IEnumerator PlayerKnockback(float knockBackDuration, float knockBackPower, Transform obj)
+    {
+        float timer = 0;
+        while (knockBackDuration > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - transform.position).normalized;
+            rb.AddForce(-direction * knockBackPower);
+        }
+        yield return 0;
+    }
+
 }

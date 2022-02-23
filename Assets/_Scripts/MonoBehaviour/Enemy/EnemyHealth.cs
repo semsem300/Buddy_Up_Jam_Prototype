@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] Enemy enemy;
+    [SerializeField] Transform playerTransform;
     Rigidbody2D rb;
     Animator animator;
     [SerializeField] float damageforce = 50f;
@@ -13,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        GameManager.Instance.ChangePattern(0);
+        //GameManager.Instance.ChangePattern(0);
     }
     private void Update()
     {
@@ -32,14 +33,15 @@ public class EnemyHealth : MonoBehaviour
         {
             StartCoroutine(Death(enemy.deathtime));
         }
-        rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
+        //  rb.AddForce(-rb.velocity * damageforce, ForceMode2D.Impulse);
+        StartCoroutine(EnemyKnockback(1, damageforce, playerTransform));
         animator.SetTrigger("Hurt");
         if (enemy.currentHealth == 70)
         {
             GameManager.Instance.ChangePattern(1);
 
         }
-        else if(enemy.currentHealth == 40)
+        else if (enemy.currentHealth == 40)
         {
             GameManager.Instance.ChangePattern(2);
         }
@@ -52,4 +54,16 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(10);
         GameManager.Instance.ChangeState(GameState.Win);
     }
+    public IEnumerator EnemyKnockback(float knockBackDuration, float knockBackPower, Transform obj)
+    {
+        float timer = 0;
+        while (knockBackDuration > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - transform.position).normalized;
+            rb.AddForce(-direction * knockBackPower);
+        }
+        yield return 0;
+    }
+
 }

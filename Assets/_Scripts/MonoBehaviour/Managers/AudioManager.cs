@@ -24,26 +24,24 @@ public class AudioManager : StaticInstance<AudioManager>
     }
     public void PlaySoundMainSource(AudioClip clip)
     {
-        MainSource.Stop();
-        MainSource.clip = clip;
-        MainSource.Play();
+        if (MainSource.clip != clip)
+        {
+            MainSource.Stop();
+            MainSource.clip = clip;
+            MainSource.Play();
+        }
 
     }
     public void StopSoundFxSource()
     {
         FXSource.Stop();
     }
-    public void ChangeSoundMainSource(AudioClip clip1)
-    {
-        MainSource.Stop();
-        MainSource.clip = clip1;
-        MainSource.Play();
-    }
-    public void StopSoundMainSource()
-    {
-        MainSource.clip = null;
-        MainSource.Stop();
-    }
+
+    //public void StopSoundMainSource()
+    //{
+    //    MainSource.clip = null;
+    //    MainSource.Stop();
+    //}
     public void PlaySoundFxSource(AudioClip clip)
     {
         setting.PlaySound(clip, FXSource);

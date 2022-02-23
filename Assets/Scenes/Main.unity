@@ -216,6 +216,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3091530767624768267, guid: 7881a3dcb30ab6d4da4dcc5ee0e19760, type: 3}
   m_PrefabInstance: {fileID: 3091530768936416253}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &160709013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+  m_PrefabInstance: {fileID: 6596808139003715244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78976433ba682142847ddaf9dacfbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &230565237 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2851370912573979595, guid: 127933625797a6444895e686bdca6bfe, type: 3}
@@ -366,17 +377,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &282315219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6596808138730182527, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
-  m_PrefabInstance: {fileID: 6596808139003715244}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4701cf84ae29f1345869bc2b2af99526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &340568902 stripped
@@ -761,7 +761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584654424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5700006, y: 0.00000011920929, z: -5}
+  m_LocalPosition: {x: -4.5568, y: 0.0000010728836, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1615553486}
@@ -850,6 +850,10 @@ PrefabInstance:
       propertyPath: damageforce
       value: 100000
       objectReference: {fileID: 0}
+    - target: {fileID: 2627176656416760735, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1177188457}
     - target: {fileID: 4438633499656019489, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
       propertyPath: enemyObj
       value: 
@@ -928,6 +932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+--- !u!4 &644702034 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4438633499656019491, guid: 7d2614f0a40e0fb44a49a123bb346bb1, type: 3}
+  m_PrefabInstance: {fileID: 644702033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &651987781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,8 +1366,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1891475355, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
       propertyPath: damageforce
-      value: 10000
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1891475355, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 644702034}
     - target: {fileID: 1891475355, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
       propertyPath: hearts.Array.size
       value: 10
@@ -1485,6 +1498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
+--- !u!4 &1177188457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 59127637490600784, guid: 230aacdd187fe7a46b3dd85ec48a6c20, type: 3}
+  m_PrefabInstance: {fileID: 1177188456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1202904846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2830485533401040995, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
@@ -2963,7 +2981,23 @@ PrefabInstance:
     - target: {fileID: 2862327396741118662, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 282315219}
+      objectReference: {fileID: 160709013}
+    - target: {fileID: 2862327396741118662, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862327396741118662, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862327396741118664, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862327398206903273, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
+      propertyPath: m_text
+      value: Skip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab2a60c27b023e141ae50512eeff845c, type: 3}
 --- !u!1001 &3091530768936416253
@@ -3484,7 +3518,7 @@ PrefabInstance:
       objectReference: {fileID: 15392362}
     - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: startCanvasTime
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: FinalDuilogs.Array.data[0].time
@@ -3651,6 +3685,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[4].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: 6acb9d9953e7ac2488da78e7dd261f53, type: 3}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[5].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: da342c4fc23ad19449329b422e8ea891, type: 3}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: StartDuilogs.Array.data[6].Duilog
       value: 
       objectReference: {fileID: 7305436751889689905, guid: 8a70672610784174cab0610c62c7577f, type: 3}
@@ -3658,6 +3700,10 @@ PrefabInstance:
       propertyPath: StartDuilogs.Array.data[7].Duilog
       value: 
       objectReference: {fileID: 7305436751889689905, guid: 63e5e9f811fbce641863d1af333381f8, type: 3}
+    - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
+      propertyPath: StartDuilogs.Array.data[8].Duilog
+      value: 
+      objectReference: {fileID: 7305436751889689905, guid: d76896763c368e043b1e23f8fa1a0f28, type: 3}
     - target: {fileID: 117422776188443483, guid: b85874d92a8191943a75aabf232aac8f, type: 3}
       propertyPath: StartDuilogs.Array.data[10].Duilog
       value: 
